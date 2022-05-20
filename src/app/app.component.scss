@@ -1,0 +1,37 @@
+//:host{
+//  display: grid;
+//  grid-template-rows: auto auto auto;
+//  grid-template-columns: auto auto auto;
+//}
+//app-nav-bar{
+//  grid-column-start: 2/3;
+//}
+//app-side-bar{
+//  grid-row-start: 2;
+//}
+//
+//body { min-height: 100%; }
+//
+
+:host {
+  display: grid;
+  grid-template:
+    "nav-bar nav-bar" 60px
+    "side-bar body" 1fr
+  / 100px 1fr;
+  height: 100vh;
+
+  app-nav-bar {
+    grid-area: nav-bar;
+    background-color: darksalmon;
+  }
+
+  app-side-bar {
+    grid-area: side-bar;
+    background-color: mediumpurple;
+  }
+
+  .body {
+    grid-area: body;
+  }
+}
