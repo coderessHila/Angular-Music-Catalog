@@ -1,9 +1,21 @@
 <ng-container *ngIf="current; else noPreview">
-  <h3>{{current.name}}</h3>
   <div class="artist-info">
-    Origin: {{current.origin.city}}, {{current.origin.country}}<br><br>
-    Genres: {{current.genres}}<br><br>
-    <img src="{{current.imgUrl}}" alt="{{current.name}}">
+  <mat-card>
+    <mat-card-header class="card-title">
+      <div mat-card-avatar></div>
+      <mat-card-title>{{current.name}}</mat-card-title>
+      <mat-card-subtitle>{{current.origin.city}}, {{current.origin.country}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{current.imgUrl}}">
+    <mat-card-content>
+      <p>
+        about {{current.name}} about {{current.name}} about {{current.name}} about {{current.name}}
+        about {{current.name}} about {{current.name}} about {{current.name}} about {{current.name}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+    </mat-card-actions>
+  </mat-card>
   </div>
 </ng-container>
 

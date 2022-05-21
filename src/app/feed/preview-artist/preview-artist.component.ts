@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {IArtist} from "../../artists-data/artist.interface";
 import {GetArtistsDataService} from "../../get-artists-data.service";
-// import {MatCardModule} from '@angular/material/card';
 
 @Component({
   selector: 'app-preview-artist',

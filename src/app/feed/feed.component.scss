@@ -2,11 +2,16 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   height: 100%;
+  background-image: url("https://thumbs.dreamstime.com/z/hands-concert-silhouettes-against-stage-lighting-isolated-white-background-dancing-peoples-117314288.jpg");
+  background-size: cover;
+  background-color: #cccccc;
 }
 
 .feed-artist-list{
   padding: 8px;
   grid-column-start: 1 ;
+  max-height: 80vh;
+  overflow: auto;
 }
 
 app-feed-artist{
@@ -16,4 +21,9 @@ app-feed-artist{
 .artist-preview{
   grid-column-start: 2;
   padding-left: 32px;
+  justify-self: center;
+}
+
+body {
+
 }

@@ -8,6 +8,7 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import {FeedModule} from "./feed/feed.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
 @NgModule({
   declarations: [
     AppComponent,
