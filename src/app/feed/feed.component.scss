@@ -1,0 +1,14 @@
+.feed-grid-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 100%;
+}
+
+.feed-artist-list{
+  padding: 8px;
+  grid-column-start: 1 ;
+}
+
+app-feed-artist{
+  padding: 8px;
+}

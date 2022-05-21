@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {GetArtistsDataService} from "../get-artists-data.service";
+import {IArtist} from "../artists-data/artist.interface";
 
 @Component({
   selector: 'app-feed',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedComponent implements OnInit {
 
-  constructor() { }
+  artists: IArtist[] = this.getArtistsDataService.getAllArtists();
+
+  constructor(private getArtistsDataService:GetArtistsDataService) { }
 
   ngOnInit(): void {
   }
+
+
 
 }

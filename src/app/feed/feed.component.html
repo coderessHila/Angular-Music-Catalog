@@ -1,10 +1,11 @@
-<p>feed works!</p>
+<div class="feed-grid-container">
 <div class="feed-artist-list">
-<!--  <app-feed-artist for...></app-feed-artist>-->
+  <app-feed-artist *ngFor="let artist of artists" [artist]="artist"></app-feed-artist>
 </div>
 
 <div class="artist-preview">
 <!--  <ng-template if preview>-->
 <!--    <app-artist-preview id></app-artist-preview>-->
 <!--  </ng-template>-->
+</div>
 </div>
