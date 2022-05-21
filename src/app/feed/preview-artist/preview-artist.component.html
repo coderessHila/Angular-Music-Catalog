@@ -1,0 +1,8 @@
+<ng-container *ngIf="artist">
+  <h3>{{artist.name}}</h3>
+  <div class="artist-info">
+    Origin: {{artist.origin.city}}, {{artist.origin.country}}<br><br>
+    Genres: {{artist.genres}}<br><br>
+    <img src="{{artist.imgUrl}}" alt="{{artist.name}}">
+  </div>
+</ng-container>

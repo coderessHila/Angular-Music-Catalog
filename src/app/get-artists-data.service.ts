@@ -12,4 +12,8 @@ export class GetArtistsDataService {
   getAllArtists(): IArtist[] {
     return ARTISTS
   }
+
+  getArtistById(id: string): IArtist | undefined {
+    return ARTISTS.find(artist => artist.id === id)
+  }
 }
