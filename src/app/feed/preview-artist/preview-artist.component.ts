@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {IArtist} from "../../artists-data/artist.interface";
+import {GetArtistsDataService} from "../../get-artists-data.service";
 
 @Component({
   selector: 'app-preview-artist',
@@ -7,11 +8,17 @@ import {IArtist} from "../../artists-data/artist.interface";
   styleUrls: ['./preview-artist.component.scss']
 })
 export class PreviewArtistComponent implements OnInit {
-  @Input() artist?: IArtist;
 
-  constructor() { }
+  public get current():IArtist{
+    return this.getArtistsDataService.artistToPreview as IArtist;
+  }
+
+  constructor(private getArtistsDataService:GetArtistsDataService) { }
 
   ngOnInit(): void {
+
   }
+
+
 
 }

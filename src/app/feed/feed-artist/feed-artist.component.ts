@@ -1,5 +1,6 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {IArtist} from "../../artists-data/artist.interface";
+import {GetArtistsDataService} from "../../get-artists-data.service";
 
 @Component({
   selector: 'app-feed-artist',
@@ -10,16 +11,18 @@ export class FeedArtistComponent implements OnInit {
 
   @Input() artist?: IArtist;
 
-  @Output() onClickShowPreview = new EventEmitter<string>()
+  // @Output() onClickShowPreview = new EventEmitter<string>()
 
-  constructor() { }
+  constructor(private getArtistsDataService:GetArtistsDataService) { }
 
   ngOnInit(): void {
   }
 
   onFeedArtistClick(): void {
     if (this.artist) {
-      this.onClickShowPreview.emit(this.artist.id)
+      if(this.artist.id)
+      this.getArtistsDataService.currentArtist(this.artist.id);
+      // this.onClickShowPreview.emit(this.artist.id)
     }
   }
 

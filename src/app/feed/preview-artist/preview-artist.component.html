@@ -1,8 +1,12 @@
-<ng-container *ngIf="artist">
-  <h3>{{artist.name}}</h3>
+<ng-container *ngIf="current; else noPreview">
+  <h3>{{current.name}}</h3>
   <div class="artist-info">
-    Origin: {{artist.origin.city}}, {{artist.origin.country}}<br><br>
-    Genres: {{artist.genres}}<br><br>
-    <img src="{{artist.imgUrl}}" alt="{{artist.name}}">
+    Origin: {{current.origin.city}}, {{current.origin.country}}<br><br>
+    Genres: {{current.genres}}<br><br>
+    <img src="{{current.imgUrl}}" alt="{{current.name}}">
   </div>
 </ng-container>
+
+<ng-template #noPreview>
+  no artist to preview
+</ng-template>
