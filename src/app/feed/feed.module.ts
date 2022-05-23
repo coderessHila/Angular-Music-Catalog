@@ -4,6 +4,7 @@ import { FeedComponent } from './feed.component';
 import { FeedArtistComponent } from './feed-artist/feed-artist.component';
 import { PreviewArtistComponent } from './preview-artist/preview-artist.component';
 import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from "@angular/material/button";
 
 
 
@@ -15,7 +16,8 @@ import {MatCardModule} from '@angular/material/card';
   ],
   imports: [
     CommonModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule
   ],
   exports: [FeedComponent]
 })
