@@ -9,6 +9,10 @@ import {ActivatedRoute} from "@angular/router";
 export class ArtistPageComponent implements OnInit {
 
   params?:any;
+  obj: Object = {
+    asda: "sdf",
+    asd: 34
+  }
 
   constructor(private route: ActivatedRoute) { }
 
