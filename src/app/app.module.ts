@@ -11,6 +11,7 @@ import {NavBarModule} from "./nav-bar/nav-bar.module";
 import {SideBarModule} from "./side-bar/side-bar.module";
 import { LoginModule } from './login/login.module';
 import {MatButtonModule} from "@angular/material/button";
+import {HeaderBarModule} from "./header-bar/header-bar.module";
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {MatButtonModule} from "@angular/material/button";
     BrowserAnimationsModule,
     CatalogModule,
     LoginModule,
-    MatButtonModule
+    MatButtonModule,
+     HeaderBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
