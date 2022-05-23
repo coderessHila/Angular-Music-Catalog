@@ -12,6 +12,7 @@ import {SideBarModule} from "./side-bar/side-bar.module";
 import { LoginModule } from './login/login.module';
 import {MatButtonModule} from "@angular/material/button";
 import {HeaderBarModule} from "./header-bar/header-bar.module";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {HeaderBarModule} from "./header-bar/header-bar.module";
     CatalogModule,
     LoginModule,
     MatButtonModule,
-     HeaderBarModule
+     HeaderBarModule,
+     NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
