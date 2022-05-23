@@ -1,22 +1,44 @@
+//:host {
+//  display: grid;
+//  grid-template:
+//    "nav-bar nav-bar" 60px
+//    "side-bar body" 1fr
+//  / 100px 1fr;
+//  height: 100vh;
+//
+//  app-nav-bar {
+//grid-area: nav-bar;
+//background-color: darksalmon;
+//}
+//
+//  app-side-bar {
+//    grid-area: side-bar;
+//    background-color: mediumpurple;
+//  }
+//
+//  .body {
+//    grid-area: body;
+//  }
+//}
+
 :host {
+  background-color: red;
+  background-image: url("https://images.unsplash.com/photo-1507901747481-84a4f64fda6d?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070");
+  background-size: cover;
   display: grid;
-  grid-template:
-    "nav-bar nav-bar" 60px
-    "side-bar body" 1fr
-  / 100px 1fr;
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr 4fr 1fr;
   height: 100vh;
 
   app-nav-bar {
-    grid-area: nav-bar;
-    background-color: darksalmon;
+    grid-row-end: 1;
+    grid-column-start: 2;
   }
 
-  app-side-bar {
-    grid-area: side-bar;
-    background-color: mediumpurple;
+  .body{
+    grid-row-start: 2;
+    grid-column-start: 2;
   }
 
-  .body {
-    grid-area: body;
-  }
 }
+
