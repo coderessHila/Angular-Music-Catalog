@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-artist-page',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArtistPageComponent implements OnInit {
 
-  constructor() { }
+  params?:any;
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.params = this.route.snapshot.queryParams;
+    console.log(this.params)
   }
+
+
 
 }
