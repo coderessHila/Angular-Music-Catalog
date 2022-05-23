@@ -10,6 +10,7 @@ import { CatalogModule } from './catalog/catalog.module';
 import {NavBarModule} from "./nav-bar/nav-bar.module";
 import {SideBarModule} from "./side-bar/side-bar.module";
 import { LoginModule } from './login/login.module';
+import {MatButtonModule} from "@angular/material/button";
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { LoginModule } from './login/login.module';
     SideBarModule,
     BrowserAnimationsModule,
     CatalogModule,
-    LoginModule
+    LoginModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
