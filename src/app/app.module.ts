@@ -3,23 +3,29 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { SideBarComponent } from './side-bar/side-bar.component';
 import {FeedModule} from "./feed/feed.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { CatalogModule } from './catalog/catalog.module';
+import {NavBarModule} from "./nav-bar/nav-bar.module";
+import {SideBarModule} from "./side-bar/side-bar.module";
+import { LoginModule } from './login/login.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavBarComponent,
-    SideBarComponent
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FeedModule,
-    BrowserAnimationsModule
+    NavBarModule,
+    SideBarModule,
+    BrowserAnimationsModule,
+    CatalogModule,
+    LoginModule
   ],
   providers: [],
   bootstrap: [AppComponent]
