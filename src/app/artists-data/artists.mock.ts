@@ -40,7 +40,7 @@ export const ARTISTS: IArtist[] = [
       country: 'United Kingdom',
       city: 'London'
     }
-  },{
+  }, {
     id: '5',
     name: 'The Supremes',
     imgUrl: 'https://www.udiscovermusic.com/wp-content/uploads/2020/02/The-Supremes-GettyImages-74001231.jpg',
@@ -49,7 +49,7 @@ export const ARTISTS: IArtist[] = [
       country: 'US',
       city: 'Detroit, Michigan'
     }
-  },{
+  }, {
     id: '6',
     name: 'Lady Gaga',
     imgUrl: 'https://wallpaperaccess.com/full/301267.jpg',
@@ -78,7 +78,7 @@ export const ARTISTS: IArtist[] = [
       country: 'United Kingdom',
       city: 'London'
     }
-  },{
+  }, {
     id: '9',
     name: 'The Supremes',
     imgUrl: 'https://www.udiscovermusic.com/wp-content/uploads/2020/02/The-Supremes-GettyImages-74001231.jpg',
@@ -87,7 +87,7 @@ export const ARTISTS: IArtist[] = [
       country: 'US',
       city: 'Detroit, Michigan'
     }
-  },{
+  }, {
     id: '10',
     name: 'Lady Gaga',
     imgUrl: 'https://wallpaperaccess.com/full/301267.jpg',
