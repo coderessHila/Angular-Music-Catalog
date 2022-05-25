@@ -38,5 +38,9 @@ export class FeedComponent implements OnInit {
     this.allArtists$ = this.artistDataAccessService.getArtists()
   }
 
+  // getAllArtistsState() {
+//  this.allArtists$ =
+// }
+
 
 }
