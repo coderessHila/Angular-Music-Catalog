@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {GetArtistsDataService} from "../get-artists-data.service";
 import {IArtist} from "../artists-data/artist.interface";
+import {ArtistDataAccessService} from "../catalog/catalog-services/artist-data-access.service";
 
 @Component({
   selector: 'app-feed',
@@ -12,16 +13,22 @@ export class FeedComponent implements OnInit {
   artists: IArtist[] = this.getArtistsDataService.getAllArtists();
   previewArtist?: IArtist;
 
-  constructor(private getArtistsDataService:GetArtistsDataService) { }
+  constructor(private getArtistsDataService: GetArtistsDataService, private artistDataAccessService: ArtistDataAccessService) {
+  }
 
   ngOnInit(): void {
   }
 
-  setPreviewArtist(id:string | undefined) {
+  setPreviewArtist(id: string | undefined) {
     console.log("clicked artist id: ", id)
-    if (typeof(id)==='string') {
+    if (typeof (id) === 'string') {
       this.previewArtist = this.getArtistsDataService.getArtistById(id);
     }
+  }
+
+  // demo with subscribe
+  setAllArtists() {
+    this.artistDataAccessService.getArtists().subscribe((artists: IArtist[]) => console.log(artists))
   }
 
 

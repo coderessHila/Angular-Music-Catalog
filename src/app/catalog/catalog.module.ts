@@ -5,6 +5,7 @@ import {SideBarModule} from "../side-bar/side-bar.module";
 import {NavBarModule} from "../nav-bar/nav-bar.module";
 import {FeedModule} from "../feed/feed.module";
 import {RouterModule} from "@angular/router";
+import {HttpClientModule} from "@angular/common/http";
 
 
 
@@ -17,7 +18,8 @@ import {RouterModule} from "@angular/router";
     SideBarModule,
     NavBarModule,
     FeedModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ]
 })
 export class CatalogModule { }
