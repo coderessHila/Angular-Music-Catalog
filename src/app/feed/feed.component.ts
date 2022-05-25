@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {GetArtistsDataService} from "../get-artists-data.service";
 import {IArtist} from "../artists-data/artist.interface";
 import {ArtistDataAccessService} from "../catalog/catalog-services/artist-data-access.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-feed',
@@ -12,9 +13,11 @@ export class FeedComponent implements OnInit {
 
   artists: IArtist[] = this.getArtistsDataService.getAllArtists();
   previewArtist?: IArtist;
+  allArtists$?: Observable<IArtist[]>;
 
   constructor(private getArtistsDataService: GetArtistsDataService, private artistDataAccessService: ArtistDataAccessService) {
   }
+
 
   ngOnInit(): void {
   }
@@ -27,8 +30,12 @@ export class FeedComponent implements OnInit {
   }
 
   // demo with subscribe
+  // setAllArtists() {
+  //   this.artistDataAccessService.getArtists().subscribe((artists: IArtist[]) => console.log(artists))
+  // }
+
   setAllArtists() {
-    this.artistDataAccessService.getArtists().subscribe((artists: IArtist[]) => console.log(artists))
+    this.allArtists$ = this.artistDataAccessService.getArtists()
   }
 
 

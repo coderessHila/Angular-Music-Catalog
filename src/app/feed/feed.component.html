@@ -1,19 +1,27 @@
-  <div class="slide-show">
-<app-slide-show></app-slide-show>
-  </div>
-
-<div class="feed-grid-container" style="background-color: #35013F">
-<div class="cards-container">
-<!--  <div class="feed-artist-list">-->
-    <app-feed-artist *ngFor="let artist of artists" [artist]="artist" (click)="setPreviewArtist(artist.id)"></app-feed-artist>
-<!--  </div>-->
+<div class="slide-show">
+  <app-slide-show></app-slide-show>
 </div>
 
+<div class="feed-grid-container" style="">
+  <div class="cards-container">
+    <!--  <div class="feed-artist-list">-->
+    <app-feed-artist *ngFor="let artist of artists" [artist]="artist"
+                     (click)="setPreviewArtist(artist.id)"></app-feed-artist>
+    <!--  </div>-->
+  </div>
+
   <button (click)="setAllArtists()">get all artists</button>
+  <!--  option 1-->
+  <ng-container *ngIf="allArtists$ | async as allArtists">
+    <div *ngFor="let artist of allArtists">{{artist.name}}</div>
+  </ng-container>
+
+  <!--  option 2-->
+  <div *ngFor="let artist of allArtists$ | async">{{artist.name}}</div>
 
 
-<!--  <div class="artist-preview">-->
-<!--    <app-preview-artist></app-preview-artist>-->
-<!--  </div>-->
+  <!--  <div class="artist-preview">-->
+  <!--    <app-preview-artist></app-preview-artist>-->
+  <!--  </div>-->
 
 </div>
