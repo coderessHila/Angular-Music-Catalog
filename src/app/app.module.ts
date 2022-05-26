@@ -16,6 +16,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
 import { environment } from '../environments/environment';
+import {ArtistPageModule} from "./artist-page/artist-page.module";
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { environment } from '../environments/environment';
     LoginModule,
     MatButtonModule,
      HeaderBarModule,
+    ArtistPageModule,
      NgbModule,
      environment.production ? [] : AkitaNgDevtools.forRoot(),
      AkitaNgRouterStoreModule

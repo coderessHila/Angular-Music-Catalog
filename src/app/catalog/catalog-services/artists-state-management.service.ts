@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import {ArtistsStore} from "../artists-state/aritsts.store";
 import {ArtistDataAccessService} from "./artist-data-access.service";
-import {tap} from "rxjs";
+import {Observable, switchMap, tap} from "rxjs";
+import {Artist} from "../models/artist.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,24 @@ export class ArtistsStateManagementService {
       console.log("in subscribe", artists);
       this.store.loadArtists(artists)
     })
+  }
+
+  setCurrentArtist(id: Observable<string>) {
+
+    let artist$: Observable<Artist>;
+
+    artist$ = id.pipe(
+      switchMap(id=>
+        this.artistDataAccessService.getArtistById(id)
+      )
+    )
+
+    this.store.setCurrentArtist(artist$)
+
+    // this.artistDataAccessService.getArtistById(id).subscribe(artist=>{
+    //   console.log("in artist state manage servics: ", artist);
+    //   this.store.setCurrentArtist(artist)
+    // })
   }
 }
 

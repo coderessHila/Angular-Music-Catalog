@@ -1,60 +1,19 @@
-<!--<div class="artist-feed-info" (click)="onFeedArtistClick()">-->
 <ng-container *ngIf="artist">
-<!--<h3>{{artist.name}}</h3>-->
-<!--<div>-->
-<!--  Origin: {{artist.origin.city}}, {{artist.origin.country}}-->
-<!--</div>-->
-
   <div class="card">
     <figure class="card__thumb">
       <img src="{{artist.imgUrl}}" alt="{{artist.name}}" class="card__image">
       <figcaption class="card__caption">
         <h2 class="card__title">{{artist.name}}</h2><br>
         <p class="card__snippet">about {{artist.name}} about {{artist.name}} about {{artist.name}} about {{artist.name}} about {{artist.name}}</p>
-        <a (click)="onFeedArtistClick()" class="card__button">Read more</a>
+        <a (click)="navigateToArtistPage()" class="card__button">Read more</a>
       </figcaption>
     </figure>
   </div>
 </ng-container>
-<!--</div>-->
 
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:wght@300&display=swap" rel="stylesheet">
+<!--<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:wght@300&display=swap" rel="stylesheet">-->
 
 <!--<div class="container">-->
-
-<!--  <div class="card">-->
-<!--    <figure class="card__thumb">-->
-<!--      <img src="{{artist.imgUrl}}" alt="{{artist.name}}" class="card__image">-->
-<!--      <figcaption class="card__caption">-->
-<!--        <h2 class="card__title">{{artist.name}}</h2>-->
-<!--        <p class="card__snippet">about</p>-->
-<!--        <a href="" class="card__button">Read more</a>-->
-<!--      </figcaption>-->
-<!--    </figure>-->
-<!--  </div>-->
-
-<!--  <div class="card">-->
-<!--    <figure class="card__thumb">-->
-<!--      <img src="https://source.unsplash.com/71u2fOofI-U/300x510" alt="Picture by Nathan Dumlao" class="card__image">-->
-<!--      <figcaption class="card__caption">-->
-<!--        <h2 class="card__title">This Is Your Body And Brain On Coffee</h2>-->
-<!--        <p class="card__snippet">Drinking more caffeine during the coronavirus lockdown? Here's how it can affect you over time and advice on making it better for you.</p>-->
-<!--        <a href="" class="card__button">Read more</a>-->
-<!--      </figcaption>-->
-<!--    </figure>-->
-<!--  </div>-->
-
-<!--  <div class="card">-->
-<!--    <figure class="card__thumb">-->
-<!--      <img src="https://source.unsplash.com/qXMpNtNp1uE/300x510" alt="Picture by Daniel Lincoln" class="card__image">-->
-<!--      <figcaption class="card__caption">-->
-<!--        <h2 class="card__title">Why You Should Bring Your Dog To Work</h2>-->
-<!--        <p class="card__snippet">On Friday, offices around the country celebrated the 15th annual Take Your Dog to Work Day. Though the event's primary goal is to raise awareness for pet adoption, the unanticipated impact may be a slightly more relaxing work environment for any office choosing to participate.</p>-->
-<!--        <a href="" class="card__button">Read more</a>-->
-<!--      </figcaption>-->
-<!--    </figure>-->
-<!--  </div>-->
+<!--cards-->
 <!--</div>-->
-
-<!--<p class="disclaimer">All pictures were taken from <a class="disclaimer__link" href="https://unsplash.com/" target="_blank">Unsplash.</a></p>-->

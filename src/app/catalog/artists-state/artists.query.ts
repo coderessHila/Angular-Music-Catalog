@@ -15,4 +15,11 @@ export class ArtistsQuery extends QueryEntity<ArtistsState> {
   selectAllArtists$ = this.select(state=> {
     return state.allArtists;
   })
+
+  selectCurrentArtist$ = this.select(state => {
+    if (state['currentArtist$']) {
+      console.log("current artist exists")
+    return state['currentArtist$'];
+    }
+  })
 }

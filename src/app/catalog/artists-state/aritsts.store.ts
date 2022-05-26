@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
 import {Artist} from "../models/artist.interface";
 import {EntityState, EntityStore, StoreConfig} from "@datorama/akita";
+import {Observable} from "rxjs";
 
 export interface ArtistsState extends EntityState<Artist, string> {
   allArtists: Artist[];
@@ -33,5 +34,15 @@ export class ArtistsStore extends EntityStore<ArtistsState> {
       allArtists: artists
     }})
     this.update(console.log)
+  }
+
+  setCurrentArtist(artist$: Observable<Artist>) {
+    console.log("set current artist in store");
+    this.update(state => {
+      return{
+        ...state,
+        currentArtist$: artist$
+      }
+    })
   }
 }

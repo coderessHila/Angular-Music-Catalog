@@ -1,6 +1,8 @@
-import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, Input } from '@angular/core';
 import {Artist} from "../../artists-data/artist.interface";
 import {GetArtistsDataService} from "../../get-artists-data.service";
+import {ActivatedRoute, Router} from "@angular/router";
+import {ArtistsStateManagementService} from "../../catalog/catalog-services/artists-state-management.service";
 
 @Component({
   selector: 'app-feed-artist',
@@ -11,19 +13,19 @@ export class FeedArtistComponent implements OnInit {
 
   @Input() artist?: Artist;
 
-  // @Output() onClickShowPreview = new EventEmitter<string>()
-
-  constructor(private getArtistsDataService:GetArtistsDataService) { }
+  constructor(private getArtistsDataService: GetArtistsDataService,
+              private router: Router,
+              private route: ActivatedRoute,
+              private artistsStateManagementService: ArtistsStateManagementService) {
+  }
 
   ngOnInit(): void {
   }
 
-  onFeedArtistClick(): void {
-    if (this.artist) {
-      if(this.artist.id)
-      this.getArtistsDataService.currentArtist(this.artist.id);
-      // this.onClickShowPreview.emit(this.artist.id)
-    }
+  navigateToArtistPage() {
+    this.router.navigate(['artist'], {
+      relativeTo: this.route.parent,
+      queryParams: {artistName: this.artist?.name, id: this.artist?.id}
+    })
   }
-
 }

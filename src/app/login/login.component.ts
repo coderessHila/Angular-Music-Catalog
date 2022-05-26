@@ -9,6 +9,10 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 
+  obj = {
+    name: 3
+  }
+
   @Input() user = {username:'', password: ''}
   loginForm = new FormGroup({
       username: new FormControl(''),

@@ -15,4 +15,8 @@ export class ArtistDataAccessService {
   getArtists() : Observable<Artist[]> {
     return this.httpClient.get<Artist[]>(`${this.BASE_URL}/artists`)
   }
+
+  getArtistById(id:string) : Observable<Artist> {
+    return this.httpClient.get<Artist>(`${this.BASE_URL}/artists/${id}`)
+  }
 }
