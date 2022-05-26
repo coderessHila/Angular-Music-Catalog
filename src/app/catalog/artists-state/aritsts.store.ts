@@ -22,12 +22,16 @@ export class ArtistsStore extends EntityStore<ArtistsState> {
 
   // when i have a user state, i'll check if there's a user, then load the artists
   loadArtists(artists: Artist[]) {
+    console.log("load artists in store: ")
   //   if there's a user
   //  if artists arr is empty
   //  set artists from the api service in this store
-    this.update(state => ({
+    this.update(state => {
+      console.log("state before update: ", state)
+      return {
       ...state,
       allArtists: artists
-    }))
+    }})
+    this.update(console.log)
   }
 }

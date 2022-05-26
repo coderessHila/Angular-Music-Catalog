@@ -15,9 +15,11 @@ export class ArtistsStateManagementService {
   }
 
   setAllArtists() {
-    this.artistDataAccessService.getArtists().pipe(tap(artists => {
+    console.log("setAllArtists is actually setting the state")
+    this.artistDataAccessService.getArtists().subscribe((artists)=> {
+      console.log("in subscribe", artists);
       this.store.loadArtists(artists)
-    }))
+    })
   }
 }
 
