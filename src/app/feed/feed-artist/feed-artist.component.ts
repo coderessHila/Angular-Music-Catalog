@@ -1,5 +1,5 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import {IArtist} from "../../artists-data/artist.interface";
+import {Artist} from "../../artists-data/artist.interface";
 import {GetArtistsDataService} from "../../get-artists-data.service";
 
 @Component({
@@ -9,7 +9,7 @@ import {GetArtistsDataService} from "../../get-artists-data.service";
 })
 export class FeedArtistComponent implements OnInit {
 
-  @Input() artist?: IArtist;
+  @Input() artist?: Artist;
 
   // @Output() onClickShowPreview = new EventEmitter<string>()
 

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {GetArtistsDataService} from "../get-artists-data.service";
-import {IArtist} from "../artists-data/artist.interface";
+import {Artist} from "../artists-data/artist.interface";
 import {ArtistDataAccessService} from "../catalog/catalog-services/artist-data-access.service";
 import {Observable} from "rxjs";
 
@@ -11,9 +11,9 @@ import {Observable} from "rxjs";
 })
 export class FeedComponent implements OnInit {
 
-  artists: IArtist[] = this.getArtistsDataService.getAllArtists();
-  previewArtist?: IArtist;
-  allArtists$?: Observable<IArtist[]>;
+  artists: Artist[] = this.getArtistsDataService.getAllArtists();
+  previewArtist?: Artist;
+  allArtists$?: Observable<Artist[]>;
 
   constructor(private getArtistsDataService: GetArtistsDataService, private artistDataAccessService: ArtistDataAccessService) {
   }

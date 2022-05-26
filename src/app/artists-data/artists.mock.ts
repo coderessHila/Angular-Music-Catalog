@@ -1,6 +1,6 @@
-import {IArtist} from "./artist.interface";
+import {Artist} from "./artist.interface";
 
-export const ARTISTS: IArtist[] = [
+export const ARTISTS: Artist[] = [
   {
     id: '1',
     name: 'Madonna',

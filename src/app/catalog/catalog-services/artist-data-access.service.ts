@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {IArtist} from "../../artists-data/artist.interface";
+import {Artist} from "../models/artist.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class ArtistDataAccessService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getArtists() : Observable<any> {
-    return this.httpClient.get<IArtist[]>(`${this.BASE_URL}/artists`)
+  getArtists() : Observable<Artist[]> {
+    return this.httpClient.get<Artist[]>(`${this.BASE_URL}/artists`)
   }
 }

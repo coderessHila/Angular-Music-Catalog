@@ -1,4 +1,4 @@
-export interface IOrigin {
+export interface Origin {
   country: string;
   city: string;
 }
@@ -8,5 +8,5 @@ export interface Artist {
   name: string;
   imgUrl: string;
   genres: Array<string>,
-  origin: IOrigin
+  origin: Origin
 }

@@ -1,5 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {IArtist} from "../../artists-data/artist.interface";
+import {Artist} from "../../artists-data/artist.interface";
 import {GetArtistsDataService} from "../../get-artists-data.service";
 import {Router, ActivatedRoute} from "@angular/router";
 
@@ -10,8 +10,8 @@ import {Router, ActivatedRoute} from "@angular/router";
 })
 export class PreviewArtistComponent implements OnInit {
 
-  public get current(): IArtist {
-    return this.getArtistsDataService.artistToPreview as IArtist;
+  public get current(): Artist {
+    return this.getArtistsDataService.artistToPreview as Artist;
   }
 
   constructor(private getArtistsDataService: GetArtistsDataService,

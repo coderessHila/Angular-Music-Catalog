@@ -1,21 +1,21 @@
 import { Injectable } from '@angular/core';
 import {ARTISTS} from "./artists-data/artists.mock";
-import {IArtist} from "./artists-data/artist.interface";
+import {Artist} from "./artists-data/artist.interface";
 
 @Injectable({
   providedIn: 'root'
 })
 export class GetArtistsDataService {
 
-  artistToPreview?: IArtist
+  artistToPreview?: Artist
 
   constructor() { }
 
-  getAllArtists(): IArtist[] {
+  getAllArtists(): Artist[] {
     return ARTISTS
   }
 
-  getArtistById(id: string): IArtist | undefined {
+  getArtistById(id: string): Artist | undefined {
     return ARTISTS.find(artist => artist.id === id)
   }
 

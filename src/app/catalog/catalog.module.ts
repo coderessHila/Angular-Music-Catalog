@@ -6,6 +6,7 @@ import {NavBarModule} from "../nav-bar/nav-bar.module";
 import {FeedModule} from "../feed/feed.module";
 import {RouterModule} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
+import {ArtistsStateManagementService} from "./catalog-services/artists-state-management.service";
 
 
 
@@ -20,6 +21,7 @@ import {HttpClientModule} from "@angular/common/http";
     FeedModule,
     RouterModule,
     HttpClientModule
-  ]
+  ],
+  providers:[ArtistsStateManagementService]
 })
 export class CatalogModule { }
