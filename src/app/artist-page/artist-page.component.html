@@ -1,7 +1,6 @@
 <p>artist-page works!</p>
 <div style="background-color: white">
-<!--  {{artist$ | json}}-->
-<!--  {{artist$ | async | json}}-->
+<!--this is the subscription to artist$-->
   <div *ngIf="(artist$ | async) as artist">
     {{artist.name}}<br>
     <img src="{{artist.imgUrl}}" alt="{{artist.name}}">
