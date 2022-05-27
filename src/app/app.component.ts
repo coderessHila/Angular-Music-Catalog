@@ -8,10 +8,6 @@ import { akitaDevtools } from '@datorama/akita';
 })
 export class AppComponent {
   title = 'music-catalog';
-  obj = {
-    1: "asd",
-    2: "sdfdsav"
-  }
   constructor(private ngZone: NgZone) {
 
       akitaDevtools(ngZone);

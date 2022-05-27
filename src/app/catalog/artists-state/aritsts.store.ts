@@ -33,16 +33,19 @@ export class ArtistsStore extends EntityStore<ArtistsState> {
       ...state,
       allArtists: artists
     }})
+    // to delete, just for debugging
     this.update(console.log)
   }
 
-  setCurrentArtist(artist$: Observable<Artist>) {
-    console.log("set current artist in store");
+  setCurrentArtist(artist: Artist) {
+    console.log("set current artist in store", artist);
     this.update(state => {
       return{
         ...state,
-        currentArtist$: artist$
+        currentArtist: artist
       }
     })
+    // to delete, just for debugging
+    this.update(console.log)
   }
 }

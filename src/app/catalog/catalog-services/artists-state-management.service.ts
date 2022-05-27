@@ -23,17 +23,27 @@ export class ArtistsStateManagementService {
     })
   }
 
-  setCurrentArtist(id: Observable<string>) {
+  // getAllCourses(): Observable<Course[]> {
+  //   return this.http.get<Course[]>('/api/courses').pipe(
+  //     tap(courses => {
+  //       this.store.loadCourses(courses, true);
+  //     })
+  //   );
+  // }
 
-    let artist$: Observable<Artist>;
+  setCurrentArtist(id: Observable<string>): Observable<Artist> {
 
-    artist$ = id.pipe(
+    return id.pipe(
       switchMap(id=>
-        this.artistDataAccessService.getArtistById(id)
+        this.artistDataAccessService.getArtistById(id).pipe(
+          tap(
+            currentArtist => this.store.setCurrentArtist(currentArtist)
+          )
+        )
       )
     )
 
-    this.store.setCurrentArtist(artist$)
+    // this.store.setCurrentArtist(artist$)
 
     // this.artistDataAccessService.getArtistById(id).subscribe(artist=>{
     //   console.log("in artist state manage servics: ", artist);

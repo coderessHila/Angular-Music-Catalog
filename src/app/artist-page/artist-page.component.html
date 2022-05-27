@@ -1,5 +1,9 @@
 <p>artist-page works!</p>
 <div style="background-color: white">
 <!--  {{artist$ | json}}-->
-  {{artist$ | async | json}}
+<!--  {{artist$ | async | json}}-->
+  <div *ngIf="(artist$ | async) as artist">
+    {{artist.name}}<br>
+    <img src="{{artist.imgUrl}}" alt="{{artist.name}}">
+  </div>
 </div>
