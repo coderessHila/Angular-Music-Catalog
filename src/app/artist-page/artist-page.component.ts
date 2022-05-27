@@ -24,17 +24,19 @@ export class ArtistPageComponent implements OnInit {
   ngOnInit(): void {
     console.log("init artist page")
 
-    // not with snapshot, you want it to be reactive and to update if params change.
+
+    // using 'this.route.queryParams' and not 'this.route.snapshot.params', you want it to be reactive and to update when params change.
     this.artistId$ = this.route.queryParams.pipe(
       map(params=> params['id'])
     );
 
-  //  update store with current artist by id from params
+  //  update store with current artist by id from query params
     this.artist$ = this.artistsStateManagementService.setCurrentArtist(this.artistId$)
+    // setCurrentArtist(id:Observable<string>) return the artist$ that it set in currentArtist in the artists state.
+    // the component that invokes the state change, should get that value straight from the service method that changes the state.
 
-  //  this.artist$ = get current artist from store
-  //  this will be for other places that want to get this state
-  //   this.artist$ = this.artistsQuery.selectCurrentArtist$
+    // 'this.artistsQuery.selectCurrentArtist$' will be used by other components in the application that need to get this state.
+    //  They will actually get the state from the store.
   }
 
 

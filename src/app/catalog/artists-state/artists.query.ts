@@ -12,6 +12,9 @@ export class ArtistsQuery extends QueryEntity<ArtistsState> {
     super(store);
   }
 
+  // query methods return Observables.
+  // "The new state is published via Observable steam"
+
   selectAllArtists$ = this.select(state=> {
     return state.allArtists;
   })

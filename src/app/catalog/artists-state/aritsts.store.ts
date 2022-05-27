@@ -37,6 +37,8 @@ export class ArtistsStore extends EntityStore<ArtistsState> {
     this.update(console.log)
   }
 
+  // the store functions don't care if observables emitted the values their getting
+  // they just update the store
   setCurrentArtist(artist: Artist) {
     console.log("set current artist in store", artist);
     this.update(state => {
