@@ -211,6 +211,37 @@
           }
         }
       }
+    },
+    "style": {
+      "projectType": "library",
+      "root": "projects/style",
+      "sourceRoot": "projects/style/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/style/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/style/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/style/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/style/src/test.ts",
+            "tsConfig": "projects/style/tsconfig.spec.json",
+            "karmaConfig": "projects/style/karma.conf.js"
+          }
+        }
+      }
     }
   },
   "defaultProject": "music-catalog"
