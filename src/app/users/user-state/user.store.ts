@@ -3,12 +3,12 @@ import {EntityState, EntityStore, StoreConfig} from "@datorama/akita";
 import {User} from "../user.interface";
 
 export interface UsersState extends EntityState<User, string> {
-  user: User | "guest"
+  user: User | {user_type: string}
 }
 
 export function createInitialState(): UsersState {
   return {
-    user: "guest"
+    user: {user_type: "guest"}
   };
 }
 
@@ -30,7 +30,7 @@ export class UsersStore extends EntityStore<UsersState> {
         user: loggedUser
       }) : ({
         ...state,
-        user: "guest"
+        user: {user_type: "guest"}
       })
     })
     // to delete, just for debugging
