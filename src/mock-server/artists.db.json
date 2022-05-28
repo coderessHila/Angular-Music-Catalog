@@ -44,16 +44,24 @@
       "id": "4",
       "name": "Fleetwood Mac",
       "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Fleetwood_Mac_Billboard_1977.jpg/640px-Fleetwood_Mac_Billboard_1977.jpg",
-      "genres": ["pop rock", "folk rock", "blues rock"],
+      "genres": [
+        "pop rock",
+        "folk rock",
+        "blues rock"
+      ],
       "origin": {
         "country": "United Kingdom",
         "city": "London"
       }
-    }, {
+    },
+    {
       "id": "5",
       "name": "The Supremes",
       "imgUrl": "https://www.udiscovermusic.com/wp-content/uploads/2020/02/The-Supremes-GettyImages-74001231.jpg",
-      "genres": ["Motown", "Blues"],
+      "genres": [
+        "Motown",
+        "Blues"
+      ],
       "origin": {
         "country": "US",
         "city": "Detroit, Michigan"
@@ -103,20 +111,54 @@
       "id": "9",
       "name": "Fleetwood Mac",
       "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Fleetwood_Mac_Billboard_1977.jpg/640px-Fleetwood_Mac_Billboard_1977.jpg",
-      "genres": ["pop rock", "folk rock", "blues rock"],
+      "genres": [
+        "pop rock",
+        "folk rock",
+        "blues rock"
+      ],
       "origin": {
         "country": "United Kingdom",
         "city": "London"
       }
-    }, {
+    },
+    {
       "id": "10",
       "name": "The Supremes",
       "imgUrl": "https://www.udiscovermusic.com/wp-content/uploads/2020/02/The-Supremes-GettyImages-74001231.jpg",
-      "genres": ["Motown", "Blues"],
+      "genres": [
+        "Motown",
+        "Blues"
+      ],
       "origin": {
         "country": "US",
         "city": "Detroit, Michigan"
       }
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "shushu",
+      "password": "1234",
+      "user_type": "guest"
+    },
+    {
+      "id": "2",
+      "username": "tikva",
+      "password": "2345",
+      "user_type": "registered"
+    },
+    {
+      "id": "3",
+      "username": "zilpa",
+      "password": "3456",
+      "user_type": "guest"
+    },
+    {
+      "id": "4",
+      "username": "freeman",
+      "password": "4567",
+      "user_type": "admin"
     }
   ]
 }
