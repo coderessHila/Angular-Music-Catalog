@@ -27,13 +27,18 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // not needed in login page, will use in register page
+  // passwordValidators = [Validators.required,Validators.minLength(2)];
+  userValidators = [Validators.required];
+  passwordValidators = [Validators.required];
   hsLoginForm: FormGroup = this.formBuilder.group({
-    username: ['Hila', Validators.required],
-    password: [undefined, Validators.required]
+    username: [undefined],
+    password: [undefined, this.passwordValidators]
   })
 
   onSubmit(form: FormGroup) {
     console.log(form.value)
+    console.log(form.valid)
   //  if validateUser()
   //  temporary
     if (false) {

@@ -4,7 +4,7 @@ import {MatFormFieldAppearance} from "@angular/material/form-field";
 import {Observable, Subject, takeUntil, tap} from "rxjs";
 
 @Component({
-  selector: 'hs-hs-input',
+  selector: 'hs-input',
   templateUrl: './hs-input.component.html',
   styleUrls: ['./hs-input.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

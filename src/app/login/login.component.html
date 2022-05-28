@@ -8,7 +8,7 @@
         <label for="inputUsername" class="login-text">Username: </label>
         <input type="text" class="form-control" id="inputUsername"
                formControlName="username"
-               placeholder="Enter your username">
+               placeholder="Enter your username" required>
       </div>
 
       <div class="form-group my-2">
@@ -31,14 +31,14 @@
   <div class="login">
     <h2 class="login-text">{{title}}</h2>
     <form [formGroup]="hsLoginForm" (ngSubmit)="onSubmit(hsLoginForm)">
-      <hs-hs-input [label]="'User Name'" [placeholder]="'Username'" [hint]="'Your awesome user name'"
-                   [name]="'username'" formControlName="username"></hs-hs-input>
+      <hs-input [label]="'User Name'" [placeholder]="'Username'" [hint]="'Your awesome user name'"
+                   [name]="'username'" formControlName="username" [validators]="userValidators"></hs-input>
       <br>
-      <hs-hs-input [type]="'password'" [label]="'Password'" [placeholder]="'Password'" [hint]="'Your secret password'"
-                   [name]="'password'" formControlName="password"></hs-hs-input>
-      <br>
-      <button mat-raised-button [type]="'submit'">Login</button>
+      <hs-input [type]="'password'" [label]="'Password'" [placeholder]="'Password'" [hint]="'Your secret password'"
+                   [name]="'password'" formControlName="password" [validators]="passwordValidators"></hs-input>
+      <br><br>
+      <button mat-raised-button color="accent" [type]="'submit'">Login</button>
     </form>
-    {{hsLoginForm.value|json}}
+    <br>{{hsLoginForm.value|json}}
   </div>
 </div>
