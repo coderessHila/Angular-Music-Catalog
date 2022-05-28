@@ -21,6 +21,7 @@ export class UserStoreService {
   }
 
   logOut() {
+    console.log("logging out")
     this.store.setUser(false)
   }
 

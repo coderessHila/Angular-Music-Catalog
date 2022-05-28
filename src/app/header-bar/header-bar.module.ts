@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderBarComponent } from './header-bar.component';
+import {RouterModule} from "@angular/router";
 
 
 
@@ -8,9 +9,10 @@ import { HeaderBarComponent } from './header-bar.component';
   declarations: [
     HeaderBarComponent
   ],
-  imports: [
-    CommonModule
-  ],
+    imports: [
+        CommonModule,
+        RouterModule
+    ],
   exports: [
     HeaderBarComponent
   ]

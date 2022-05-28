@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UserStoreService} from "../users/services/user-store.service";
 
 @Component({
   selector: 'app-header-bar',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userStoreService:UserStoreService) { }
 
   ngOnInit(): void {
+  }
+
+  onLogOut() {
+    this.userStoreService.logOut()
   }
 
 }
