@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, ValidatorFn} from "@angular/forms";
 import {MatFormFieldAppearance} from "@angular/material/form-field";
-import {Subject, takeUntil} from "rxjs";
+import {Observable, Subject, takeUntil, tap} from "rxjs";
 
 @Component({
   selector: 'hs-hs-input',
@@ -42,8 +42,12 @@ export class HsInputComponent implements OnInit, ControlValueAccessor, OnDestroy
   @Input() customErrorMessage: string = this.error.required;
 
   constructor() { }
+  public valueChanges$:Observable<string> = this.formControl.valueChanges.pipe(tap(value => this.onChange(value)));
+
 
   onChange = (value: any) => {
+
+    console.log("value", value)
   };
 
   writeValue(obj: any): void {

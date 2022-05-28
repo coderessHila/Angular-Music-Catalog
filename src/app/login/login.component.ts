@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormControl} from "@angular/forms";
+import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 
 @Component({
@@ -8,6 +8,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  title = "Welcome!";
 
   @Input() user = {username:'', password: ''}
   loginForm = new FormGroup({
@@ -16,15 +17,23 @@ export class LoginComponent implements OnInit {
     }
   )
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private formBuilder:FormBuilder) { }
 
   ngOnInit(): void {
   }
 
+  hsLoginForm: FormGroup = this.formBuilder.group({
+    username: ['Hila', Validators.required],
+    password: [undefined, Validators.required]
+  })
+
   onSubmit(form: FormGroup) {
     console.log(form.value)
   //  if validateUser()
+  //  temporary
+    if (false) {
     this.validLogin()
+    }
   }
 
   validLogin(){
