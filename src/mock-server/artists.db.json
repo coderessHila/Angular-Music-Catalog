@@ -138,27 +138,24 @@
   "users": [
     {
       "id": "1",
-      "username": "shushu",
+      "username": "shushu11",
       "password": "1234",
-      "user_type": "guest"
+      "user_type": "registered",
+      "name": "Shushu"
     },
     {
       "id": "2",
-      "username": "tikva",
+      "username": "tikva11",
       "password": "2345",
-      "user_type": "registered"
+      "user_type": "registered",
+      "name": "Tikva"
     },
     {
       "id": "3",
-      "username": "zilpa",
-      "password": "3456",
-      "user_type": "guest"
-    },
-    {
-      "id": "4",
-      "username": "freeman",
+      "username": "freeman11",
       "password": "4567",
-      "user_type": "admin"
+      "user_type": "admin",
+      "name": "Freeman"
     }
   ]
 }

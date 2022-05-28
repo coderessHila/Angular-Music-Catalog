@@ -28,6 +28,7 @@ const routes: Routes = [
       {
         path: 'artist',
         component: ArtistPageComponent
+        // loadChildren: () => import('./artist-page/artist-page.module').then(m => m.ArtistPageModule)
       }
     ]
   },

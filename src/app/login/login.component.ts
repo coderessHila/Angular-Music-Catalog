@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import {UserApiService} from "../users/services/user-api.service";
+import {tap} from "rxjs";
+import {UserStoreService} from "../users/services/user-store.service";
 
 @Component({
   selector: 'app-login',
@@ -17,7 +20,7 @@ export class LoginComponent implements OnInit {
   //   }
   // )
 
-  constructor(private router: Router, private formBuilder:FormBuilder) { }
+  constructor(private router: Router, private formBuilder:FormBuilder, private userApiService:UserApiService, private userStoreService:UserStoreService) { }
 
   loginForm: FormGroup = this.formBuilder.group({
     username: [""],
@@ -39,11 +42,18 @@ export class LoginComponent implements OnInit {
   onSubmit(form: FormGroup) {
     console.log(form.value)
     console.log(form.valid)
-  //  if validateUser()
-  //   if (form.valid) {
-  //  temporary for easy navigation while developing
-    if (true) {
-    this.validLogin()
+    if (form.valid) {
+    this.userApiService.validateUser(form.value).pipe(tap(
+      users => {
+        if (users.length) {
+          console.log("setting validated user in store")
+          this.userStoreService.setUser(true, users[0])
+          this.validLogin()
+        } else {
+          alert("please try again")
+        }
+      }
+    )).subscribe(value=>console.log("current user", value))
     }
   }
 
