@@ -42,19 +42,22 @@ export class HsInputComponent implements OnInit, ControlValueAccessor, OnDestroy
   @Input() customErrorMessage: string = this.error.required;
 
   constructor() { }
-  public valueChanges$:Observable<string> = this.formControl.valueChanges.pipe(tap(value => this.onChange(value)));
+  // public valueChanges$:Observable<string> = this.formControl.valueChanges.pipe(tap(value => this.onChange(value)));
 
 
   onChange = (value: any) => {
-
-    console.log("value", value)
   };
 
   writeValue(obj: any): void {
+    console.log("write value")
         this.formControl.setValue(obj)
     }
+
+
     registerOnChange(fn: any): void {
-        this.onChange(fn)
+      console.log("registerOnChange")
+        // corrected mistake! this.onChange(fn) - wtf Hila??
+        this.onChange = fn
     }
     registerOnTouched(fn: any): void {
 

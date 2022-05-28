@@ -11,13 +11,18 @@ export class LoginComponent implements OnInit {
   title = "Welcome!";
 
   @Input() user = {username:'', password: ''}
-  loginForm = new FormGroup({
-      username: new FormControl(''),
-      password: new FormControl(null),
-    }
-  )
+  // loginForm = new FormGroup({
+  //     username: new FormControl(''),
+  //     password: new FormControl(null),
+  //   }
+  // )
 
   constructor(private router: Router, private formBuilder:FormBuilder) { }
+
+  loginForm: FormGroup = this.formBuilder.group({
+    username: [""],
+    password: [""]
+  })
 
   ngOnInit(): void {
   }
