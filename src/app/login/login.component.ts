@@ -40,8 +40,9 @@ export class LoginComponent implements OnInit {
     console.log(form.value)
     console.log(form.valid)
   //  if validateUser()
-  //  temporary
-    if (false) {
+  //   if (form.valid) {
+  //  temporary for easy navigation while developing
+    if (true) {
     this.validLogin()
     }
   }
