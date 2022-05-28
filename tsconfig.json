@@ -22,7 +22,10 @@
       "style": [
         "dist/style/style",
         "dist/style"
-      ]
+      ],
+      "@hs-style":  [
+        "projects/style/src/public-api.ts"
+      ],
     },
     "lib": [
       "es2020",

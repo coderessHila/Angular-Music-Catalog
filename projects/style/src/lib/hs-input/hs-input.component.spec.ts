@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StyleComponent } from './style.component';
+import { HsInputComponent } from './hs-input.component';
 
-describe('StyleComponent', () => {
-  let component: StyleComponent;
-  let fixture: ComponentFixture<StyleComponent>;
+describe('HsInputComponent', () => {
+  let component: HsInputComponent;
+  let fixture: ComponentFixture<HsInputComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StyleComponent ]
+      declarations: [ HsInputComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StyleComponent);
+    fixture = TestBed.createComponent(HsInputComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
