@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FeedArtistComponent } from './feed-artist.component';
+import { ArtistCardComponent } from './artist-card.component';
 
 describe('FeedArtistComponent', () => {
-  let component: FeedArtistComponent;
-  let fixture: ComponentFixture<FeedArtistComponent>;
+  let component: ArtistCardComponent;
+  let fixture: ComponentFixture<ArtistCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FeedArtistComponent ]
+      declarations: [ ArtistCardComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FeedArtistComponent);
+    fixture = TestBed.createComponent(ArtistCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FeedComponent } from './feed.component';
-import { FeedArtistComponent } from './feed-artist/feed-artist.component';
+import { ArtistCardComponent } from '../artist-card/artist-card.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from "@angular/material/button";
 import {SlideShowModule} from "../slide-show/slide-show.module";
@@ -11,7 +11,7 @@ import {SlideShowModule} from "../slide-show/slide-show.module";
 @NgModule({
   declarations: [
     FeedComponent,
-    FeedArtistComponent
+    ArtistCardComponent
   ],
   imports: [
     CommonModule,

@@ -1,15 +1,15 @@
 import {Component, OnInit, Input } from '@angular/core';
-import {Artist} from "../../../models/artist.interface";
+import {Artist} from "../../models/artist.interface";
 // import {GetArtistsDataService} from "../../../get-artists-data.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {ArtistsStoreService} from "../../../services/artists-store.service";
+import {ArtistsStoreService} from "../../services/artists-store.service";
 
 @Component({
-  selector: 'app-feed-artist',
-  templateUrl: './feed-artist.component.html',
-  styleUrls: ['./feed-artist.component.scss']
+  selector: 'app-artist-card',
+  templateUrl: './artist-card.component.html',
+  styleUrls: ['./artist-card.component.scss']
 })
-export class FeedArtistComponent implements OnInit {
+export class ArtistCardComponent implements OnInit {
 
   @Input() artist?: Artist;
 
