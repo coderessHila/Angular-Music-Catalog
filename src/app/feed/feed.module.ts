@@ -6,6 +6,7 @@ import { PreviewArtistComponent } from './preview-artist/preview-artist.componen
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from "@angular/material/button";
 import {SlideShowModule} from "../slide-show/slide-show.module";
+import {HeartModule} from "@hs-style";
 
 
 
@@ -19,7 +20,8 @@ import {SlideShowModule} from "../slide-show/slide-show.module";
     CommonModule,
     MatCardModule,
     MatButtonModule,
-    SlideShowModule
+    SlideShowModule,
+    HeartModule
   ],
   exports: [FeedComponent]
 })
