@@ -1,4 +1,4 @@
-<div *ngIf="(artist$ | async) as artist">
+<!--<div *ngIf="(artist$ | async) as artist">-->
 <form [formGroup]="bookingForm" class="booking-form">
   <h1>{{label}}</h1>
   <hs-input [label]="'Artist Name'" [hint]="' '" [name]="'Artist name'" formControlName="artistName"></hs-input><br>
@@ -15,5 +15,5 @@
 {{bookingForm.value | json}}
 </form>
 
-{{artist|json}}
-</div>
+<!--{{artist|json}}-->
+<!--</div>-->
