@@ -1,23 +1,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {FeedModule} from "./feed/feed.module";
+import {FeedModule} from "./artists-catalog/components/feed/feed.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { CatalogModule } from './catalog/catalog.module';
-import {NavBarModule} from "./nav-bar/nav-bar.module";
-import {SideBarModule} from "./side-bar/side-bar.module";
-import { LoginModule } from './login/login.module';
+import { PageNotFoundComponent } from './app-components/page-not-found/page-not-found.component';
+import { CatalogModule } from './artists-catalog/catalog.module';
+import {NavBarModule} from "./app-components/nav-bar/nav-bar.module";
+import { LoginModule } from './app-components/login/login.module';
 import {MatButtonModule} from "@angular/material/button";
-import {HeaderBarModule} from "./header-bar/header-bar.module";
+import {HeaderBarModule} from "./app-components/header-bar/header-bar.module";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
 import { environment } from '../environments/environment';
-import {ArtistPageModule} from "./artist-page/artist-page.module";
-import {BookingModule} from "./catalog/booking/booking.module";
+import {ArtistPageModule} from "./artists-catalog/components/artist-page/artist-page.module";
+import {BookingModule} from "./artists-catalog/components/booking/booking.module";
 import {MatNativeDateModule} from "@angular/material/core";
 
 
@@ -31,7 +29,6 @@ import {MatNativeDateModule} from "@angular/material/core";
     AppRoutingModule,
     FeedModule,
     NavBarModule,
-    SideBarModule,
     BrowserAnimationsModule,
     CatalogModule,
     LoginModule,

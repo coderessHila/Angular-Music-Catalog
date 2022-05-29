@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {GetArtistsDataService} from "../get-artists-data.service";
-import {Artist} from "../artists-data/artist.interface";
-import {ArtistDataAccessService} from "../catalog/catalog-services/artist-data-access.service";
+// import {GetArtistsDataService} from "../../get-artists-data.service";
+import {Artist} from "../../models/artist.interface";
+import {ArtistsApiService} from "../../services/artists-api.service";
 import {Observable} from "rxjs";
-import {ArtistsQuery} from "../catalog/artists-state/artists.query";
-import {ArtistsStateManagementService} from "../catalog/catalog-services/artists-state-management.service";
+import {ArtistsQuery} from "../../artists-state/artists.query";
+import {ArtistsStoreService} from "../../services/artists-store.service";
 
 @Component({
   selector: 'app-feed',
@@ -18,20 +18,18 @@ export class FeedComponent implements OnInit {
   previewArtist?: Artist;
   allArtists$?: Observable<Artist[]>;
 
-  constructor(private getArtistsDataService: GetArtistsDataService,
-              // private artistDataAccessService: ArtistDataAccessService,
-              private artistsQuery: ArtistsQuery,
-              private artistsStateManagementService:ArtistsStateManagementService) { }
+  constructor(private artistsQuery: ArtistsQuery,
+              private artistsStateManagementService:ArtistsStoreService) { }
 
   ngOnInit(): void {
   }
 
-  setPreviewArtist(id: string | undefined) {
-    console.log("clicked artist id: ", id)
-    if (typeof (id) === 'string') {
-      this.previewArtist = this.getArtistsDataService.getArtistById(id);
-    }
-  }
+  // setPreviewArtist(id: string | undefined) {
+  //   console.log("clicked artist id: ", id)
+  //   if (typeof (id) === 'string') {
+  //     this.previewArtist = this.getArtistsDataService.getArtistById(id);
+  //   }
+  // }
 
   // demo with subscribe
   // setAllArtists() {

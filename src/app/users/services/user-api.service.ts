@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {filter, Observable, switchMap, tap} from "rxjs";
-import {User} from "../user.interface";
-import {LoginDetails} from "../loginDetails.interface";
+import {User} from "../models/user.interface";
+import {LoginDetails} from "../models/loginDetails.interface";
 
 @Injectable({
   providedIn: 'root'

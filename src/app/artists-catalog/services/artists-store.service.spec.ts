@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ArtistsStateManagementService } from './artists-state-management.service';
+import { ArtistsStoreService } from './artists-store.service';
 
 describe('ArtistsStateManagementService', () => {
-  let service: ArtistsStateManagementService;
+  let service: ArtistsStoreService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ArtistsStateManagementService);
+    service = TestBed.inject(ArtistsStoreService);
   });
 
   it('should be created', () => {

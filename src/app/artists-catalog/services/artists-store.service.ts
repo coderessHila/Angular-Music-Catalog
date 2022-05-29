@@ -1,15 +1,15 @@
 import {Injectable} from '@angular/core';
 import {ArtistsStore} from "../artists-state/aritsts.store";
-import {ArtistDataAccessService} from "./artist-data-access.service";
+import {ArtistsApiService} from "./artists-api.service";
 import {Observable, switchMap, tap} from "rxjs";
 import {Artist} from "../models/artist.interface";
 
 @Injectable({
   providedIn: 'root'
 })
-export class ArtistsStateManagementService {
+export class ArtistsStoreService {
 
-  constructor(private store: ArtistsStore, private artistDataAccessService: ArtistDataAccessService) {
+  constructor(private store: ArtistsStore, private artistDataAccessService: ArtistsApiService) {
 
   }
 

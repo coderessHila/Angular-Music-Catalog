@@ -1,11 +1,11 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {ArtistPageComponent} from "./artist-page/artist-page.component";
-import {FeedComponent} from "./feed/feed.component";
-import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
-import {CatalogComponent} from "./catalog/catalog.component";
-import {LoginComponent} from "./login/login.component";
-import {BookingComponent} from "./catalog/booking/booking.component";
+import {ArtistPageComponent} from "./artists-catalog/components/artist-page/artist-page.component";
+import {FeedComponent} from "./artists-catalog/components/feed/feed.component";
+import {PageNotFoundComponent} from "./app-components/page-not-found/page-not-found.component";
+import {CatalogComponent} from "./artists-catalog/catalog.component";
+import {LoginComponent} from "./app-components/login/login.component";
+import {BookingComponent} from "./artists-catalog/components/booking/booking.component";
 
 const routes: Routes = [
   {

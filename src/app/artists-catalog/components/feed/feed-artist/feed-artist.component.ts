@@ -1,8 +1,8 @@
 import {Component, OnInit, Input } from '@angular/core';
-import {Artist} from "../../artists-data/artist.interface";
-import {GetArtistsDataService} from "../../get-artists-data.service";
+import {Artist} from "../../../models/artist.interface";
+// import {GetArtistsDataService} from "../../../get-artists-data.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {ArtistsStateManagementService} from "../../catalog/catalog-services/artists-state-management.service";
+import {ArtistsStoreService} from "../../../services/artists-store.service";
 
 @Component({
   selector: 'app-feed-artist',
@@ -13,10 +13,11 @@ export class FeedArtistComponent implements OnInit {
 
   @Input() artist?: Artist;
 
-  constructor(private getArtistsDataService: GetArtistsDataService,
+  constructor(
+    // private getArtistsDataService: GetArtistsDataService,
               private router: Router,
               private route: ActivatedRoute,
-              private artistsStateManagementService: ArtistsStateManagementService) {
+              private artistsStateManagementService: ArtistsStoreService) {
   }
 
   ngOnInit(): void {

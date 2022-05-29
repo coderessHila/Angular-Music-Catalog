@@ -7,7 +7,7 @@ import { akitaDevtools } from '@datorama/akita';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'music-catalog';
+  title = 'music-artists-catalog';
   constructor(private ngZone: NgZone) {
 
       akitaDevtools(ngZone);

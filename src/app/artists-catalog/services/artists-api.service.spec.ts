@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ArtistDataAccessService } from './artist-data-access.service';
+import { ArtistsApiService } from './artists-api.service';
 
 describe('ArtistDataAccessService', () => {
-  let service: ArtistDataAccessService;
+  let service: ArtistsApiService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ArtistDataAccessService);
+    service = TestBed.inject(ArtistsApiService);
   });
 
   it('should be created', () => {

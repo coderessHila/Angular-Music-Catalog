@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
-import {UserApiService} from "../users/services/user-api.service";
+import {UserApiService} from "../../users/services/user-api.service";
 import {tap} from "rxjs";
-import {UserStoreService} from "../users/services/user-store.service";
+import {UserStoreService} from "../../users/services/user-store.service";
 
 @Component({
   selector: 'app-login',

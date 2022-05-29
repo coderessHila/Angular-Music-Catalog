@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params} from "@angular/router";
-import {Artist} from "../catalog/models/artist.interface";
-import {ArtistsQuery} from "../catalog/artists-state/artists.query";
+import {Artist} from "../../models/artist.interface";
+import {ArtistsQuery} from "../../artists-state/artists.query";
 import {map, Observable, switchMap} from "rxjs";
-import {ArtistsStateManagementService} from "../catalog/catalog-services/artists-state-management.service";
+import {ArtistsStoreService} from "../../services/artists-store.service";
 
 @Component({
   selector: 'app-artist-page',
@@ -19,7 +19,7 @@ export class ArtistPageComponent implements OnInit {
   paramsSnap: any;
 
   constructor(private route: ActivatedRoute, private artistsQuery:ArtistsQuery,
-              private artistsStateManagementService:ArtistsStateManagementService) { }
+              private artistsStateManagementService:ArtistsStoreService) { }
 
   ngOnInit(): void {
     console.log("init artist page")
@@ -35,7 +35,7 @@ export class ArtistPageComponent implements OnInit {
     // setCurrentArtist(id:Observable<string>) return the artist$ that it set in currentArtist in the artists state.
     // the component that invokes the state change, should get that value straight from the service method that changes the state.
 
-    // 'this.artistsQuery.selectCurrentArtist$' will be used by other components in the application that need to get this state.
+    // 'this.artistsQuery.selectCurrentArtist$' will be used by other app-components in the application that need to get this state.
     //  They will actually get the state from the store.
   }
 

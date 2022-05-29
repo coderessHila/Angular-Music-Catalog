@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CatalogComponent } from './catalog.component';
-import {SideBarModule} from "../side-bar/side-bar.module";
-import {NavBarModule} from "../nav-bar/nav-bar.module";
-import {FeedModule} from "../feed/feed.module";
+import {NavBarModule} from "../app-components/nav-bar/nav-bar.module";
+import {FeedModule} from "./components/feed/feed.module";
 import {RouterModule} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
-import {ArtistsStateManagementService} from "./catalog-services/artists-state-management.service";
+import {ArtistsStoreService} from "./services/artists-store.service";
 
 
 
@@ -16,12 +15,11 @@ import {ArtistsStateManagementService} from "./catalog-services/artists-state-ma
   ],
   imports: [
     CommonModule,
-    SideBarModule,
     NavBarModule,
     FeedModule,
     RouterModule,
     HttpClientModule
   ],
-  providers:[ArtistsStateManagementService]
+  providers:[ArtistsStoreService]
 })
 export class CatalogModule { }

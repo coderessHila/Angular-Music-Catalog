@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {UserStoreService} from "../users/services/user-store.service";
-import {UsersQuery} from "../users/user-state/user.query";
+import {UserStoreService} from "../../users/services/user-store.service";
+import {UsersQuery} from "../../users/user-state/user.query";
 import {map, Observable} from "rxjs";
 
 @Component({

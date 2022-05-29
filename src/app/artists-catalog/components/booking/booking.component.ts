@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {Artist} from "../models/artist.interface";
+import {Artist} from "../../models/artist.interface";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute} from "@angular/router";
 import {map, Observable, Subscriber, Subscription, switchMap, tap} from "rxjs";
-import {ArtistsStateManagementService} from "../catalog-services/artists-state-management.service";
-import {UserApiService} from "../../users/services/user-api.service";
-import {ArtistDataAccessService} from "../catalog-services/artist-data-access.service";
+import {ArtistsStoreService} from "../../services/artists-store.service";
+import {UserApiService} from "../../../users/services/user-api.service";
+import {ArtistsApiService} from "../../services/artists-api.service";
 
 @Component({
   selector: 'app-booking',
@@ -28,8 +28,8 @@ export class BookingComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private route: ActivatedRoute,
-              private artistsStateManagementService: ArtistsStateManagementService,
-              private artistDataAccessService: ArtistDataAccessService) {
+              private artistsStateManagementService: ArtistsStoreService,
+              private artistDataAccessService: ArtistsApiService) {
 
   }
 

@@ -6,7 +6,7 @@ import {Artist} from "../models/artist.interface";
 @Injectable({
   providedIn: 'root'
 })
-export class ArtistDataAccessService {
+export class ArtistsApiService {
 
   BASE_URL = 'http://localhost:3000'
 
