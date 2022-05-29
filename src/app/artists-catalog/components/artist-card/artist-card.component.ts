@@ -22,8 +22,8 @@ export class ArtistCardComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private artistsStateManagementService: ArtistsStoreService,
-    private favoritesApiService:FavoritesApiService,
-    private usersQuery:UsersQuery) {
+    private favoritesApiService: FavoritesApiService,
+    private usersQuery: UsersQuery) {
   }
 
   ngOnInit(): void {
@@ -49,9 +49,11 @@ export class ArtistCardComponent implements OnInit {
     // if (isFav) {
     this.usersQuery.selectUserId$.pipe(switchMap(
       userId => {
-    return isFav ?  this.favoritesApiService.updateFavorites(userId, this.artist.id) : this.favoritesApiService.removeFromFavorites(userId, this.artist.id);
+        return isFav ?
+          this.favoritesApiService.updateFavorites(userId, this.artist.id) :
+          this.favoritesApiService.removeFromFavorites(userId, this.artist.id);
       }
-    )).subscribe(success=>console.log("updated favs", success))
+    )).subscribe(success => console.log("updated favs", success))
     // }
   }
 }
