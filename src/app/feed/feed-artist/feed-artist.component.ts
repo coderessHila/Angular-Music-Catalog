@@ -28,4 +28,11 @@ export class FeedArtistComponent implements OnInit {
       queryParams: {artistName: this.artist?.name, id: this.artist?.id}
     })
   }
+
+  navigateToBookingPage() {
+    this.router.navigate(['booking'], {
+      relativeTo: this.route.parent,
+      queryParams: {artistName: this.artist?.name, id: this.artist?.id}
+    })
+  }
 }

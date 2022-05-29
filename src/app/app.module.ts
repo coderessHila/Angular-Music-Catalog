@@ -17,6 +17,8 @@ import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
 import { environment } from '../environments/environment';
 import {ArtistPageModule} from "./artist-page/artist-page.module";
+import {BookingModule} from "./catalog/booking/booking.module";
+import {MatNativeDateModule} from "@angular/material/core";
 
 
 @NgModule({
@@ -37,6 +39,8 @@ import {ArtistPageModule} from "./artist-page/artist-page.module";
      HeaderBarModule,
     ArtistPageModule,
      NgbModule,
+    BookingModule,
+    MatNativeDateModule,
      environment.production ? [] : AkitaNgDevtools.forRoot(),
      AkitaNgRouterStoreModule
   ],
