@@ -1,4 +1,4 @@
 export interface UserFavorites {
-  userId: string,
-  favorites: string[] /* array of artists id's*/
+  id: string, /*artistId*/
+  userFavorites: string[] /* array of artists id's*/
 }

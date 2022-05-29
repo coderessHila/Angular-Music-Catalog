@@ -4,6 +4,7 @@ import {Artist} from "../../models/artist.interface";
 import {ArtistsQuery} from "../../artists-state/artists.query";
 import {map, Observable, switchMap} from "rxjs";
 import {ArtistsStoreService} from "../../services/artists-store.service";
+import {FavoritesApiService} from "../../services/favorites-api.service";
 
 @Component({
   selector: 'app-artist-page',
@@ -19,7 +20,8 @@ export class ArtistPageComponent implements OnInit {
   paramsSnap: any;
 
   constructor(private route: ActivatedRoute, private artistsQuery:ArtistsQuery,
-              private artistsStateManagementService:ArtistsStoreService) { }
+              private artistsStateManagementService:ArtistsStoreService,
+              private favoritesApiService:FavoritesApiService) { }
 
   ngOnInit(): void {
     console.log("init artist page")
@@ -39,5 +41,9 @@ export class ArtistPageComponent implements OnInit {
     //  They will actually get the state from the store.
   }
 
+  clickFavorites(isFav: boolean) {
+    isFav ? console.log("add to favorites by id") : console.log("remove from favorites by id");
+    // isFav ? console.log("add to favorites by id") : console.log("remove from favorites by id");
+  }
 
 }

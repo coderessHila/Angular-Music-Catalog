@@ -16,7 +16,15 @@ export class UsersQuery extends QueryEntity<UsersState> {
   // query methods return Observables.
   // "The new state is published via Observable steam"
 
-  selectUser$ = this.select(state => state.user)
+  selectUser$: Observable<object> = this.select(state => state.user)
+
+  selectUserId$ : Observable<string> = this.select(state => {
+    if ('id' in state.user) {
+      return state.user.id
+    } else {
+      return "no user"
+    }
+  })
 
   selectUserType$: Observable<string> = this.select(state =>
     state.user.user_type
