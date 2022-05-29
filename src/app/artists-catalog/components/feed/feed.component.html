@@ -1,5 +1,6 @@
 <div class="slide-show">
-  <app-slide-show></app-slide-show>
+<!--  it drives me mad for now to see it scroll-->
+<!--  <app-slide-show></app-slide-show>-->
 </div>
 
 <div class="feed-grid-container" style="">
@@ -11,14 +12,14 @@
     <!--  </div>-->
   </div>
 
-  <button (click)="setAllArtists()">set all artists</button>
+<!--  <button (click)="setAllArtists()">set all artists</button>-->
   <!--  option 1-->
-  <ng-container *ngIf="allArtists$ | async as allArtists">
-    <div *ngFor="let artist of allArtists">{{artist.name}}</div>
-  </ng-container>
+<!--  <ng-container *ngIf="allArtists$ | async as allArtists">-->
+<!--    <div *ngFor="let artist of allArtists">{{artist.name}}</div>-->
+<!--  </ng-container>-->
 
   <!--  option 2-->
-  <div *ngFor="let artist of allArtists$ | async">{{artist.genres}}</div>
+<!--  <div *ngFor="let artist of allArtists$ | async">{{artist.genres}}</div>-->
 
 
   <!--  <div class="artist-preview">-->

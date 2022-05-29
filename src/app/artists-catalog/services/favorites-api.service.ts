@@ -14,6 +14,8 @@ export class FavoritesApiService {
   }
 
   // come on ts, it won't be undefined you silly pus
+  // these functions need to be refactored!!!!!!!!
+  // i think it make sense to save the favorites in the state
   updateFavorites(userId: string, artistId: string | undefined): Observable<UserFavorites> {
     console.log("updating favorites of user ", userId, "artist id ", artistId)
     return this.httpClient.get<UserFavorites>(`${this.BASE_URL}/${userId}`).pipe(switchMap(
@@ -27,6 +29,7 @@ export class FavoritesApiService {
     ))
   }
 
+  // these functions need to be refactored!!!!!!!!
   removeFromFavorites(userId: string, artistId: string | undefined): Observable<UserFavorites> {
     console.log("updating favorites of user ", userId, "artist id ", artistId)
     return this.httpClient.get<UserFavorites>(`${this.BASE_URL}/${userId}`).pipe(switchMap(

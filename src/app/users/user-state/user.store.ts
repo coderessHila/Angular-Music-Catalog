@@ -40,7 +40,12 @@ export class UsersStore extends EntityStore<UsersState> {
     return isLogged ? loggedUser : undefined;
   }
 
-
+setUserFavorites(favs: string[]): string[] {
+    return this.update(state => ({
+      ...state,
+      userFavorites: favs
+    }))
+}
 
   // the store functions don't care if observables emitted the values their getting
   // they just update the store

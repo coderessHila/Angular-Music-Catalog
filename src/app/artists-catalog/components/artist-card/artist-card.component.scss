@@ -60,6 +60,8 @@ body {
 
     .card__image {
       transform: translateY(-10px);
+      width: 250px;
+      height: 290px;
     }
 
     .card__thumb {
@@ -100,6 +102,8 @@ body {
 
   &__image {
     transition: .5s ease-in-out;
+    width: 250px;
+    height: 290px;
   }
 
   &__caption {

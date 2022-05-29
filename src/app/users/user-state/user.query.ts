@@ -29,4 +29,6 @@ export class UsersQuery extends QueryEntity<UsersState> {
   selectUserType$: Observable<string> = this.select(state =>
     state.user.user_type
   )
+
+  selectUserFavorites$: Observable<string[]> = this.select(state=>state.userFavorites)
 }

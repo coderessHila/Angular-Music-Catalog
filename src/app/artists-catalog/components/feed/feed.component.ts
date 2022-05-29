@@ -13,42 +13,18 @@ import {ArtistsStoreService} from "../../services/artists-store.service";
 })
 export class FeedComponent implements OnInit {
 
-  // artists: Artist[] = this.getArtistsDataService.getAllArtists();
-  // artists?: Artist[];
   previewArtist?: Artist;
   allArtists$?: Observable<Artist[]>;
 
   constructor(private artistsQuery: ArtistsQuery,
-              private artistsStateManagementService:ArtistsStoreService) { }
+              private artistsStoreService:ArtistsStoreService) { }
 
   ngOnInit(): void {
+    this.setAllArtists()
   }
-
-  // setPreviewArtist(id: string | undefined) {
-  //   console.log("clicked artist id: ", id)
-  //   if (typeof (id) === 'string') {
-  //     this.previewArtist = this.getArtistsDataService.getArtistById(id);
-  //   }
-  // }
-
-  // demo with subscribe
-  // setAllArtists() {
-  //   this.artistDataAccessService.getArtists().subscribe((artists: IArtist[]) => console.log(artists))
-  // }
-
-  // before I had state management
-  // setAllArtists() {
-  //   this.allArtists$ = this.artistDataAccessService.getArtists()
-  // }
 
   setAllArtists() {
-    this.artistsStateManagementService.setAllArtists()
+    this.artistsStoreService.setAllArtists()
     this.allArtists$ = this.artistsQuery.selectAllArtists$
   }
-
-  // getAllArtistsState() {
-//  this.allArtists$ =
-// }
-
-
 }
