@@ -6,8 +6,7 @@ import { PreviewArtistComponent } from './preview-artist/preview-artist.componen
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from "@angular/material/button";
 import {SlideShowModule} from "../slide-show/slide-show.module";
-import {HeartModule} from "@hs-style";
-
+// import { HeartFavoritesModule, HeartModule} from "@hs-style";
 
 
 @NgModule({
@@ -21,7 +20,8 @@ import {HeartModule} from "@hs-style";
     MatCardModule,
     MatButtonModule,
     SlideShowModule,
-    HeartModule
+    // HeartModule,
+    // HeartFavoritesModule
   ],
   exports: [FeedComponent]
 })

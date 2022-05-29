@@ -3,12 +3,14 @@ import {EntityState, EntityStore, StoreConfig} from "@datorama/akita";
 import {User} from "../user.interface";
 
 export interface UsersState extends EntityState<User, string> {
-  user: User | {user_type: string}
+  user: User | {user_type: string},
+  userFavorites: string[]
 }
 
 export function createInitialState(): UsersState {
   return {
-    user: {user_type: "guest"}
+    user: {user_type: "guest"},
+    userFavorites: []
   };
 }
 
@@ -37,6 +39,8 @@ export class UsersStore extends EntityStore<UsersState> {
     this.update(console.log)
     return isLogged ? loggedUser : undefined;
   }
+
+
 
   // the store functions don't care if observables emitted the values their getting
   // they just update the store

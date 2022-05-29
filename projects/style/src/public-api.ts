@@ -8,3 +8,8 @@ export * from './lib/hs-input/hs-input.module';
 
 export * from './lib/heart/heart.module'
 export * from './lib/heart/heart.component'
+
+export * from './lib/heart-favorites/heart-favorites.module'
+export * from './lib/heart-favorites/heart-favorites.component'
+
+

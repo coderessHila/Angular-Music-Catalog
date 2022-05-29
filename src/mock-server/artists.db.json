@@ -157,5 +157,14 @@
       "user_type": "admin",
       "name": "Freeman"
     }
+  ],
+  "favorites": [
+    {
+      "userId": "1",
+      "userFavorites": [
+        "6",
+        "2"
+      ]
+    }
   ]
 }

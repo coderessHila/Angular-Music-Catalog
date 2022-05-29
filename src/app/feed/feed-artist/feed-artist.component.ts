@@ -35,4 +35,8 @@ export class FeedArtistComponent implements OnInit {
       queryParams: {artistName: this.artist?.name, id: this.artist?.id}
     })
   }
+
+  clickFavorites(event: any) {
+    event.target.checked ? console.log("add to favorites", this.artist?.id) : console.log("remove from favorites");
+  }
 }
