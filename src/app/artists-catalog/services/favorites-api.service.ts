@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable, switchMap} from "rxjs";
+import {Observable, of, switchMap} from "rxjs";
 import {UserFavorites} from "../../users/models/user-favorites.interface";
 
 @Injectable({
@@ -23,6 +23,22 @@ export class FavoritesApiService {
         }
         console.log("sending fav to server")
         return this.httpClient.put<UserFavorites>(`${this.BASE_URL}/${userId}`, newUserFavs)
+      }
+    ))
+  }
+
+  removeFromFavorites(userId: string, artistId: string | undefined): Observable<UserFavorites> {
+    console.log("updating favorites of user ", userId, "artist id ", artistId)
+    return this.httpClient.get<UserFavorites>(`${this.BASE_URL}/${userId}`).pipe(switchMap(
+      (favs: UserFavorites) => {
+        if (artistId) {
+          const newFavsArr = favs.userFavorites.filter(id => id !== artistId)
+          const newUserFavs = {
+            userFavorites: newFavsArr
+          }
+        console.log("sending fav to server")
+        return this.httpClient.put<UserFavorites>(`${this.BASE_URL}/${userId}`, newUserFavs)
+        } return of(favs);
       }
     ))
   }

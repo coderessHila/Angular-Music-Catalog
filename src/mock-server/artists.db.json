@@ -139,36 +139,37 @@
     {
       "id": "1",
       "username": "shushu11",
-      "password": "1234",
+      "password": "1111",
       "user_type": "registered",
       "name": "Shushu"
     },
     {
       "id": "2",
       "username": "tikva11",
-      "password": "2345",
+      "password": "2222",
       "user_type": "registered",
       "name": "Tikva"
     },
     {
       "id": "3",
       "username": "freeman11",
-      "password": "4567",
+      "password": "3333",
       "user_type": "admin",
       "name": "Freeman"
     }
   ],
   "favorites": [
     {
-      "userFavorites": [
-        "6",
-        "2",
-        "1",
-        "6",
-        "1",
-        "1"
-      ],
+      "userFavorites": [],
       "id": "1"
+    },
+    {
+      "userFavorites": [],
+      "id": "2"
+    },
+    {
+      "userFavorites": [],
+      "id": "3"
     }
   ]
 }

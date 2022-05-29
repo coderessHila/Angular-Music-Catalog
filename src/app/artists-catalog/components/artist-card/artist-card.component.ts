@@ -46,11 +46,12 @@ export class ArtistCardComponent implements OnInit {
   clickFavorites(isFav: boolean) {
     isFav ? console.log("add to favorites", this.artist.id) : console.log("remove from favorites", this.artist?.id);
 
-    if (isFav) {
+    // if (isFav) {
     this.usersQuery.selectUserId$.pipe(switchMap(
-      userId =>
-    this.favoritesApiService.updateFavorites(userId, this.artist.id)
+      userId => {
+    return isFav ?  this.favoritesApiService.updateFavorites(userId, this.artist.id) : this.favoritesApiService.removeFromFavorites(userId, this.artist.id);
+      }
     )).subscribe(success=>console.log("updated favs", success))
-    }
+    // }
   }
 }
