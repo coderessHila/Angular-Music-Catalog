@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-favorites-heart',
@@ -7,6 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class FavoritesHeartComponent implements OnInit {
   @Input() checked?: boolean;
+  @Output() onFavChange = new EventEmitter<boolean>()
   heartColor: "primary" | "warn" = "primary";
 
   constructor() { }
@@ -20,6 +21,6 @@ export class FavoritesHeartComponent implements OnInit {
   onClick() {
     this.checked = !this.checked
     this.heartColor = this.checked ? "warn" : "primary"
-
+    this.onFavChange.emit(this.checked)
   }
 }

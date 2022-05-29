@@ -37,7 +37,7 @@ export class ArtistCardComponent implements OnInit {
     })
   }
 
-  clickFavorites(event: any) {
-    event.target.checked ? console.log("add to favorites", this.artist?.id) : console.log("remove from favorites");
+  clickFavorites(isFav: boolean) {
+    isFav ? console.log("add to favorites", this.artist?.id) : console.log("remove from favorites");
   }
 }

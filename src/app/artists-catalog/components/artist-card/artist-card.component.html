@@ -10,7 +10,7 @@
     </figure>
   </div>
   <button (click)="navigateToBookingPage()">Book Now!</button>
-  <app-favorites-heart></app-favorites-heart>
+  <app-favorites-heart (onFavChange)="clickFavorites($event)"></app-favorites-heart>
 </ng-container>
 
 <!--<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:wght@300&display=swap" rel="stylesheet">-->
