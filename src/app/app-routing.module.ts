@@ -20,6 +20,10 @@ const routes: Routes = [
   },
   {
     path: 'catalog',
+    loadChildren: () => import('./artists-catalog/catalog.module').then(m => m.CatalogModule),
+  },
+  {
+    path: 'catalog',
     component: CatalogComponent,
     children: [
       {
