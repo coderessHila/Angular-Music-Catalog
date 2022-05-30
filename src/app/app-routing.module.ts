@@ -6,6 +6,7 @@ import {PageNotFoundComponent} from "./app-components/page-not-found/page-not-fo
 import {CatalogComponent} from "./artists-catalog/catalog.component";
 import {LoginComponent} from "./app-components/login/login.component";
 import {BookingComponent} from "./artists-catalog/components/booking/booking.component";
+import {FavoritesComponent} from "./artists-catalog/components/favorites/favorites.component";
 
 const routes: Routes = [
   {
@@ -33,7 +34,11 @@ const routes: Routes = [
       {
         path: 'booking',
         component: BookingComponent
+      },
+      {path: 'favorites',
+      component: FavoritesComponent
       }
+
     ]
   },
   {

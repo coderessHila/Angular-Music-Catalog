@@ -25,7 +25,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
     // HeartModule,
     // HeartFavoritesModule
   ],
-  exports: [FeedComponent],
+  exports: [FeedComponent, ArtistCardComponent],
   providers: [MatSnackBar]
 })
 export class FeedModule { }

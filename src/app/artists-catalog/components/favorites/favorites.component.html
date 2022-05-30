@@ -1,0 +1,5 @@
+<!--<app-artist-card *ngFor="let artist of allArtists$ | async" [artist]="artist">-->
+<!--</app-artist-card>-->
+<div class="cards-container">
+<app-artist-card *ngFor="let artist of favoriteArtists$ | async" [artist]="artist"></app-artist-card>
+</div>

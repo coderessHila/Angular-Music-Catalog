@@ -17,6 +17,7 @@ import { environment } from '../environments/environment';
 import {ArtistPageModule} from "./artists-catalog/components/artist-page/artist-page.module";
 import {BookingModule} from "./artists-catalog/components/booking/booking.module";
 import {MatNativeDateModule} from "@angular/material/core";
+import {FavoritesModule} from "./artists-catalog/components/favorites/favorites.module";
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import {MatNativeDateModule} from "@angular/material/core";
     ArtistPageModule,
      NgbModule,
     BookingModule,
+    FavoritesModule,
     MatNativeDateModule,
      environment.production ? [] : AkitaNgDevtools.forRoot(),
      AkitaNgRouterStoreModule
