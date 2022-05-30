@@ -5,7 +5,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {ArtistsStoreService} from "../../services/artists-store.service";
 import {FavoritesApiService} from "../../services/favorites-api.service";
 import {UsersQuery} from "../../../users/user-state/user.query";
-import {map, switchMap, tap} from "rxjs";
+import {filter, map, Observable, switchMap, tap} from "rxjs";
 import {success} from "ng-packagr/lib/utils/log";
 import {
   AddedToFavsSnackBarComponent,
@@ -33,9 +33,25 @@ export class ArtistCardComponent implements OnInit {
     private favoritesApiService: FavoritesApiService,
     private usersQuery: UsersQuery,
     private _snackBar: MatSnackBar) {
+    this.isFavChecked$ = this.isFav$()
   }
 
+  isFavChecked$: Observable<boolean>;
+
   ngOnInit(): void {
+
+  }
+
+  isFav$(): Observable<boolean>{
+  //  get users favs from store
+    return this.usersQuery.selectUserFavorites$.pipe(map(
+      (favs: string[]) => {
+        return (favs.findIndex(artistId=>artistId===this.artist.id) !== -1)
+      }
+    ))
+  //  check if this artist.id is in favs
+  //  if it is return true
+  //  if not return false
   }
 
   navigateToArtistPage() {

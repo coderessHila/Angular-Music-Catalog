@@ -13,6 +13,7 @@ import {ArtistsStoreService} from "../../services/artists-store.service";
 })
 export class FeedComponent implements OnInit {
 
+
   previewArtist?: Artist;
   allArtists$?: Observable<Artist[]>;
 
