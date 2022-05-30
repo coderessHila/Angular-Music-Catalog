@@ -174,5 +174,12 @@
       "userFavorites": [],
       "id": "3"
     }
+  ],
+  "bookedGigs": [
+    {
+      "id": "2",
+      "date": "16-06-2022",
+      "venue": "Royal Albert Hall"
+    }
   ]
 }
