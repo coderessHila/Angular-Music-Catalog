@@ -1,7 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable, of, switchMap} from "rxjs";
+import {map, Observable, of, switchMap} from "rxjs";
 import {UserFavorites} from "../../users/models/user-favorites.interface";
+import {UserStoreService} from "../../users/services/user-store.service";
+import {UsersStore} from "../../users/user-state/user.store";
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +12,11 @@ export class FavoritesApiService {
 
   BASE_URL = "http://localhost:3000/favorites";
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private store:UsersStore) {
   }
 
   // come on ts, it won't be undefined you silly pus
-  // these functions need to be refactored!!!!!!!!
+  // these functions need to be refactored!!!!!!!! getUserFavs!!
   // i think it make sense to save the favorites in the state
   updateFavorites(userId: string, artistId: string | undefined): Observable<UserFavorites> {
     console.log("updating favorites of user ", userId, "artist id ", artistId)
@@ -42,6 +44,15 @@ export class FavoritesApiService {
         console.log("sending fav to server")
         return this.httpClient.put<UserFavorites>(`${this.BASE_URL}/${userId}`, newUserFavs)
         } return of(favs);
+      }
+    ))
+  }
+
+  getUserFavorites$(userId: string): Observable<string[]> {
+    return this.httpClient.get<UserFavorites>(`${this.BASE_URL}/${userId}`).pipe(map(
+      (favs)=> {
+        this.store.setUserFavorites(favs.userFavorites)
+        return favs.userFavorites;
       }
     ))
   }

@@ -160,7 +160,10 @@
   ],
   "favorites": [
     {
-      "userFavorites": [],
+      "userFavorites": [
+        "5",
+        "7"
+      ],
       "id": "1"
     },
     {
