@@ -22,29 +22,28 @@ const routes: Routes = [
     path: 'catalog',
     loadChildren: () => import('./artists-catalog/catalog.module').then(m => m.CatalogModule),
   },
-  {
-    path: 'catalog',
-    component: CatalogComponent,
-    children: [
-      {
-        path: 'feed',
-        component: FeedComponent
-      },
-      {
-        path: 'artist',
-        component: ArtistPageComponent
-        // loadChildren: () => import('./artist-page/artist-page.module').then(m => m.ArtistPageModule)
-      },
-      {
-        path: 'booking',
-        component: BookingComponent
-      },
-      {path: 'favorites',
-      component: FavoritesComponent
-      }
-
-    ]
-  },
+  // {
+  //   path: 'catalog',
+  //   component: CatalogComponent,
+    // children: [
+    //   {
+    //     path: 'feed',
+    //     component: FeedComponent
+    //   },
+    //   {
+    //     path: 'artist',
+    //     component: ArtistPageComponent
+    //   },
+    //   {
+    //     path: 'booking',
+    //     component: BookingComponent
+    //   },
+    //   {path: 'favorites',
+    //   component: FavoritesComponent
+    //   }
+    //
+    // ]
+  // },
   {
     path: '**',
     component: PageNotFoundComponent

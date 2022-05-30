@@ -6,13 +6,14 @@ import {FeedModule} from "./components/feed/feed.module";
 import {RouterModule, Routes} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
 import {ArtistsStoreService} from "./services/artists-store.service";
+import {CatalogRoutingModule} from "./catalog-routing.module";
 
-const routes: Routes = [
-  {
-    path: '',
-    component: CatalogComponent
-  }
-]
+// const routes: Routes = [
+//   {
+//     path: '',
+//     component: CatalogComponent
+//   }
+// ]
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ const routes: Routes = [
     FeedModule,
     RouterModule,
     HttpClientModule,
-    RouterModule.forChild(routes)
+    CatalogRoutingModule,
+    // RouterModule.forChild(routes)
 ],
   providers:[ArtistsStoreService]
 })
