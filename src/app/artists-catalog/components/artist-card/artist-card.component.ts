@@ -7,6 +7,14 @@ import {FavoritesApiService} from "../../services/favorites-api.service";
 import {UsersQuery} from "../../../users/user-state/user.query";
 import {map, switchMap, tap} from "rxjs";
 import {success} from "ng-packagr/lib/utils/log";
+import {
+  AddedToFavsSnackBarComponent,
+  NoFavsPermissionSnackBarComponent,
+  RemovedFromFavsSnackBarComponent,
+  SnackBarComponent
+} from "@hs-style";
+import {MatSnackBar} from "@angular/material/snack-bar";
+
 
 @Component({
   selector: 'app-artist-card',
@@ -23,7 +31,8 @@ export class ArtistCardComponent implements OnInit {
     private route: ActivatedRoute,
     private artistsStateManagementService: ArtistsStoreService,
     private favoritesApiService: FavoritesApiService,
-    private usersQuery: UsersQuery) {
+    private usersQuery: UsersQuery,
+    private _snackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {
@@ -54,6 +63,22 @@ export class ArtistCardComponent implements OnInit {
           this.favoritesApiService.removeFromFavorites(userId, this.artist.id);
       }
     )).subscribe(success => console.log("updated favs", success))
-    // }
+    this.openSnackBar(isFav)
+  }
+
+  openSnackBar(isFav: boolean) {
+    this.usersQuery.selectUserType$.subscribe(value => {
+      if (value === 'guest') {
+        this._snackBar.openFromComponent(NoFavsPermissionSnackBarComponent, {
+          duration: 2000,
+        });
+      } else if (value === 'registered') {
+        isFav ? this._snackBar.openFromComponent(AddedToFavsSnackBarComponent, {
+          duration: 2000,
+        }) : this._snackBar.openFromComponent(RemovedFromFavsSnackBarComponent, {
+          duration: 2000,
+        })
+      }
+    })
   }
 }

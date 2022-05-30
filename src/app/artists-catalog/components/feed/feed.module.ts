@@ -7,6 +7,8 @@ import {MatButtonModule} from "@angular/material/button";
 import {SlideShowModule} from "../slide-show/slide-show.module";
 import {FavoritesHeartModule} from "../favorites-heart/favorites-heart.module";
 // import { HeartFavoritesModule, HeartModule} from "@hs-style";
+import {MatSnackBar} from '@angular/material/snack-bar';
+
 
 
 @NgModule({
@@ -23,6 +25,7 @@ import {FavoritesHeartModule} from "../favorites-heart/favorites-heart.module";
     // HeartModule,
     // HeartFavoritesModule
   ],
-  exports: [FeedComponent]
+  exports: [FeedComponent],
+  providers: [MatSnackBar]
 })
 export class FeedModule { }
