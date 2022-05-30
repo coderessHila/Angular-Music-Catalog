@@ -21,10 +21,10 @@ const routes: Routes = [
       },
       {
         path: 'booking',
-        component: BookingComponent
+        loadChildren: () => import('./components/booking/booking.module').then(m => m.BookingModule)
       },
       {path: 'favorites',
-        component: FavoritesComponent
+        loadChildren: () => import('./components/favorites/favorites.module').then(m => m.FavoritesModule)
       }
     ]
   }
