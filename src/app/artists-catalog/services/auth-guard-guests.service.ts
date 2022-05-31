@@ -18,6 +18,10 @@ export class AuthGuardGuestsService implements CanLoad, CanActivate{
     ));
   }
 
+  isUserRegistered(): Observable<boolean> {
+    return this.isUserRegistered$
+  }
+
   canLoad(): Observable<boolean> {
     return this.isUserRegistered$.pipe(tap(
       isRegistered => {

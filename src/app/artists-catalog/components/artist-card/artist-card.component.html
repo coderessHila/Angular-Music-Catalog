@@ -11,15 +11,32 @@
     </figure>
   </div>
   <button (click)="navigateToBookingPage()">Book Now!</button>
-  <ng-container *ngIf="!(isFavChecked$ | async)">
+  <span class="card-additions">
+
+
+<!--  <ng-container  *ngIf="(isGuest$ | async) as isGuest; then guestFav; else userFav">>-->
+<!--  <ng-container  *ngIf="(isUserRegistered$ | async) as isUserRegistered; then guestFav; else userFav">>-->
+  <!--  template if is guest-->
+<!--  <ng-template #guestFav>-->
+<!--    <app-favorites-heart [isDisabled]="true"></app-favorites-heart>-->
+<!--  </ng-template>-->
+
+<!--  template if not guest-->
+<!--  <ng-template #userFav>-->
+  <ng-container *ngIf="!(isFavChecked$ | async) && (isUserRegistered$ | async)">
     <app-favorites-heart (onFavChange)="clickFavorites($event)" [checked]="false"></app-favorites-heart>
   </ng-container>
-  <ng-container *ngIf="(isFavChecked$ | async)">
+  <ng-container *ngIf="(isFavChecked$ | async) && (isUserRegistered$ | async)">
     <app-favorites-heart (onFavChange)="clickFavorites($event)" [checked]="true"></app-favorites-heart>
   </ng-container>
 
-  <!--<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:wght@300&display=swap" rel="stylesheet">-->
+    <ng-container *ngIf="!(isUserRegistered$ | async)">
+      <app-favorites-heart [isDisabled]="true"></app-favorites-heart>
+    </ng-container>
 
-  <!--<div class="container">-->
-  <!--cards-->
-  <!--</div>-->
+<!--  </ng-template>-->
+  </span>
+  </ng-container>
+
+
+<!--</ng-container>-->

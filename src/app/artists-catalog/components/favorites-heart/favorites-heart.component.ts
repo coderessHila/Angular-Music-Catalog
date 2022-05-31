@@ -7,6 +7,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 })
 export class FavoritesHeartComponent implements OnInit {
   @Input() checked?: boolean;
+  @Input() isDisabled?: boolean;
   @Output() onFavChange = new EventEmitter<boolean>()
   heartColor: "primary" | "warn" = "primary";
 

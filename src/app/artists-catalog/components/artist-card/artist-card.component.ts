@@ -1,19 +1,17 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {Artist} from "../../models/artist.interface";
-// import {GetArtistsDataService} from "../../../get-artists-data.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ArtistsStoreService} from "../../services/artists-store.service";
 import {FavoritesApiService} from "../../services/favorites-api.service";
 import {UsersQuery} from "../../../users/user-state/user.query";
-import {filter, map, Observable, switchMap, tap} from "rxjs";
-import {success} from "ng-packagr/lib/utils/log";
+import { map, Observable, switchMap} from "rxjs";
 import {
   AddedToFavsSnackBarComponent,
   NoFavsPermissionSnackBarComponent,
   RemovedFromFavsSnackBarComponent,
-  SnackBarComponent
 } from "@hs-style";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {AuthGuardGuestsService} from "../../services/auth-guard-guests.service";
 
 
 @Component({
@@ -26,17 +24,19 @@ export class ArtistCardComponent implements OnInit {
   @Input() artist!: Artist;
 
   constructor(
-    // private getArtistsDataService: GetArtistsDataService,
     private router: Router,
     private route: ActivatedRoute,
     private artistsStateManagementService: ArtistsStoreService,
     private favoritesApiService: FavoritesApiService,
     private usersQuery: UsersQuery,
-    private _snackBar: MatSnackBar) {
+    private _snackBar: MatSnackBar,
+    private authGuardGuestsService:AuthGuardGuestsService) {
     this.isFavChecked$ = this.isFav$()
+    this.isUserRegistered$ = this.authGuardGuestsService.isUserRegistered()
   }
 
   isFavChecked$: Observable<boolean>;
+  isUserRegistered$: Observable<boolean>;
 
   ngOnInit(): void {
 
