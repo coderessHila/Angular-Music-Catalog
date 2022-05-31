@@ -1,5 +1,5 @@
 <!--<div *ngIf="(artist$ | async) as artist">-->
-<form [formGroup]="bookingForm" class="booking-form">
+<form [formGroup]="bookingForm" class="booking-form" (ngSubmit)="onSubmit()">
   <h1>{{label}}</h1>
   <hs-input [label]="'Artist Name'" [hint]="' '" [name]="'Artist name'" formControlName="artistName"></hs-input><br>
 <!--  date: <input formControlName="date">-->
@@ -12,8 +12,10 @@
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
 </mat-form-field><br>
-{{bookingForm.value | json}}
-</form>
+  <hs-input [label]="'Venue'" [hint]="'where will the show take place'" [name]="'Venue'" formControlName="venue"></hs-input><br>
+  <button mat-raised-button type="submit">Book Gig</button><br>
 
-<!--{{artist|json}}-->
-<!--</div>-->
+<!--{{bookingForm.value | json}}-->
+
+</form>
+<!--  </div>-->

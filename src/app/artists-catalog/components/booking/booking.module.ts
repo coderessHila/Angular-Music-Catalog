@@ -7,6 +7,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatInputModule} from "@angular/material/input";
 import {RouterModule, Routes} from "@angular/router";
+import {MatButtonModule} from "@angular/material/button";
 
 const routes: Routes = [
   {path: '', component: BookingComponent}
@@ -23,7 +24,8 @@ const routes: Routes = [
     MatFormFieldModule,
     MatDatepickerModule,
     MatInputModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    MatButtonModule
   ],
   exports: [
     BookingComponent

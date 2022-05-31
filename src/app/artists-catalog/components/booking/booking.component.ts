@@ -14,7 +14,6 @@ import {ArtistsApiService} from "../../services/artists-api.service";
 })
 export class BookingComponent implements OnInit {
   label = "Booking";
-  // artistId$!: Observable<string>;
   artist$!: Observable<Artist>;
   name?: string = "asdadfgs";
   nameSub: any;
@@ -22,7 +21,8 @@ export class BookingComponent implements OnInit {
 
   bookingForm: FormGroup = this.formBuilder.group({
     artistName: ['',Validators.required],
-    date: ['',Validators.required]
+    date: ['',Validators.required],
+    venue: ['',Validators.required]
   })
 
 
@@ -41,11 +41,9 @@ export class BookingComponent implements OnInit {
       }
     )).subscribe(artist => this.bookingForm.setValue({
       artistName: artist.name,
-      date: this.bookingForm.value.date
-
+      date: this.bookingForm.value.date,
+      venue: this.bookingForm.value.venue
     }))
-    // this.artist$ = this.artistsStateManagementService.setCurrentArtist(this.artistId$)
-    // this.nameSub = this.artist$.pipe(map(artist=> artist.name)).subscribe(value => {this.name = value})
   }
 
 
@@ -55,4 +53,7 @@ export class BookingComponent implements OnInit {
     return day !== 0 && day !== 6;
   };
 
+  onSubmit() {
+    console.log(this.bookingForm.value)
+  }
 }
