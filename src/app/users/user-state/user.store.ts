@@ -41,6 +41,7 @@ export class UsersStore extends EntityStore<UsersState> {
   }
 
 setUserFavorites(favs: string[]): string[] {
+  console.log("setting favs in store")
     return this.update(state => ({
       ...state,
       userFavorites: favs

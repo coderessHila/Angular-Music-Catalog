@@ -69,7 +69,7 @@ export class ArtistCardComponent implements OnInit {
   }
 
   clickFavorites(isFav: boolean) {
-    isFav ? console.log("add to favorites", this.artist.id) : console.log("remove from favorites", this.artist?.id);
+    isFav ? console.log("add to favorites", this.artist.id) : console.log("remove from favorites", this.artist.id);
 
     // if (isFav) {
     this.usersQuery.selectUserId$.pipe(switchMap(

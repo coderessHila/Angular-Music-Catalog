@@ -15,10 +15,9 @@ export class FavoritesApiService {
   constructor(private httpClient: HttpClient, private store:UsersStore) {
   }
 
-  // come on ts, it won't be undefined you silly pus
   // these functions need to be refactored!!!!!!!! getUserFavs!!
   // i think it make sense to save the favorites in the state
-  updateFavorites(userId: string, artistId: string | undefined): Observable<UserFavorites> {
+  updateFavorites(userId: string, artistId: string): Observable<UserFavorites> {
     console.log("updating favorites of user ", userId, "artist id ", artistId)
     return this.httpClient.get<UserFavorites>(`${this.BASE_URL}/${userId}`).pipe(switchMap(
       (favs: UserFavorites) => {
@@ -26,6 +25,7 @@ export class FavoritesApiService {
           userFavorites: [...favs.userFavorites, artistId]
         }
         console.log("sending fav to server")
+        this.store.setUserFavorites(newUserFavs.userFavorites)
         return this.httpClient.put<UserFavorites>(`${this.BASE_URL}/${userId}`, newUserFavs)
       }
     ))
@@ -42,7 +42,8 @@ export class FavoritesApiService {
             userFavorites: newFavsArr
           }
         console.log("sending fav to server")
-        return this.httpClient.put<UserFavorites>(`${this.BASE_URL}/${userId}`, newUserFavs)
+          this.store.setUserFavorites(newUserFavs.userFavorites)
+          return this.httpClient.put<UserFavorites>(`${this.BASE_URL}/${userId}`, newUserFavs)
         } return of(favs);
       }
     ))

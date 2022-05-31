@@ -4,7 +4,7 @@ export interface Origin {
 }
 
 export interface Artist {
-  id?: string;
+  id: string;
   name: string;
   imgUrl: string;
   genres: Array<string>,

@@ -19,7 +19,6 @@ export class CatalogComponent implements OnInit {
 
   ngOnInit(): void {
 this.userFavs$.subscribe(res=>console.log( "res", res))
-
   }
 
 }
