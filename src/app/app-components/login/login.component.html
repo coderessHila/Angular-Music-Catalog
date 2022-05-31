@@ -26,6 +26,8 @@
 <!--login with @hs-style library-->
 <!--<div class="login-container">-->
 
+
+  <!--  make input text white-->
   <div class="login">
     <h2 class="login-text">{{title}}</h2>
     <form [formGroup]="hsLoginForm" (ngSubmit)="onSubmit(hsLoginForm)">
@@ -36,6 +38,7 @@
                    [name]="'password'" formControlName="password" [validators]="passwordValidators"></hs-input>
       <br><br>
       <button mat-raised-button color="accent" [type]="'submit'">Login</button>
+    <button mat-raised-button color="primary" (click)="redirectToCatalog()">Continue as guest</button>
     </form>
     <br>{{hsLoginForm.value|json}}
   </div>

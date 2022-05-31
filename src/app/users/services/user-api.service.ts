@@ -17,6 +17,7 @@ export class UserApiService {
     return this.http.get<User[]>(`${this.BASE_URL}`)
   }
 
+  //you can filter both username and password at once
   validateUser(loginDetails: LoginDetails): Observable<User[]> {
     return this.http.get<User[]>(`${this.BASE_URL}/?username=${loginDetails.username}`).pipe(filter(
       (users: User[]) => {

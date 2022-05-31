@@ -5,6 +5,7 @@ import {FeedComponent} from "./components/feed/feed.component";
 import {ArtistPageComponent} from "./components/artist-page/artist-page.component";
 import {BookingComponent} from "./components/booking/booking.component";
 import {FavoritesComponent} from "./components/favorites/favorites.component";
+import {AuthGuardGuestsService} from "./services/auth-guard-guests.service";
 
 const routes: Routes = [
   {
@@ -21,10 +22,14 @@ const routes: Routes = [
       },
       {
         path: 'booking',
-        loadChildren: () => import('./components/booking/booking.module').then(m => m.BookingModule)
+        loadChildren: () => import('./components/booking/booking.module').then(m => m.BookingModule),
+        canLoad: [AuthGuardGuestsService],
+        canActivate: [AuthGuardGuestsService]
       },
       {path: 'favorites',
-        loadChildren: () => import('./components/favorites/favorites.module').then(m => m.FavoritesModule)
+        loadChildren: () => import('./components/favorites/favorites.module').then(m => m.FavoritesModule),
+        canLoad: [AuthGuardGuestsService],
+        canActivate: [AuthGuardGuestsService]
       }
     ]
   }

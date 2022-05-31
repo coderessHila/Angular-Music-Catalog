@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input, ViewEncapsulation} from '@angular/core';
 import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {UserApiService} from "../../users/services/user-api.service";
@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
         if (users.length) {
           console.log("setting validated user in store")
           this.userStoreService.setUser(true, users[0])
-          this.validLogin()
+          this.redirectToCatalog()
         } else {
           alert("please try again")
         }
@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  validLogin(){
+  redirectToCatalog(){
     this.router.navigateByUrl('catalog/feed')
   }
 
