@@ -8,7 +8,6 @@ import {map, Observable, tap} from "rxjs";
 })
 export class AuthGuardGuestsService implements CanLoad, CanActivate{
   isUserRegistered$: Observable<boolean>;
-  // isUserAdmin$: Observable<boolean>;
 
   constructor( private usersQuery:UsersQuery, private router:Router) {
     this.isUserRegistered$ = this.usersQuery.selectUserType$.pipe(map(
@@ -17,13 +16,6 @@ export class AuthGuardGuestsService implements CanLoad, CanActivate{
         return !(userType === 'guest')
       }
     ));
-
-    // this.isUserAdmin$ = this.usersQuery.selectUserType$.pipe(map(
-    //   (userType: string): boolean => {
-    //     return userType === 'admin'
-    //   }
-    // ));
-
   }
 
   canLoad(): Observable<boolean> {
