@@ -1,9 +1,16 @@
 <!--<app-nav-bar></app-nav-bar>-->
 <!--<app-side-bar></app-side-bar>-->
 
-<app-header-bar></app-header-bar>
+<div *ngIf="!(isUserRegistered$ | async); then loginHeader else catalogHeader"></div>
+<ng-template #loginHeader>
+  <app-header-bar-login></app-header-bar-login>
+</ng-template>
+<ng-template #catalogHeader>
+  <app-header-bar-catalog></app-header-bar-catalog>
+</ng-template>
+
 <div class="app-container">
-<div>
-<router-outlet></router-outlet>
-</div>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
 </div>

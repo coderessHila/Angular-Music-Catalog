@@ -1,0 +1,21 @@
+<!--<p>header-bar-catalog works!</p>-->
+<div class="header-flx">
+  <a routerLink="catalog/feed" (click)="onLogOut()">logout</a>
+  <div>{{greeting$ | async}}</div>
+
+  <h1>Artist Catalog</h1>
+  <!--  profile menu -->
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="profile-btn">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/catalog/favorites">
+      <mat-icon>favorite</mat-icon>
+      <span>My Favorites</span>
+    </button>
+    <button mat-menu-item routerLink="/catalog/booking">
+      <mat-icon>calendar_today</mat-icon>
+      <span>Bookings</span>
+    </button>
+  </mat-menu>
+</div>

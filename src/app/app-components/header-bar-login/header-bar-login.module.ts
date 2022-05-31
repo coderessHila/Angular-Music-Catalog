@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderBarComponent } from './header-bar.component';
+import { HeaderBarLoginComponent } from './header-bar-login.component';
 import {RouterModule} from "@angular/router";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
@@ -10,7 +10,7 @@ import {MatMenuModule} from "@angular/material/menu";
 
 @NgModule({
   declarations: [
-    HeaderBarComponent
+    HeaderBarLoginComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +20,7 @@ import {MatMenuModule} from "@angular/material/menu";
     MatMenuModule
   ],
   exports: [
-    HeaderBarComponent
+    HeaderBarLoginComponent
   ]
 })
-export class HeaderBarModule { }
+export class HeaderBarLoginModule { }

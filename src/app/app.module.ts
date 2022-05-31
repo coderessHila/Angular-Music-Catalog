@@ -9,7 +9,7 @@ import { CatalogModule } from './artists-catalog/catalog.module';
 import {NavBarModule} from "./app-components/nav-bar/nav-bar.module";
 import { LoginModule } from './app-components/login/login.module';
 import {MatButtonModule} from "@angular/material/button";
-import {HeaderBarModule} from "./app-components/header-bar/header-bar.module";
+import {HeaderBarLoginModule} from "./app-components/header-bar-login/header-bar-login.module";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
@@ -18,6 +18,7 @@ import {ArtistPageModule} from "./artists-catalog/components/artist-page/artist-
 import {BookingModule} from "./artists-catalog/components/booking/booking.module";
 import {MatNativeDateModule} from "@angular/material/core";
 import {FavoritesModule} from "./artists-catalog/components/favorites/favorites.module";
+import {HeaderBarCatalogModule} from "./app-components/header-bar-catalog/header-bar-catalog.module";
 
 
 @NgModule({
@@ -34,14 +35,15 @@ import {FavoritesModule} from "./artists-catalog/components/favorites/favorites.
     CatalogModule,
     LoginModule,
     MatButtonModule,
-     HeaderBarModule,
+    HeaderBarLoginModule,
     ArtistPageModule,
-     NgbModule,
+    NgbModule,
     BookingModule,
     FavoritesModule,
     MatNativeDateModule,
-     environment.production ? [] : AkitaNgDevtools.forRoot(),
-     AkitaNgRouterStoreModule
+    environment.production ? [] : AkitaNgDevtools.forRoot(),
+    AkitaNgRouterStoreModule,
+    HeaderBarCatalogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

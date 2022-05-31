@@ -4,11 +4,11 @@ import {UsersQuery} from "../../users/user-state/user.query";
 import {map, Observable} from "rxjs";
 
 @Component({
-  selector: 'app-header-bar',
-  templateUrl: './header-bar.component.html',
-  styleUrls: ['./header-bar.component.scss']
+  selector: 'app-header-bar-login',
+  templateUrl: './header-bar-login.component.html',
+  styleUrls: ['./header-bar-login.component.scss']
 })
-export class HeaderBarComponent implements OnInit {
+export class HeaderBarLoginComponent implements OnInit {
 
   constructor(private userStoreService:UserStoreService, private usersQuery:UsersQuery) { }
 
