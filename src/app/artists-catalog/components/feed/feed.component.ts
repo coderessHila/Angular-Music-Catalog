@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 // import {GetArtistsDataService} from "../../get-artists-data.service";
 import {Artist} from "../../models/artist.interface";
 import {ArtistsApiService} from "../../services/artists-api.service";
@@ -11,7 +11,7 @@ import {ArtistsStoreService} from "../../services/artists-store.service";
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.scss']
 })
-export class FeedComponent implements OnInit {
+export class FeedComponent implements OnInit, OnChanges{
   showEditPopUp: boolean = false;
   isEdit: boolean = false;
   artistToEdit?: Artist;
@@ -22,6 +22,7 @@ export class FeedComponent implements OnInit {
               private artistsStoreService:ArtistsStoreService) { }
 
   ngOnInit(): void {
+    console.log("feed on init")
     this.setAllArtists()
   }
 
@@ -44,5 +45,9 @@ export class FeedComponent implements OnInit {
     this.isEdit = false;
     }
     this.showEditPopUp = event;
+  }
+
+  ngOnChanges(): void {
+    console.log("feed On Changes")
   }
 }

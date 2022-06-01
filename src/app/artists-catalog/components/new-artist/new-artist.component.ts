@@ -3,6 +3,7 @@ import {Artist} from "../../models/artist.interface";
 import {FormBuilder, FormGroup, Validators, FormArray} from "@angular/forms";
 import {setValue} from "@datorama/akita";
 import {ArtistsApiService} from "../../services/artists-api.service";
+import {ArtistsStoreService} from "../../services/artists-store.service";
 
 @Component({
   selector: 'app-new-artist',
@@ -25,7 +26,8 @@ export class NewArtistComponent implements OnInit {
   @Output() onCancelPopUp = new EventEmitter<boolean>()
 
   constructor(private formBuilder: FormBuilder,
-              private artistsApiService:ArtistsApiService) {
+              private artistsApiService:ArtistsApiService,
+              private artistsStoreService:ArtistsStoreService) {
   }
 
   ngOnInit(): void {
@@ -70,7 +72,11 @@ export class NewArtistComponent implements OnInit {
     if (!this.isEdit){
     //  server add artist
       console.log("add artist")
-      this.artistsApiService.addArtist(this.newArtistForm.value).subscribe(res=>console.log(res))
+      this.artistsApiService.addArtist(this.newArtistForm.value).subscribe(res=> {
+        console.log(res)
+        // every update you want to get all artists from server? it doesn't sound like a good idea
+        // this.artistsStoreService.setAllArtists()
+      })
     } else {
     //  servet update artist
       console.log("update artist")

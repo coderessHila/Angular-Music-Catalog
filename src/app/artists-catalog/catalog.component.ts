@@ -18,6 +18,7 @@ export class CatalogComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log("catalog on init")
 this.userFavs$.subscribe(res=>console.log( "res", res))
   }
 
