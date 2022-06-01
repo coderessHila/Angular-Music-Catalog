@@ -10,7 +10,7 @@ import {FormBuilder, FormGroup, Validators, FormArray} from "@angular/forms";
 export class NewArtistComponent implements OnInit {
   // for initializing value in the form, if editing existing artist
   @Input() artist?: Artist
-  @Input() title?: string
+  @Input() title?: string = 'Add a new artist'
 
   constructor(private formBuilder: FormBuilder) {
   }
@@ -22,14 +22,12 @@ export class NewArtistComponent implements OnInit {
   newArtistForm: FormGroup = this.formBuilder.group({
     name: ['', Validators.required],
     imgUrl: ['', Validators.required],
-    genres: this.formBuilder.array([]),
+    genres: ['', Validators.required],
     origin: this.formBuilder.group({
       country: ['', Validators.required],
       city: ['', Validators.required],
     })
   })
 
-  get genres(): FormArray {
-    return this.newArtistForm.get("genres") as FormArray
-  }
+
 }

@@ -12,6 +12,7 @@ import {ArtistsStoreService} from "../../services/artists-store.service";
   styleUrls: ['./feed.component.scss']
 })
 export class FeedComponent implements OnInit {
+  editing: boolean = false
 
 
   // previewArtist?: Artist;
@@ -27,5 +28,9 @@ export class FeedComponent implements OnInit {
   setAllArtists() {
     this.artistsStoreService.setAllArtists()
     this.allArtists$ = this.artistsQuery.selectAllArtists$
+  }
+
+  onAddNewArtist(): void {
+    this.editing = true;
   }
 }

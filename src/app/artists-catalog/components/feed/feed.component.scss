@@ -1,11 +1,11 @@
-//.feed-grid-container{
+.feed-grid-container{
 //  display: grid;
 //  grid-template-columns: 1fr 1fr 1fr;
 //  height: 100%;
 //  background-image: url("https://thumbs.dreamstime.com/z/hands-concert-silhouettes-against-stage-lighting-isolated-white-background-dancing-peoples-117314288.jpg");
 //  background-size: cover;
-//  background-color: #cccccc;
-//}
+//  background-color: white;
+}
 //
 //.artist-card-list{
 //  padding: 8px;
@@ -44,4 +44,13 @@
 //  //justify-content: center;
 //  //width: 100%;
 //  //margin: 20px 0 80px;
+}
+app-new-artist{
+  height: 111.5%;
+  width: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 7;
+  background-color: rgba(0,0,0,0.6);
 }

@@ -1,25 +1,31 @@
 <div class="slide-show">
-<!--  it drives me mad for now to see it scroll-->
-<!--  <app-slide-show></app-slide-show>-->
+  <!--  it drives me mad for now to see it scroll-->
+  <!--  <app-slide-show></app-slide-show>-->
 </div>
 
 <div class="feed-grid-container" style="">
+  <button (click)="onAddNewArtist()">add new artist</button>
   <div class="cards-container">
-    <!--  <div class="artist-card-list">-->
     <app-artist-card *ngFor="let artist of allArtists$ | async" [artist]="artist">
-<!--                     (click)="setPreviewArtist(artist.id)">-->
     </app-artist-card>
-    <!--  </div>-->
   </div>
+  <ng-container *ngIf="editing; then edit">
 
-<!--  <button (click)="setAllArtists()">set all artists</button>-->
+  </ng-container>
+  <ng-template #edit>
+    <div style="background-color: white">
+      <app-new-artist></app-new-artist>
+    </div>
+  </ng-template>
+
+  <!--  <button (click)="setAllArtists()">set all artists</button>-->
   <!--  option 1-->
-<!--  <ng-container *ngIf="allArtists$ | async as allArtists">-->
-<!--    <div *ngFor="let artist of allArtists">{{artist.name}}</div>-->
-<!--  </ng-container>-->
+  <!--  <ng-container *ngIf="allArtists$ | async as allArtists">-->
+  <!--    <div *ngFor="let artist of allArtists">{{artist.name}}</div>-->
+  <!--  </ng-container>-->
 
   <!--  option 2-->
-<!--  <div *ngFor="let artist of allArtists$ | async">{{artist.genres}}</div>-->
+  <!--  <div *ngFor="let artist of allArtists$ | async">{{artist.genres}}</div>-->
 
 
   <!--  <div class="artist-preview">-->
@@ -27,6 +33,4 @@
   <!--  </div>-->
 
 </div>
-<!--<div style="background-color: ">-->
-<!--  <app-new-artist></app-new-artist>-->
-<!--</div>-->
+

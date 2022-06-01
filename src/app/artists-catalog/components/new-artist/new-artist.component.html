@@ -1,10 +1,9 @@
+<div class="form-pop-up-container">
 <h1>{{title}}</h1>
 <form [formGroup]="newArtistForm">
 <hs-input [label]="'Artist Name'" [hint]="' '" [name]="'Artist name'" formControlName="name"></hs-input><br>
 <hs-input [label]="'ImgUrl'" [hint]="'a link to img url'" [name]="'Img url'" formControlName="imgUrl"></hs-input><br>
-<hs-input [label]="'Genres'" [hint]="' '" [name]="'Genres'" formControlName="genre"></hs-input><br>
-  <button mat-raised-button>Add</button>
-
+<hs-input [label]="'Genre, Genre..'" [hint]="' '" [name]="'Genres'" formControlName="genres"></hs-input><br>
 
   <!--origin-->
 <div formGroupName="origin">
@@ -14,6 +13,7 @@
 </form>
 
 {{newArtistForm.value | json}}
+</div>
 
 <!--export interface Origin {-->
 <!--country: string;-->
