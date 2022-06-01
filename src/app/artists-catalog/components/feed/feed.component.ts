@@ -12,7 +12,9 @@ import {ArtistsStoreService} from "../../services/artists-store.service";
   styleUrls: ['./feed.component.scss']
 })
 export class FeedComponent implements OnInit {
-  editing: boolean = false
+  showEditPopUp: boolean = false;
+  isEdit: boolean = false;
+  artistToEdit?: Artist;
 
 
   // previewArtist?: Artist;
@@ -31,6 +33,18 @@ export class FeedComponent implements OnInit {
   }
 
   onAddNewArtist(): void {
-    this.editing = true;
+    this.showEditPopUp = true;
+  }
+
+  isEditing(event:boolean, artist?: Artist){
+    console.log(artist)
+    if (artist?.id) {
+      console.log("edit artist")
+      this.isEdit = true;
+      this.artistToEdit = artist;
+    } else {
+    this.isEdit = false;
+    }
+    this.showEditPopUp = event;
   }
 }

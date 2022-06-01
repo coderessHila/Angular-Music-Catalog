@@ -1,6 +1,6 @@
-<div class="form-pop-up-container">
+  <div class="form-pop-up-container">
 <h1>{{title}}</h1>
-<form [formGroup]="newArtistForm">
+<form [formGroup]="newArtistForm" (ngSubmit)="onSubmit()">
 <hs-input [label]="'Artist Name'" [hint]="' '" [name]="'Artist name'" formControlName="name"></hs-input><br>
 <hs-input [label]="'ImgUrl'" [hint]="'a link to img url'" [name]="'Img url'" formControlName="imgUrl"></hs-input><br>
 <hs-input [label]="'Genre, Genre..'" [hint]="' '" [name]="'Genres'" formControlName="genres"></hs-input><br>
@@ -10,9 +10,12 @@
 <hs-input [label]="'Country'" [hint]="' '" [name]="'Country'" formControlName="country"></hs-input><br>
 <hs-input [label]="'City'" [hint]="' '" [name]="'City'" formControlName="city"></hs-input><br>
 </div>
+  <button mat-stroked-button color="primary" type="submit">{{confirmBtnText}}</button>
+  <button mat-stroked-button color="warn" (click)="onCancel()">Cancel</button>
 </form>
 
-{{newArtistForm.value | json}}
+  {{newArtistForm.value | json}}<br>
+
 </div>
 
 <!--export interface Origin {-->

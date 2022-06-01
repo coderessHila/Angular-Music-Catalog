@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {Artist} from "../../models/artist.interface";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ArtistsStoreService} from "../../services/artists-store.service";
@@ -22,6 +22,7 @@ import {AuthGuardGuestsService} from "../../services/auth-guard-guests.service";
 export class ArtistCardComponent implements OnInit {
 
   @Input() artist!: Artist;
+  @Output() onEditArtistClick = new EventEmitter<boolean>()
 
   constructor(
     private router: Router,
@@ -41,6 +42,10 @@ export class ArtistCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.usersQuery.selectUserId$.pipe(take(1)).subscribe(userId => this.userId = userId)
+  }
+
+  onEditClick(): void {
+    this.onEditArtistClick.emit(true)
   }
 
   isFav$(): Observable<boolean>{

@@ -1,5 +1,9 @@
 <ng-container *ngIf="artist">
   <div class="card">
+    <div>
+    <button mat-stroked-button class="card-admin-btn" (click)="onEditClick()">Edit</button>
+    <button mat-stroked-button class="card-admin-btn">Delete</button>
+    </div>
     <figure class="card__thumb">
       <img src="{{artist.imgUrl}}" alt="{{artist.name}}" class="card__image">
       <figcaption class="card__caption">

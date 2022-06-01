@@ -4,18 +4,18 @@
 </div>
 
 <div class="feed-grid-container" style="">
-  <button (click)="onAddNewArtist()">add new artist</button>
+  <button (click)="onAddNewArtist()" mat-raised-button>Add new artist</button>
   <div class="cards-container">
-    <app-artist-card *ngFor="let artist of allArtists$ | async" [artist]="artist">
+  <ng-container *ngFor="let artist of allArtists$ | async">
+    <app-artist-card [artist]="artist" (onEditArtistClick)="isEditing($event, artist)">
     </app-artist-card>
+  </ng-container>
   </div>
-  <ng-container *ngIf="editing; then edit">
+  <ng-container *ngIf="showEditPopUp; then edit">
 
   </ng-container>
   <ng-template #edit>
-    <div style="background-color: white">
-      <app-new-artist></app-new-artist>
-    </div>
+    <app-new-artist (onCancelPopUp)="isEditing(!$event)" [isEdit]="isEdit" [artist]="artistToEdit"></app-new-artist>
   </ng-template>
 
   <!--  <button (click)="setAllArtists()">set all artists</button>-->

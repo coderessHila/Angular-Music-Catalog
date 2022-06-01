@@ -4,6 +4,8 @@ import { NewArtistComponent } from './new-artist.component';
 import {HsInputModule} from "@hs-style";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatChipsModule} from "@angular/material/chips";
 
 
 
@@ -15,7 +17,9 @@ import {MatButtonModule} from "@angular/material/button";
     CommonModule,
     HsInputModule,
     ReactiveFormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatChipsModule
   ],
   exports: [
     NewArtistComponent
