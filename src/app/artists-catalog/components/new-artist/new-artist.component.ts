@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, Validators, FormArray} from "@angular/forms";
 import {setValue} from "@datorama/akita";
 import {ArtistsApiService} from "../../services/artists-api.service";
 import {ArtistsStoreService} from "../../services/artists-store.service";
+import {take} from "rxjs";
 
 @Component({
   selector: 'app-new-artist',
@@ -72,15 +73,20 @@ export class NewArtistComponent implements OnInit {
     if (!this.isEdit){
     //  server add artist
       console.log("add artist")
-      this.artistsApiService.addArtist(this.newArtistForm.value).subscribe(res=> {
-        console.log(res)
+      this.artistsApiService.addArtist(this.newArtistForm.value).pipe(take(1)).subscribe((artist:Artist)=> {
+        console.log(artist)
         // every update you want to get all artists from server? it doesn't sound like a good idea
         // this.artistsStoreService.setAllArtists()
-      })
+          this.artistsStoreService.addArtist(artist)
+        }
+      )
     } else {
     //  servet update artist
       console.log("update artist")
-      this.artistsApiService.updateArtist(this.newArtistForm.value, this.artist?.id).subscribe(res=>console.log(res))
+      this.artistsApiService.updateArtist(this.newArtistForm.value, this.artist?.id).subscribe(artist=> {
+        console.log(artist)
+        this.artistsStoreService.updateArtist(artist)
+      })
     }
     this.onCancel()
   }

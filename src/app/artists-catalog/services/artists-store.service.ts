@@ -21,6 +21,14 @@ export class ArtistsStoreService {
     })
   }
 
+  addArtist(artist: Artist) {
+    this.store.addArtist(artist)
+  }
+
+  updateArtist(artist: Artist): void {
+    this.store.updateArtist(artist)
+  }
+
   setCurrentArtist(id$: Observable<string>): Observable<Artist> {
     // the functions of the store service (state-management-service), need to return the values they set in the store
     // this way the component that calls the function could get the value from it

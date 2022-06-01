@@ -50,4 +50,26 @@ export class ArtistsStore extends EntityStore<ArtistsState> {
     // to delete, just for debugging
     this.update(console.log)
   }
+
+  addArtist(artist: Artist): void {
+    console.log("adding artist to store", artist)
+    this.update(state => ({
+      ...state,
+        allArtists: [...state.allArtists, artist]
+    }))
+  }
+
+  updateArtist(artist:Artist): void {
+    console.log("updating artist in store", artist)
+    this.update(state => {
+      const artistIndex = state.allArtists.findIndex(ar => ar.id === artist.id);
+      const updatedAllArtists = [...state.allArtists]
+      updatedAllArtists.splice(artistIndex, 1, artist)
+      console.log("updatedAllArtists", updatedAllArtists)
+      return ({
+        ...state,
+        allArtists: updatedAllArtists
+      })
+    })
+  }
 }
