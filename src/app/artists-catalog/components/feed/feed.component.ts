@@ -5,6 +5,7 @@ import {ArtistsApiService} from "../../services/artists-api.service";
 import {Observable} from "rxjs";
 import {ArtistsQuery} from "../../artists-state/artists.query";
 import {ArtistsStoreService} from "../../services/artists-store.service";
+import {UsersQuery} from "../../../users/user-state/user.query";
 
 @Component({
   selector: 'app-feed',
@@ -17,9 +18,11 @@ export class FeedComponent implements OnInit, OnChanges{
   artistToEdit?: Artist;
 
   allArtists$?: Observable<Artist[]>;
+  userType$: Observable<string> = this.usersQuery.selectUserType$
 
   constructor(private artistsQuery: ArtistsQuery,
-              private artistsStoreService:ArtistsStoreService) { }
+              private artistsStoreService:ArtistsStoreService,
+              private usersQuery:UsersQuery) { }
 
   ngOnInit(): void {
     console.log("feed on init")

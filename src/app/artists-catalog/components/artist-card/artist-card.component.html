@@ -1,6 +1,6 @@
 <ng-container *ngIf="artist">
   <div class="card">
-    <div>
+    <div *ngIf="(userType$ | async) === 'admin'">
     <button mat-stroked-button class="card-admin-btn" (click)="onEditClick()">Edit</button>
     <button mat-stroked-button class="card-admin-btn" (click)="deleteArtist()">Delete</button>
     </div>

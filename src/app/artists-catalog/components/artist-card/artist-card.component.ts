@@ -41,6 +41,7 @@ export class ArtistCardComponent implements OnInit {
   isFavChecked$: Observable<boolean>;
   isUserRegistered$: Observable<boolean>;
   private userId!: string;
+  userType$: Observable<string> = this.usersQuery.selectUserType$
 
   ngOnInit(): void {
     this.usersQuery.selectUserId$.pipe(take(1)).subscribe(userId => this.userId = userId)

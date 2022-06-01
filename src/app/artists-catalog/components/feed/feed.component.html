@@ -4,7 +4,9 @@
 </div>
 
 <div class="feed-grid-container" style="">
-  <button (click)="onAddNewArtist()" mat-raised-button>Add new artist</button>
+  <ng-container *ngIf="(userType$ | async) === 'admin'">
+    <button (click)="onAddNewArtist()" mat-raised-button>Add new artist</button>
+  </ng-container>
   <div class="cards-container">
   <ng-container *ngFor="let artist of allArtists$ | async">
     <app-artist-card [artist]="artist" (onEditArtistClick)="isEditing($event, artist)">
