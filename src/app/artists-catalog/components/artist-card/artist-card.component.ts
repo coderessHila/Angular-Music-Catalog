@@ -4,7 +4,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {ArtistsStoreService} from "../../services/artists-store.service";
 import {FavoritesApiService} from "../../services/favorites-api.service";
 import {UsersQuery} from "../../../users/user-state/user.query";
-import { map, Observable, switchMap} from "rxjs";
+import {map, Observable, switchMap, take} from "rxjs";
 import {
   AddedToFavsSnackBarComponent,
   NoFavsPermissionSnackBarComponent,
@@ -37,9 +37,10 @@ export class ArtistCardComponent implements OnInit {
 
   isFavChecked$: Observable<boolean>;
   isUserRegistered$: Observable<boolean>;
+  private userId!: string;
 
   ngOnInit(): void {
-
+    this.usersQuery.selectUserId$.pipe(take(1)).subscribe(userId => this.userId = userId)
   }
 
   isFav$(): Observable<boolean>{
@@ -72,17 +73,21 @@ export class ArtistCardComponent implements OnInit {
     isFav ? console.log("add to favorites", this.artist.id) : console.log("remove from favorites", this.artist.id);
 
     // if (isFav) {
-    this.usersQuery.selectUserId$.pipe(switchMap(
-      userId => {
-        return isFav ?
-          this.favoritesApiService.updateFavorites(userId, this.artist.id) :
-          this.favoritesApiService.removeFromFavorites(userId, this.artist.id);
-      }
-    )).subscribe(success => console.log("updated favs", success))
+    // this.usersQuery.selectUserId$.pipe(switchMap(
+    //   userId => {
+    //     return isFav ?
+    //       this.favoritesApiService.updateFavorites(this.userId, this.artist.id) :
+    //       this.favoritesApiService.removeFromFavorites(this.userId, this.artist.id);
+    //   }
+    // )).subscribe(success => console.log("updated favs", success))
+    const apiCall = isFav ?
+      this.favoritesApiService.updateFavorites(this.userId, this.artist.id) :
+      this.favoritesApiService.removeFromFavorites(this.userId, this.artist.id)
+    apiCall.subscribe();
     this.openSnackBar(isFav)
   }
 
-  openSnackBar(isFav: boolean) {
+  openSnackBar(isFav: boolean): void {
     this.usersQuery.selectUserType$.subscribe(value => {
       if (value === 'guest') {
         this._snackBar.openFromComponent(NoFavsPermissionSnackBarComponent, {

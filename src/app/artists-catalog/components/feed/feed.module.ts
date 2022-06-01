@@ -8,6 +8,7 @@ import {SlideShowModule} from "../slide-show/slide-show.module";
 import {FavoritesHeartModule} from "../favorites-heart/favorites-heart.module";
 // import { HeartFavoritesModule, HeartModule} from "@hs-style";
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {NewArtistModule} from "../new-artist/new-artist.module";
 
 
 
@@ -22,6 +23,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
     MatButtonModule,
     SlideShowModule,
     FavoritesHeartModule,
+    NewArtistModule,
     // HeartModule,
     // HeartFavoritesModule
   ],

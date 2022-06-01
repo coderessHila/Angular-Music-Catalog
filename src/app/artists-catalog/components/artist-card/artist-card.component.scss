@@ -71,6 +71,7 @@ body {
     }
 
     .card__thumb {
+      margin-bottom: 0;
       &::after {
         top: 0;
       }

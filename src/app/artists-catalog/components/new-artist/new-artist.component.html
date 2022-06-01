@@ -1,0 +1,29 @@
+<h1>{{title}}</h1>
+<form [formGroup]="newArtistForm">
+<hs-input [label]="'Artist Name'" [hint]="' '" [name]="'Artist name'" formControlName="name"></hs-input><br>
+<hs-input [label]="'ImgUrl'" [hint]="'a link to img url'" [name]="'Img url'" formControlName="imgUrl"></hs-input><br>
+<hs-input [label]="'Genres'" [hint]="' '" [name]="'Genres'" formControlName="genre"></hs-input><br>
+  <button mat-raised-button>Add</button>
+
+
+  <!--origin-->
+<div formGroupName="origin">
+<hs-input [label]="'Country'" [hint]="' '" [name]="'Country'" formControlName="country"></hs-input><br>
+<hs-input [label]="'City'" [hint]="' '" [name]="'City'" formControlName="city"></hs-input><br>
+</div>
+</form>
+
+{{newArtistForm.value | json}}
+
+<!--export interface Origin {-->
+<!--country: string;-->
+<!--city: string;-->
+<!--}-->
+
+<!--export interface Artist {-->
+<!--id: string;-->
+<!--name: string;-->
+<!--imgUrl: string;-->
+<!--genres: Array<string>,-->
+<!--origin: Origin-->
+<!--}-->
