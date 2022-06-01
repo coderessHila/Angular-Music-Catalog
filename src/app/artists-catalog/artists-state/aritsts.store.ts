@@ -6,6 +6,7 @@ import {Observable} from "rxjs";
 export interface ArtistsState extends EntityState<Artist, string> {
   allArtists: Artist[];
 }
+
 export function createInitialState(): ArtistsState {
   return {
     allArtists: []
@@ -15,7 +16,7 @@ export function createInitialState(): ArtistsState {
 @Injectable({
   providedIn: 'root'
 })
-@StoreConfig({ name: 'artists' })
+@StoreConfig({name: 'artists'})
 export class ArtistsStore extends EntityStore<ArtistsState> {
   constructor() {
     super(createInitialState());
@@ -24,15 +25,16 @@ export class ArtistsStore extends EntityStore<ArtistsState> {
   // when i have a user state, i'll check if there's a user, then load the artists
   loadArtists(artists: Artist[]) {
     console.log("load artists in store: ")
-  //   if there's a user
-  //  if artists arr is empty
-  //  set artists from the api service in this store
+    //   if there's a user
+    //  if artists arr is empty
+    //  set artists from the api service in this store
     this.update(state => {
       console.log("state before update: ", state)
       return {
-      ...state,
-      allArtists: artists
-    }})
+        ...state,
+        allArtists: artists
+      }
+    })
     // to delete, just for debugging
     this.update(console.log)
   }
@@ -42,7 +44,7 @@ export class ArtistsStore extends EntityStore<ArtistsState> {
   setCurrentArtist(artist: Artist) {
     console.log("set current artist in store", artist);
     this.update(state => {
-      return{
+      return {
         ...state,
         currentArtist: artist
       }
@@ -55,16 +57,30 @@ export class ArtistsStore extends EntityStore<ArtistsState> {
     console.log("adding artist to store", artist)
     this.update(state => ({
       ...state,
-        allArtists: [...state.allArtists, artist]
+      allArtists: [...state.allArtists, artist]
     }))
   }
 
-  updateArtist(artist:Artist): void {
+  updateArtist(artist: Artist): void {
     console.log("updating artist in store", artist)
     this.update(state => {
       const artistIndex = state.allArtists.findIndex(ar => ar.id === artist.id);
       const updatedAllArtists = [...state.allArtists]
       updatedAllArtists.splice(artistIndex, 1, artist)
+      console.log("updatedAllArtists", updatedAllArtists)
+      return ({
+        ...state,
+        allArtists: updatedAllArtists
+      })
+    })
+  }
+
+  deleteArtist(id: string): void {
+    console.log("deleting artist from store, id:", id)
+    this.update(state=>{
+      const artistIndex = state.allArtists.findIndex(ar => ar.id === id);
+      const updatedAllArtists = [...state.allArtists]
+      updatedAllArtists.splice(artistIndex, 1)
       console.log("updatedAllArtists", updatedAllArtists)
       return ({
         ...state,

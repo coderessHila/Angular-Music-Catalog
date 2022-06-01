@@ -33,7 +33,7 @@ export class ArtistCardComponent implements OnInit {
     private usersQuery: UsersQuery,
     private _snackBar: MatSnackBar,
     private authGuardGuestsService: AuthGuardGuestsService,
-    private artistsApiService: ArtistsApiService) {
+    private artistsStoreService:ArtistsStoreService) {
     this.isFavChecked$ = this.isFav$()
     this.isUserRegistered$ = this.authGuardGuestsService.isUserRegistered()
   }
@@ -111,6 +111,7 @@ export class ArtistCardComponent implements OnInit {
   }
 
   deleteArtist(): void {
-    this.artistsApiService.deleteArtist(this.artist.id).subscribe(res => console.log(res))
+    // this.artistsApiService.deleteArtist(this.artist.id).subscribe(res => console.log(res))
+    this.artistsStoreService.deleteArtist(this.artist.id)
   }
 }

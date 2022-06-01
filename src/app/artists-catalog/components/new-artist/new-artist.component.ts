@@ -73,20 +73,29 @@ export class NewArtistComponent implements OnInit {
     if (!this.isEdit){
     //  server add artist
       console.log("add artist")
-      this.artistsApiService.addArtist(this.newArtistForm.value).pipe(take(1)).subscribe((artist:Artist)=> {
-        console.log(artist)
-        // every update you want to get all artists from server? it doesn't sound like a good idea
-        // this.artistsStoreService.setAllArtists()
-          this.artistsStoreService.addArtist(artist)
-        }
-      )
+
+      // this.artistsApiService.addArtist(this.newArtistForm.value).pipe(take(1)).subscribe((artist:Artist)=> {
+      //   console.log(artist)
+
+              // real stupid, i don't need this reference
+              // every update you want to get all artists from server? it doesn't sound like a good idea
+              // this.artistsStoreService.setAllArtists()
+
+        // this.artistsStoreService.addArtist(artist)
+        // }
+    // )
+
+      // this service is already updating the server, too
+      this.artistsStoreService.addArtist(this.newArtistForm.value)
+
     } else {
     //  servet update artist
       console.log("update artist")
-      this.artistsApiService.updateArtist(this.newArtistForm.value, this.artist?.id).subscribe(artist=> {
-        console.log(artist)
-        this.artistsStoreService.updateArtist(artist)
-      })
+      // this.artistsApiService.updateArtist(this.newArtistForm.value, this.artist?.id).subscribe(artist=> {
+      //   console.log(artist)
+      //   this.artistsStoreService.updateArtist(artist)
+      // })
+      this.artistsStoreService.updateArtist(this.newArtistForm.value, this.artist?.id)
     }
     this.onCancel()
   }

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ArtistsStore} from "../artists-state/aritsts.store";
 import {ArtistsApiService} from "./artists-api.service";
-import {Observable, switchMap, tap} from "rxjs";
+import {Observable, switchMap, take, tap} from "rxjs";
 import {Artist} from "../models/artist.interface";
 
 @Injectable({
@@ -9,24 +9,33 @@ import {Artist} from "../models/artist.interface";
 })
 export class ArtistsStoreService {
 
-  constructor(private store: ArtistsStore, private artistDataAccessService: ArtistsApiService) {
+  constructor(private store: ArtistsStore, private artistsApiService: ArtistsApiService) {
 
   }
 
   setAllArtists() {
     console.log("setAllArtists is actually setting the state")
-    this.artistDataAccessService.getArtists().subscribe((artists) => {
+    this.artistsApiService.getArtists().subscribe((artists) => {
       console.log("in subscribe", artists);
       this.store.loadArtists(artists)
     })
   }
 
   addArtist(artist: Artist) {
-    this.store.addArtist(artist)
+    this.artistsApiService.addArtist(artist).pipe(take(1)).subscribe(
+      artist => this.store.addArtist(artist))
   }
 
-  updateArtist(artist: Artist): void {
-    this.store.updateArtist(artist)
+  updateArtist(artist: Artist, artistId: string | undefined): void {
+    this.artistsApiService.updateArtist(artist, artistId).pipe(take(1)).subscribe(
+      artist => this.store.updateArtist(artist)
+    )
+  }
+
+  deleteArtist(id:string): void {
+    this.artistsApiService.deleteArtist(id).pipe(take(1)).subscribe(
+      ()=> this.store.deleteArtist(id)
+    )
   }
 
   setCurrentArtist(id$: Observable<string>): Observable<Artist> {
@@ -37,7 +46,7 @@ export class ArtistsStoreService {
       switchMap(id =>
         // this is the new inner observable.
         // switchMap switched from the id$ observable to the Observable<Artist> that's returned from the dataAccess service.
-        this.artistDataAccessService.getArtistById(id).pipe(
+        this.artistsApiService.getArtistById(id).pipe(
           // tap() operator is a utility operator that returns an observable output that is identical to the source observable
           // It does not modify the stream in any way.
           // but performs a side effect for every emission on the source observable.
