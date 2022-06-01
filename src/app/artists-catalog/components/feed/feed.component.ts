@@ -16,8 +16,6 @@ export class FeedComponent implements OnInit {
   isEdit: boolean = false;
   artistToEdit?: Artist;
 
-
-  // previewArtist?: Artist;
   allArtists$?: Observable<Artist[]>;
 
   constructor(private artistsQuery: ArtistsQuery,

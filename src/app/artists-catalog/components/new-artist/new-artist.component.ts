@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Artist} from "../../models/artist.interface";
 import {FormBuilder, FormGroup, Validators, FormArray} from "@angular/forms";
 import {setValue} from "@datorama/akita";
+import {ArtistsApiService} from "../../services/artists-api.service";
 
 @Component({
   selector: 'app-new-artist',
@@ -23,7 +24,8 @@ export class NewArtistComponent implements OnInit {
   confirmBtnText = this.buttonText.add
   @Output() onCancelPopUp = new EventEmitter<boolean>()
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+              private artistsApiService:ArtistsApiService) {
   }
 
   ngOnInit(): void {
@@ -46,8 +48,34 @@ export class NewArtistComponent implements OnInit {
     this.onCancelPopUp.emit(true)
   }
 
+  //  temporary code to convert genres from string to array
+  // I want to use form array
+  getGenresAsArray(): string[] {
+    if (typeof(this.newArtistForm.value.genres) === 'string') {
+      const genresArr: string[] = this.newArtistForm.value.genres.split(',')
+      return genresArr.map(genre=>genre.trim())
+    } else {
+      return this.newArtistForm.value.genres
+    }
+  }
+
   onSubmit(): void {
-    console.log(this.newArtistForm.value)
+    //  temporary code to convert genres from string to array
+    this.newArtistForm.patchValue({
+      genres: this.getGenresAsArray()
+    })
+    console.log("form value", this.newArtistForm.value)
+
+    //change to ternary
+    if (!this.isEdit){
+    //  server add artist
+      console.log("add artist")
+      this.artistsApiService.addArtist(this.newArtistForm.value).subscribe(res=>console.log(res))
+    } else {
+    //  servet update artist
+      console.log("update artist")
+      this.artistsApiService.updateArtist(this.newArtistForm.value, this.artist?.id).subscribe(res=>console.log(res))
+    }
     this.onCancel()
   }
 

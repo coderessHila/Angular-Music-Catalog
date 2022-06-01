@@ -21,6 +21,20 @@ export class ArtistsApiService {
     return this.httpClient.get<Artist>(`${this.BASE_URL}/artists/${id}`)
   }
 
+  addArtist(artist: Artist): Observable<Artist> {
+    // ** add bookings
+    return this.httpClient.post<Artist>(`${this.BASE_URL}/artists`, artist)
+  }
+  updateArtist(artist: Object, artistId?: string): Observable<Artist> {
+    console.log(artist)
+    console.log(artistId)
+    return this.httpClient.put<Artist>(`${this.BASE_URL}/artists/${artistId}`, artist)
+  }
+
+  deleteArtist(id:string): Observable<Artist> {
+    // *** delete also bookings?
+    return this.httpClient.delete<Artist>(`${this.BASE_URL}/artists/${id}`)
+  }
   // this.artistsApiService.getArtistGigs(gigs.gigs)
   getArtistGigs(artistId:string, gigs: Gig[]) {
 

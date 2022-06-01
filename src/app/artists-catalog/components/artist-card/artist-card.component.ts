@@ -12,6 +12,7 @@ import {
 } from "@hs-style";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {AuthGuardGuestsService} from "../../services/auth-guard-guests.service";
+import {ArtistsApiService} from "../../services/artists-api.service";
 
 
 @Component({
@@ -31,7 +32,8 @@ export class ArtistCardComponent implements OnInit {
     private favoritesApiService: FavoritesApiService,
     private usersQuery: UsersQuery,
     private _snackBar: MatSnackBar,
-    private authGuardGuestsService:AuthGuardGuestsService) {
+    private authGuardGuestsService: AuthGuardGuestsService,
+    private artistsApiService: ArtistsApiService) {
     this.isFavChecked$ = this.isFav$()
     this.isUserRegistered$ = this.authGuardGuestsService.isUserRegistered()
   }
@@ -48,16 +50,16 @@ export class ArtistCardComponent implements OnInit {
     this.onEditArtistClick.emit(true)
   }
 
-  isFav$(): Observable<boolean>{
-  //  get users favs from store
+  isFav$(): Observable<boolean> {
+    //  get users favs from store
     return this.usersQuery.selectUserFavorites$.pipe(map(
       (favs: string[]) => {
-        return (favs.findIndex(artistId=>artistId===this.artist.id) !== -1)
+        return (favs.findIndex(artistId => artistId === this.artist.id) !== -1)
       }
     ))
-  //  check if this artist.id is in favs
-  //  if it is return true
-  //  if not return false
+    //  check if this artist.id is in favs
+    //  if it is return true
+    //  if not return false
   }
 
   navigateToArtistPage() {
@@ -106,5 +108,9 @@ export class ArtistCardComponent implements OnInit {
         })
       }
     })
+  }
+
+  deleteArtist(): void {
+    this.artistsApiService.deleteArtist(this.artist.id).subscribe(res => console.log(res))
   }
 }

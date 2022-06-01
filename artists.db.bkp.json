@@ -1,7 +1,8 @@
 {
   "artists": [
     {
-      "name": "Madonnanana",
+      "id": "1",
+      "name": "Madonna",
       "imgUrl": "https://www.rollingstone.com/wp-content/uploads/2018/06/rs-25025-rectangle.jpg?resize=1800,1200&w=450",
       "genres": [
         "pop",
@@ -10,8 +11,7 @@
       "origin": {
         "country": "USA",
         "city": "Bay City, Michigan"
-      },
-      "id": "1"
+      }
     },
     {
       "id": "2",
@@ -133,19 +133,6 @@
         "country": "US",
         "city": "Detroit, Michigan"
       }
-    },
-    {
-      "name": "The Corrs",
-      "imgUrl": "https://direct.rhapsody.com/imageserver/images/Art.4018/356x237.jpg",
-      "genres": [
-        "Irish",
-        "pop rock"
-      ],
-      "origin": {
-        "country": "Ireland",
-        "city": "Dundalk"
-      },
-      "id": "xBmeuWo"
     }
   ],
   "users": [
