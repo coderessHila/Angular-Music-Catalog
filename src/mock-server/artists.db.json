@@ -11,7 +11,8 @@
         "country": "USA",
         "city": "Bay City, Michigan"
       },
-      "id": "1"
+      "id": "1",
+      "active_since": 1979
     },
     {
       "id": "2",
@@ -25,7 +26,8 @@
       "origin": {
         "country": "USA",
         "city": "Franklin, Tennessee"
-      }
+      },
+      "active_since": 2004
     },
     {
       "id": "3",
@@ -38,7 +40,8 @@
       "origin": {
         "country": "United Kingdom",
         "city": "Aston, Birmingham"
-      }
+      },
+      "active_since": 1967
     },
     {
       "id": "4",
@@ -52,7 +55,8 @@
       "origin": {
         "country": "United Kingdom",
         "city": "London"
-      }
+      },
+      "active_since": 1967
     },
     {
       "id": "5",
@@ -65,74 +69,85 @@
       "origin": {
         "country": "US",
         "city": "Detroit, Michigan"
-      }
+      },
+      "active_since": 1959
     },
     {
       "id": "6",
-      "name": "Madonna",
-      "imgUrl": "https://www.rollingstone.com/wp-content/uploads/2018/06/rs-25025-rectangle.jpg?resize=1800,1200&w=450",
+      "name": "AURORA",
+      "imgUrl": "https://studiosol-a.akamaihd.net/uploadfile/letras/fotos/7/2/0/e/720ea15285b824961e5fdfce7ee5ead5.jpg",
       "genres": [
         "pop",
+        "art pop",
+        "nordic folk",
         "electronic"
       ],
       "origin": {
-        "country": "USA",
-        "city": "Bay City, Michigan"
-      }
+        "country": "Norway",
+        "city": "Stavanger"
+      },
+      "active_since": 2012
     },
     {
       "id": "7",
-      "name": "Paramore",
-      "imgUrl": "https://www.justpushstart.com/wp-content/uploads/2012/05/paramoreMEN-850x606.jpg",
+      "name": "Eden's Edge",
+      "imgUrl": "https://i.discogs.com/E_rL3CLuw0XvMAnnhfojIR5bLddHYJkF9vuvW5flJu4/rs:fit/g:sm/q:90/h:400/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTM2MDgw/MTItMTUyNTk3MTkx/MC04ODQ1LmpwZWc.jpeg",
       "genres": [
-        "rock",
-        "pop",
-        "punk-pop"
+        "country"
       ],
       "origin": {
         "country": "USA",
-        "city": "Franklin, Tennessee"
-      }
+        "city": "Russellville, Arkansas"
+      },
+      "active_since": 2006
     },
     {
       "id": "8",
-      "name": "Ozzy Osbourne",
-      "imgUrl": "https://wallsdesk.com/wp-content/uploads/2017/01/Ozzy-Osbourne-Images.jpg",
+      "name": "Sussanne Sundfør",
+      "imgUrl": "https://cdn.albumoftheyear.org/artists/sq/susanne-sundfor_1507122681.jpg",
       "genres": [
-        "rock",
-        "metal"
+        "art pop",
+        "folk",
+        "experimental pop"
       ],
       "origin": {
-        "country": "United Kingdom",
-        "city": "Aston, Birmingham"
-      }
+        "country": "Norway",
+        "city": "Haugesund"
+      },
+      "active_since": 2005
     },
     {
       "id": "9",
-      "name": "Fleetwood Mac",
-      "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Fleetwood_Mac_Billboard_1977.jpg/640px-Fleetwood_Mac_Billboard_1977.jpg",
+      "name": "The Pretenders",
+      "imgUrl": "https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/6-the-pretenders-fin-costello.jpg",
       "genres": [
         "pop rock",
-        "folk rock",
-        "blues rock"
+        "rock",
+        "new wave",
+        "alternative rock"
       ],
       "origin": {
         "country": "United Kingdom",
-        "city": "London"
-      }
+        "city": "Hereford"
+      },
+      "active_since": 1978
     },
     {
       "id": "10",
-      "name": "The Supremes",
-      "imgUrl": "https://www.udiscovermusic.com/wp-content/uploads/2020/02/The-Supremes-GettyImages-74001231.jpg",
+      "name": "Blondie",
+      "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Blondie1977.jpg",
       "genres": [
-        "Motown",
-        "Blues"
+        "New wave",
+        "pop rock",
+        "punk rock",
+        "disco",
+        "funk"
       ],
       "origin": {
-        "country": "US",
-        "city": "Detroit, Michigan"
-      }
+        "country": "USA",
+        "city": "New York City"
+      },
+      "active_since": 1974
     },
     {
       "name": "The Corrs",
@@ -145,7 +160,8 @@
         "country": "Ireland",
         "city": "Dundalk"
       },
-      "id": "xBmeuWo"
+      "id": "xBmeuWo",
+      "active_since": 1990
     }
   ],
   "users": [
@@ -175,7 +191,8 @@
     {
       "userFavorites": [
         "9",
-        "2"
+        "2",
+        "6"
       ],
       "id": "1"
     },
@@ -241,6 +258,13 @@
       "date": "Mon Jun 13 2022",
       "venue": "Japan Hall",
       "id": "MvC39Pf"
+    },
+    {
+      "artistId": "6",
+      "userId": "1",
+      "date": "Sat Jun 11 2022",
+      "venue": "Barbie, TLV",
+      "id": "FAsKLht"
     }
   ]
 }

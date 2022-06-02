@@ -8,5 +8,6 @@ export interface Artist {
   name: string;
   imgUrl: string;
   genres: Array<string>,
-  origin: Origin
+  origin: Origin,
+  active_since: number
 }
