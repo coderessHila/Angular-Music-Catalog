@@ -27,11 +27,11 @@
   background-size: cover;
   display: grid;
   grid-template-rows: 56px auto;
-  grid-template-columns: 1fr 900px 1fr;
+  grid-template-columns: 1fr 75vw 1fr;
   height: 100vh;
 
   app-nav-bar {
-    grid-row-end: 1;
+    //grid-row-end: 1;
     grid-column-start: 2;
   }
 
@@ -39,6 +39,7 @@
     grid-row-start: 2;
     grid-column-start: 2;
     overflow: auto;
+    background-color: #e6e6e6;
   }
 
 }

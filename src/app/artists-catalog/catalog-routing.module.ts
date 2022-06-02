@@ -6,6 +6,7 @@ import {ArtistPageComponent} from "./components/artist-page/artist-page.componen
 import {BookingComponent} from "./components/booking/booking.component";
 import {FavoritesComponent} from "./components/favorites/favorites.component";
 import {AuthGuardGuestsService} from "./services/auth-guard-guests.service";
+import {CompareComponent} from "./components/compare/compare.component";
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
       {
         path: 'artist',
         component: ArtistPageComponent
+      },
+      {
+        path: 'compare',
+        component: CompareComponent
       },
       {
         path: 'booking',
