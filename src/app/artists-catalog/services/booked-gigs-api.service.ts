@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {UsersStore} from "../../users/user-state/user.store";
 import {map, Observable} from "rxjs";
-import {ArtistGigs, Gig} from "../models/booked-gig.interface";
+import {BookedGig} from "../models/booked-gig.interface";
 import {ArtistsStore} from "../artists-state/aritsts.store";
 import {ArtistsApiService} from "./artists-api.service";
 
@@ -11,17 +11,22 @@ import {ArtistsApiService} from "./artists-api.service";
 })
 export class BookedGigsApiService {
 
-  BASE_URL = "http://localhost:3000/favorites";
+  BASE_URL = "http://localhost:3000/bookedGigs";
 
-  constructor(private httpClient: HttpClient, private store:UsersStore, private artistsApiService:ArtistsApiService) { }
+  constructor(private httpClient: HttpClient, private store: UsersStore, private artistsApiService: ArtistsApiService) {
+  }
 
-  getArtistBookedGigs$(artistId: string): Observable<Gig[]> {
-    return this.httpClient.get<ArtistGigs>(`${this.BASE_URL}/${artistId}`).pipe(map(
-      (gigs)=> {
-        // going to write this function
-        this.artistsApiService.getArtistGigs(artistId, gigs.gigs)
-        return gigs.gigs;
-      }
-    ))
+  // getArtistBookedGigs$(artistId: string): Observable<Gig[]> {
+  //   return this.httpClient.get<ArtistGigs>(`${this.BASE_URL}/${artistId}`).pipe(map(
+  //     (gigs)=> {
+  //       // going to write this function
+  //       this.artistsApiService.getArtistGigs(artistId, gigs.gigs)
+  //       return gigs.gigs;
+  //     }
+  //   ))
+  // }
+
+  bookGig(gig: BookedGig): Observable<BookedGig> {
+    return this.httpClient.post<BookedGig>(this.BASE_URL, gig)
   }
 }

@@ -4,8 +4,11 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute} from "@angular/router";
 import {map, Observable, Subscriber, Subscription, switchMap, tap} from "rxjs";
 import {ArtistsStoreService} from "../../services/artists-store.service";
-import {UserApiService} from "../../../users/services/user-api.service";
 import {ArtistsApiService} from "../../services/artists-api.service";
+import {ArtistsQuery} from "../../artists-state/artists.query";
+import {UsersQuery} from "../../../users/user-state/user.query";
+import {BookedGig} from "../../models/booked-gig.interface";
+import {BookedGigsApiService} from "../../services/booked-gigs-api.service";
 
 @Component({
   selector: 'app-booking',
@@ -15,22 +18,30 @@ import {ArtistsApiService} from "../../services/artists-api.service";
 export class BookingComponent implements OnInit {
   label = "Booking";
   artist$!: Observable<Artist>;
-  name?: string = "asdadfgs";
+  name?: string;
   nameSub: any;
   artistSub?: Subscription;
+  allArtists$: Observable<Artist[]>;
+  userId!: string;
 
   bookingForm: FormGroup = this.formBuilder.group({
-    artistName: ['',Validators.required],
-    date: ['',Validators.required],
-    venue: ['',Validators.required]
+    artistId: ['', Validators.required],
+    date: ['', Validators.required],
+    venue: ['', Validators.required]
   })
 
 
   constructor(private formBuilder: FormBuilder,
               private route: ActivatedRoute,
               private artistsStateManagementService: ArtistsStoreService,
-              private artistDataAccessService: ArtistsApiService) {
-
+              private artistDataAccessService: ArtistsApiService,
+              private artistsQuery: ArtistsQuery,
+              private usersQuery: UsersQuery,
+              private bookedGigsApiService: BookedGigsApiService) {
+    this.allArtists$ = this.artistsQuery.selectAllArtists$;
+    this.usersQuery.selectUserId$.subscribe(id => {
+      this.userId = id
+    })
   }
 
 
@@ -39,10 +50,8 @@ export class BookingComponent implements OnInit {
       (params) => {
         return this.artistDataAccessService.getArtistById(params['id'])
       }
-    )).subscribe(artist => this.bookingForm.setValue({
-      artistName: artist.name,
-      date: this.bookingForm.value.date,
-      venue: this.bookingForm.value.venue
+    )).subscribe(artist => this.bookingForm.patchValue({
+      artistId: artist.id
     }))
   }
 
@@ -55,5 +64,12 @@ export class BookingComponent implements OnInit {
 
   onSubmit() {
     console.log(this.bookingForm.value)
+    const bookedGig: BookedGig = {
+      artistId: this.bookingForm.value.artistId,
+      userId: this.userId,
+      date: this.bookingForm.value.date,
+      venue: this.bookingForm.value.venue
+    }
+    this.bookedGigsApiService.bookGig(bookedGig).subscribe(res => console.log("booked gig for artist id: ", this.bookingForm.value.artistId))
   }
 }

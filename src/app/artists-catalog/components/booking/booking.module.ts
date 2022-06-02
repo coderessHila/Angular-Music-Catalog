@@ -8,6 +8,7 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatInputModule} from "@angular/material/input";
 import {RouterModule, Routes} from "@angular/router";
 import {MatButtonModule} from "@angular/material/button";
+import {MatSelectModule} from "@angular/material/select";
 
 const routes: Routes = [
   {path: '', component: BookingComponent}
@@ -17,16 +18,17 @@ const routes: Routes = [
   declarations: [
     BookingComponent
   ],
-  imports: [
-    CommonModule,
-    HsInputModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatDatepickerModule,
-    MatInputModule,
-    RouterModule.forChild(routes),
-    MatButtonModule
-  ],
+    imports: [
+        CommonModule,
+        HsInputModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatDatepickerModule,
+        MatInputModule,
+        RouterModule.forChild(routes),
+        MatButtonModule,
+        MatSelectModule
+    ],
   exports: [
     BookingComponent
   ]

@@ -192,9 +192,18 @@
   ],
   "bookedGigs": [
     {
-      "id": "2",
+      "id": "1",
+      "artistId": "2",
+      "userId": "1",
       "date": "16-06-2022",
       "venue": "Royal Albert Hall"
+    },
+    {
+      "artistId": "3",
+      "userId": "1",
+      "date": "2022-06-29T21:00:00.000Z",
+      "venue": "saa",
+      "id": "K2FFt-X"
     }
   ]
 }

@@ -1,9 +1,18 @@
-export interface Gig {
-  "date": string,
-  "venue": string
-}
+// not needed
+// export interface Gig {
+//   "date": Date,
+//   "venue": string
+// }
 
-export interface ArtistGigs {
-  "id": string,
-  "gigs": Gig[]
+// not needed
+// export interface ArtistGigs {
+//   "id": string,
+//   "gigs": Gig[]
+// }
+
+export interface BookedGig {
+  artistId: string,
+  userId: string,
+  date: Date,
+  venue: string
 }

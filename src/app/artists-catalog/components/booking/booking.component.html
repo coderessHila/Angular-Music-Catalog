@@ -1,8 +1,17 @@
 <!--<div *ngIf="(artist$ | async) as artist">-->
 <form [formGroup]="bookingForm" class="booking-form" (ngSubmit)="onSubmit()">
   <h1>{{label}}</h1>
-  <hs-input [label]="'Artist Name'" [hint]="' '" [name]="'Artist name'" formControlName="artistName"></hs-input><br>
-<!--  date: <input formControlName="date">-->
+<!--  <hs-input [label]="'Artist Name'" [hint]="' '" [name]="'Artist name'" formControlName="artistName"></hs-input><br>-->
+
+  <!--  select artist-->
+  <mat-form-field appearance="fill">
+    <mat-label>Artist Name</mat-label>
+    <mat-select [formControlName]="'artistId'" name="artistName">
+      <mat-option *ngFor="let artist of allArtists$ | async" [value]="artist.id">
+        {{artist.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 
   <!--  date-->
 <mat-form-field class="example-full-width" appearance="fill">
@@ -15,7 +24,7 @@
   <hs-input [label]="'Venue'" [hint]="'where will the show take place'" [name]="'Venue'" formControlName="venue"></hs-input><br>
   <button mat-raised-button type="submit">Book Gig</button><br>
 
-<!--{{bookingForm.value | json}}-->
+{{bookingForm.value | json}}
 
 </form>
 <!--  </div>-->
