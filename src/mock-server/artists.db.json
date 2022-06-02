@@ -175,7 +175,7 @@
     {
       "userFavorites": [
         "9",
-        "1"
+        "2"
       ],
       "id": "1"
     },
@@ -185,7 +185,9 @@
     },
     {
       "userFavorites": [
-        "5"
+        "5",
+        "4",
+        "2"
       ],
       "id": "3"
     }
@@ -218,6 +220,27 @@
       "date": "Thu Jun 09 2022",
       "venue": "The Hut",
       "id": "VRcbXjz"
+    },
+    {
+      "artistId": "3",
+      "userId": "1",
+      "date": "Sat Jun 18 2022",
+      "venue": "The Golden Shack",
+      "id": "lc0Xsux"
+    },
+    {
+      "artistId": "3",
+      "userId": "1",
+      "date": "Sat Jun 18 2022",
+      "venue": "The Love Shack",
+      "id": "CQ5Dxl5"
+    },
+    {
+      "artistId": "2",
+      "userId": "3",
+      "date": "Mon Jun 13 2022",
+      "venue": "Japan Hall",
+      "id": "MvC39Pf"
     }
   ]
 }

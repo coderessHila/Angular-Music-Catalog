@@ -92,6 +92,8 @@ export class BookingComponent implements OnInit {
   }
 
   onSubmit() {
+    // add if valid
+    // add template with message of booked, we'll get back to you, and link back to home page
     console.log(this.bookingForm.value)
     const bookedGig: BookedGig = {
       artistId: this.bookingForm.value.artistId,
