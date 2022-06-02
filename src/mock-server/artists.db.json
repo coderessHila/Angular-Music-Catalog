@@ -192,18 +192,32 @@
   ],
   "bookedGigs": [
     {
-      "id": "1",
+      "id": "K2RRd-Y",
       "artistId": "2",
       "userId": "1",
-      "date": "16-06-2022",
+      "date": "Thu Jun 02 2022",
       "venue": "Royal Albert Hall"
     },
     {
       "artistId": "3",
       "userId": "1",
-      "date": "2022-06-29T21:00:00.000Z",
-      "venue": "saa",
+      "date": "Thu Jun 02 2022",
+      "venue": "Zapa",
       "id": "K2FFt-X"
+    },
+    {
+      "artistId": "2",
+      "userId": "1",
+      "date": "Tue Jun 07 2022",
+      "venue": "The Hut",
+      "id": "x6bSKrY"
+    },
+    {
+      "artistId": "3",
+      "userId": "1",
+      "date": "Thu Jun 09 2022",
+      "venue": "The Hut",
+      "id": "VRcbXjz"
     }
   ]
 }

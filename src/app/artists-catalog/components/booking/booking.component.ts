@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Artist} from "../../models/artist.interface";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute} from "@angular/router";
-import {map, Observable, Subscriber, Subscription, switchMap, tap} from "rxjs";
+import {map, Observable, Subscriber, Subscription, switchMap, take, tap} from "rxjs";
 import {ArtistsStoreService} from "../../services/artists-store.service";
 import {ArtistsApiService} from "../../services/artists-api.service";
 import {ArtistsQuery} from "../../artists-state/artists.query";
@@ -23,6 +23,7 @@ export class BookingComponent implements OnInit {
   artistSub?: Subscription;
   allArtists$: Observable<Artist[]>;
   userId!: string;
+  artistGigsDates: Date[] = [];
 
   bookingForm: FormGroup = this.formBuilder.group({
     artistId: ['', Validators.required],
@@ -50,9 +51,12 @@ export class BookingComponent implements OnInit {
       (params) => {
         return this.artistDataAccessService.getArtistById(params['id'])
       }
-    )).subscribe(artist => this.bookingForm.patchValue({
-      artistId: artist.id
-    }))
+    )).subscribe(artist => {
+      this.bookingForm.patchValue({
+        artistId: artist.id
+      })
+      this.getArtistBookedDates(artist.id)
+    })
   }
 
 
@@ -62,12 +66,37 @@ export class BookingComponent implements OnInit {
     return day !== 0 && day !== 6;
   };
 
+  getArtistBookedDates(artistId: string): void {
+    this.bookedGigsApiService.getArtistGigs(artistId).pipe(map(
+      (gigs: BookedGig[]): Date[] => gigs.map((gig: BookedGig) => gig.date)
+    )).pipe(take(1)).subscribe(
+      artistGigsDates => {
+        console.log("artistGigsDates", artistGigsDates)
+        this.artistGigsDates = artistGigsDates
+      }
+    )
+  }
+
+  // know how to explain this one real well, and change the types, not Date[] but string[]
+  artistBookedDatesFilter = (d: Date | null): boolean => {
+    console.log("filter")
+    const day = (d?.toDateString() || new Date().toDateString())
+    console.log(day)
+     // @ts-ignore
+    if (this.artistGigsDates.indexOf(day) !== -1) {
+       console.log("date booked")
+       return false
+     }
+    console.log("date free")
+     return true;
+  }
+
   onSubmit() {
     console.log(this.bookingForm.value)
     const bookedGig: BookedGig = {
       artistId: this.bookingForm.value.artistId,
       userId: this.userId,
-      date: this.bookingForm.value.date,
+      date: this.bookingForm.value.date.toDateString(),
       venue: this.bookingForm.value.venue
     }
     this.bookedGigsApiService.bookGig(bookedGig).subscribe(res => console.log("booked gig for artist id: ", this.bookingForm.value.artistId))

@@ -16,17 +16,11 @@ export class BookedGigsApiService {
   constructor(private httpClient: HttpClient, private store: UsersStore, private artistsApiService: ArtistsApiService) {
   }
 
-  // getArtistBookedGigs$(artistId: string): Observable<Gig[]> {
-  //   return this.httpClient.get<ArtistGigs>(`${this.BASE_URL}/${artistId}`).pipe(map(
-  //     (gigs)=> {
-  //       // going to write this function
-  //       this.artistsApiService.getArtistGigs(artistId, gigs.gigs)
-  //       return gigs.gigs;
-  //     }
-  //   ))
-  // }
-
   bookGig(gig: BookedGig): Observable<BookedGig> {
     return this.httpClient.post<BookedGig>(this.BASE_URL, gig)
+  }
+
+  getArtistGigs(artistId: string): Observable<BookedGig[]> {
+    return this.httpClient.get<BookedGig[]>(`${this.BASE_URL}?artistId=${artistId}`)
   }
 }
