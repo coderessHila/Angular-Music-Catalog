@@ -25,6 +25,7 @@ export class CompareComponent implements OnInit {
     )
     this.dataSource.sortingDataAccessor = this.nestedProperty
 
+    // overriding the filter function in order to filter nested objects, too.
     this.dataSource.filterPredicate = (data, filter) => {
       return data.origin.city.toLocaleLowerCase().includes(filter) ||
         data.origin.country.toLocaleLowerCase().includes(filter) ||
