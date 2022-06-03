@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CompareComponent } from './compare.component';
+import {MatTableModule} from "@angular/material/table";
+import {MatSortModule} from "@angular/material/sort";
 
 
 
@@ -9,7 +11,9 @@ import { CompareComponent } from './compare.component';
     CompareComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatTableModule,
+    MatSortModule
   ],
   exports: [
     CompareComponent
