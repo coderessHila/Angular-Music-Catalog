@@ -13,6 +13,8 @@ import {MatTableDataSource} from "@angular/material/table";
 export class CompareComponent implements OnInit {
   artists: Artist[] = [];
   dataSource!: MatTableDataSource<Artist>;
+  artistsToCompare: Artist[] = [];
+  showArtistsFilter = false;
 
 
   constructor(private artistsQuery: ArtistsQuery,
@@ -20,6 +22,7 @@ export class CompareComponent implements OnInit {
     this.artistsQuery.selectAllArtists$.pipe().subscribe(
       artists => {
         this.artists = artists;
+        this.artistsToCompare = artists;
         this.dataSource = new MatTableDataSource<Artist>(artists);
       }
     )
@@ -29,9 +32,9 @@ export class CompareComponent implements OnInit {
     this.dataSource.filterPredicate = (data, filter) => {
       return data.origin.city.toLocaleLowerCase().includes(filter) ||
         data.origin.country.toLocaleLowerCase().includes(filter) ||
-      data.name.toLocaleLowerCase().includes(filter) ||
-      data.genres.toString().toLocaleLowerCase().includes(filter) ||
-      data.active_since.toString().includes(filter);
+        data.name.toLocaleLowerCase().includes(filter) ||
+        data.genres.toString().toLocaleLowerCase().includes(filter) ||
+        data.active_since.toString().includes(filter);
       // data.popularity.toLocaleLowerCase().includes(filter) ||
     };
   }
@@ -80,11 +83,23 @@ export class CompareComponent implements OnInit {
 
   displayedColumns = this.columns.map(c => c.columnDef);
 
-  applyFilter(event: Event) {
+  applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  onCompareClick(event: Artist[]): void {
+    this.dataSource.data = event
+  }
+
+  onCompareAll(): void {
+    this.dataSource.data = this.artists
+    this.showArtistsFilter = false
+  }
+
+  onShowArtistsFilter() {
+    this.showArtistsFilter = true
+  }
 
   ngOnInit(): void {
   }

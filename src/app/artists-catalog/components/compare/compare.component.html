@@ -1,6 +1,14 @@
 <h1>
   Compare Different Artists
-</h1>
+</h1><br>
+<div class="btns-flex-container">
+<button mat-stroked-button (click)="onCompareAll()">Compare All Artists</button>
+<button mat-stroked-button (click)="onShowArtistsFilter()">Choose Artists To Compare</button>
+</div><br>
+
+<ng-container *ngIf="showArtistsFilter">
+<app-artists-filter (onCompare)="onCompareClick($event)" class="artist-filter"></app-artists-filter>
+</ng-container><br>
 
 <mat-form-field appearance="standard">
   <mat-label>Filter Artists</mat-label>

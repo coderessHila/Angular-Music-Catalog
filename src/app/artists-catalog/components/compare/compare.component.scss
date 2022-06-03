@@ -6,3 +6,12 @@ h1{
   margin-top: 5vw;
   text-align: center;
 }
+
+.btns-flex-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.artist-filter{
+}

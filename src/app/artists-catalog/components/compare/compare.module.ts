@@ -5,6 +5,8 @@ import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
+import {ArtistsFilterModule} from "../artists-filter/artists-filter.module";
+import {MatButtonModule} from "@angular/material/button";
 
 
 
@@ -17,7 +19,9 @@ import {MatInputModule} from "@angular/material/input";
     MatTableModule,
     MatSortModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    ArtistsFilterModule,
+    MatButtonModule
   ],
   exports: [
     CompareComponent
