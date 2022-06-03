@@ -1,10 +1,11 @@
-<p>compare works!</p>
-
+<h1>
+  Compare Different Artists
+</h1>
 
 <mat-form-field appearance="standard">
   <mat-label>Filter Artists</mat-label>
   <input matInput (keyup)="applyFilter($event)" placeholder="Filter artists" #input>
-</mat-form-field>
+</mat-form-field><br><br>
 
 
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 demo-table">

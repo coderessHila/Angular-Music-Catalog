@@ -9,6 +9,7 @@ import {MatInputModule} from "@angular/material/input";
 import {RouterModule, Routes} from "@angular/router";
 import {MatButtonModule} from "@angular/material/button";
 import {MatSelectModule} from "@angular/material/select";
+import {BookingAfterSubmitModule} from "./booking-after-submit/booking-after-submit.module";
 
 const routes: Routes = [
   {path: '', component: BookingComponent}
@@ -27,7 +28,8 @@ const routes: Routes = [
         MatInputModule,
         RouterModule.forChild(routes),
         MatButtonModule,
-        MatSelectModule
+        MatSelectModule,
+        BookingAfterSubmitModule
     ],
   exports: [
     BookingComponent

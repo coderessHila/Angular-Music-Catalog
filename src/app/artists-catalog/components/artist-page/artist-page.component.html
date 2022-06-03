@@ -1,11 +1,50 @@
-<h1 style="color: white">artist-page works!</h1>
-<div style="background-color: white">
 <!--this is the subscription to artist$-->
-  <div *ngIf="(artist$ | async) as artist">
-    {{artist.name}}<br>
-    <img src="{{artist.imgUrl}}" alt="{{artist.name}}">
+<div *ngIf="(artist$ | async) as artist" class="artist-page-container">
+  <h1>
+    {{artist.name}}
+  </h1>
+  <img src="{{artist.imgUrl}}" alt="{{artist.name}}"><br>
+  <app-favorites-heart (onFavChange)="clickFavorites($event)"></app-favorites-heart><br><br>
+  <div>Origin: {{artist.origin.city}}, {{artist.origin.country}}</div><br>
+  <div>
+    aboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutaboutaboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutaboutaboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutabout
+    aboutaboutaboutaboutaboutaboutaboutabout
+
   </div>
-</div>
-<div style="background-color: grey; width: 35px; height: 35px">
-<app-favorites-heart (onFavChange)="clickFavorites($event)"></app-favorites-heart>
+
 </div>

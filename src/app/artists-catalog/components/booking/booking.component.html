@@ -1,7 +1,10 @@
-<!--<div *ngIf="(artist$ | async) as artist">-->
+<ng-container *ngIf="isAfterSubmit; then afterSubmitComponent; else form">
+
+</ng-container>
+
+<ng-template #form>
 <form [formGroup]="bookingForm" class="booking-form" (ngSubmit)="onSubmit()">
   <h1>{{label}}</h1>
-<!--  <hs-input [label]="'Artist Name'" [hint]="' '" [name]="'Artist name'" formControlName="artistName"></hs-input><br>-->
 
   <!--  select artist-->
   <mat-form-field appearance="fill">
@@ -11,7 +14,7 @@
         {{artist.name}}
       </mat-option>
     </mat-select>
-  </mat-form-field>
+  </mat-form-field><br>
 
   <!--  date-->
 <mat-form-field class="example-full-width" appearance="fill">
@@ -21,10 +24,15 @@
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
 </mat-form-field><br>
-  <hs-input [label]="'Venue'" [hint]="'where will the show take place'" [name]="'Venue'" formControlName="venue"></hs-input><br>
+
+  <hs-input [label]="'Venue'" [hint]="'where will the show take place'" [name]="'Venue'" formControlName="venue" [validators]="venueValidators"></hs-input><br>
+
   <button mat-raised-button type="submit">Book Gig</button><br>
 
-{{bookingForm.value | json}}
-
 </form>
-<!--  </div>-->
+</ng-template>
+
+
+<ng-template #afterSubmitComponent>
+  <app-booking-after-submit></app-booking-after-submit>
+</ng-template>
