@@ -7,7 +7,7 @@
 </mat-form-field>
 
 
-<table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)" class="mat-elevation-z8 demo-table">
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 demo-table">
   <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
     <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by {{column.columnDef}}">
       {{column.header}}
