@@ -24,11 +24,20 @@ export class CompareComponent implements OnInit {
       }
     )
     this.dataSource.sortingDataAccessor = this.nestedProperty
+
+    this.dataSource.filterPredicate = (data, filter) => {
+      return data.origin.city.toLocaleLowerCase().includes(filter) ||
+        data.origin.country.toLocaleLowerCase().includes(filter) ||
+      data.name.toLocaleLowerCase().includes(filter) ||
+      data.genres.toString().toLocaleLowerCase().includes(filter) ||
+      data.active_since.toString().includes(filter);
+      // data.popularity.toLocaleLowerCase().includes(filter) ||
+    };
   }
 
   @ViewChild(MatSort) sort!: MatSort;
 
-
+  // https://technology.amis.nl/frontend/sorting-an-angular-material-table/ - sorting with nested objects
   nestedProperty = (data: any, sortHeaderId: string): string | number => {
     return sortHeaderId
       .split('.')
@@ -49,7 +58,7 @@ export class CompareComponent implements OnInit {
     {
       columnDef: 'genres',
       header: 'Genres',
-      cell: (artist: Artist) => `${artist.genres}`,
+      cell: (artist: Artist) => `${artist.genres.join(', ')}`,
     },
     {
       columnDef: 'origin.country',
