@@ -1,6 +1,9 @@
-import { Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Artist} from "../../models/artist.interface";
 import {ArtistsQuery} from "../../artists-state/artists.query";
+import {MatSort, Sort} from "@angular/material/sort";
+import {LiveAnnouncer} from "@angular/cdk/a11y";
+import {MatTableDataSource} from "@angular/material/table";
 
 @Component({
   selector: 'app-compare',
@@ -8,16 +11,39 @@ import {ArtistsQuery} from "../../artists-state/artists.query";
   styleUrls: ['./compare.component.scss']
 })
 export class CompareComponent implements OnInit {
+  artists: Artist[] = [];
+  dataSource!: MatTableDataSource<Artist>;
 
-  constructor(private artistsQuery: ArtistsQuery) {
+
+  constructor(private artistsQuery: ArtistsQuery,
+              private _liveAnnouncer:LiveAnnouncer) {
     this.artistsQuery.selectAllArtists$.pipe().subscribe(
       artists => {
-        this.artists = artists
+        this.artists = artists;
+          this.dataSource = new MatTableDataSource<Artist>(artists);
       }
     )
   }
 
-  artists!: Artist[];
+  @ViewChild(MatSort) sort!: MatSort;
+
+  ngAfterViewInit() {
+    this.dataSource.sort = this.sort;
+  }
+
+  /** Announce the change in sort state for assistive technology. */
+announceSortChange(sortState: Sort) {
+  // This example uses English messages. If your application supports
+  // multiple language, you would internationalize these strings.
+  // Furthermore, you can customize the message to add additional
+  // details about the values being sorted.
+  if (sortState.direction) {
+    this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
+  } else {
+    this._liveAnnouncer.announce('Sorting cleared');
+  }
+}
+
   // columns: string[] = ['Name', 'Genres', 'Country', 'City', 'Active Since', 'Popularity']
   columns = [
     {
@@ -31,14 +57,28 @@ export class CompareComponent implements OnInit {
       cell: (artist: Artist) => `${artist.genres}`,
     },
     {
-      columnDef: 'country',
+      columnDef: 'origin.country',
       header: 'Country',
       cell: (artist: Artist) => `${artist.origin.country}`,
+    },
+    {
+      columnDef: 'origin.city',
+      header: 'City',
+      cell: (artist: Artist) => `${artist.origin.city}`,
+    },
+    {
+      columnDef: 'active_since',
+      header: 'Active Since',
+      cell: (artist: Artist) => `${artist.active_since}`,
     }
   ]
 
   displayedColumns = this.columns.map(c => c.columnDef);
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 
 
   ngOnInit(): void {
@@ -66,6 +106,7 @@ export class CompareComponent implements OnInit {
 //     this._liveAnnouncer.announce('Sorting cleared');
 //   }
 // }
+
 
 //
 // export interface PeriodicElement {

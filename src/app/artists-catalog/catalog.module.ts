@@ -9,13 +9,6 @@ import {ArtistsStoreService} from "./services/artists-store.service";
 import {CatalogRoutingModule} from "./catalog-routing.module";
 import {CompareModule} from "./components/compare/compare.module";
 
-// const routes: Routes = [
-//   {
-//     path: '',
-//     component: CatalogComponent
-//   }
-// ]
-
 @NgModule({
   declarations: [
     CatalogComponent

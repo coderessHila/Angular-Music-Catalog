@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { CompareComponent } from './compare.component';
 import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
 
 
 
@@ -13,7 +15,9 @@ import {MatSortModule} from "@angular/material/sort";
   imports: [
     CommonModule,
     MatTableModule,
-    MatSortModule
+    MatSortModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   exports: [
     CompareComponent
