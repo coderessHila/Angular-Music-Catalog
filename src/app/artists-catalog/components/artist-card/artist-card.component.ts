@@ -1,10 +1,10 @@
-import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Artist} from "../../models/artist.interface";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ArtistsStoreService} from "../../services/artists-store.service";
 import {FavoritesApiService} from "../../services/favorites-api.service";
 import {UsersQuery} from "../../../users/user-state/user.query";
-import {map, Observable, switchMap, take} from "rxjs";
+import {map, Observable, take} from "rxjs";
 import {
   AddedToFavsSnackBarComponent,
   NoFavsPermissionSnackBarComponent,
@@ -12,14 +12,14 @@ import {
 } from "@hs-style";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {AuthGuardGuestsService} from "../../services/auth-guard-guests.service";
-import {ArtistsApiService} from "../../services/artists-api.service";
 import {UserType} from "../../../users/models/userType.enum";
 
 
 @Component({
   selector: 'app-artist-card',
   templateUrl: './artist-card.component.html',
-  styleUrls: ['./artist-card.component.scss']
+  styleUrls: ['./artist-card.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ArtistCardComponent implements OnInit {
 
@@ -34,7 +34,7 @@ export class ArtistCardComponent implements OnInit {
     private usersQuery: UsersQuery,
     private _snackBar: MatSnackBar,
     private authGuardGuestsService: AuthGuardGuestsService,
-    private artistsStoreService:ArtistsStoreService) {
+    private artistsStoreService: ArtistsStoreService) {
     this.isFavChecked$ = this.isFav$()
     this.isUserRegistered$ = this.authGuardGuestsService.isUserRegistered()
   }
@@ -113,7 +113,6 @@ export class ArtistCardComponent implements OnInit {
   }
 
   deleteArtist(): void {
-    // this.artistsApiService.deleteArtist(this.artist.id).subscribe(res => console.log(res))
     this.artistsStoreService.deleteArtist(this.artist.id)
   }
 }

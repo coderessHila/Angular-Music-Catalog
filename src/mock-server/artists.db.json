@@ -11,9 +11,9 @@
         "country": "USA",
         "city": "Bay City, Michigan"
       },
-      "id": "1",
       "active_since": 1979,
-      "about": "Madonna, original name Madonna Louise Ciccone, (born August 16, 1958, Bay City, Michigan, U.S.), American singer, songwriter, actress, and entrepreneur whose immense popularity in the 1980s and ’90s allowed her to achieve levels of power and control that were nearly unprecedented for a woman in the entertainment industry.\n\nBorn into a large Italian American family, Madonna studied dance at the University of Michigan and with the Alvin Ailey American Dance Theater in New York City in the late 1970s before relocating briefly to Paris as a member of Patrick Hernandez’s disco revue. Returning to New York City, she performed with a number of rock groups before signing with Sire Records. Her first hit, “Holiday,” in 1983, provided the blueprint for her later material—an upbeat dance club sound with sharp production and an immediate appeal. Madonna’s melodic pop incorporated catchy choruses, and her lyrics concerned love, sex, and relationships—ranging from the breezy innocence of “True Blue” (1986) to the erotic fantasies of “Justify My Love” (1990) to the spirituality of later songs such as “Ray of Light” (1998). Criticized by some as being limited in range, her sweet girlish voice nonetheless was well suited to pop music."
+      "about": "Madonna, original name Madonna Louise Ciccone, (born August 16, 1958, Bay City, Michigan, U.S.), American singer, songwriter, actress, and entrepreneur whose immense popularity in the 1980s and ’90s allowed her to achieve levels of power and control that were nearly unprecedented for a woman in the entertainment industry.Born into a large Italian American family, Madonna studied dance at the University of Michigan and with the Alvin Ailey American Dance Theater in New York City in the late 1970s before relocating briefly to Paris as a member of Patrick Hernandez’s disco revue. Returning to New York City, she performed with a number of rock groups before signing with Sire Records. Her first hit, “Holiday,” in 1983, provided the blueprint for her later material—an upbeat dance club sound with sharp production and an immediate appeal. Madonna’s melodic pop incorporated catchy choruses, and her lyrics concerned love, sex, and relationships—ranging from the breezy innocence of “True Blue” (1986) to the erotic fantasies of “Justify My Love” (1990) to the spirituality of later songs such as “Ray of Light” (1998). ",
+      "id": "1"
     },
     {
       "name": "Paramore",
@@ -287,7 +287,6 @@
     {
       "userFavorites": [
         "9",
-        "2",
         "6",
         "klO-D9R"
       ],
@@ -400,13 +399,6 @@
       "date": "Thu Jun 16 2022",
       "venue": "Caesarea",
       "id": "pPxQAc3"
-    },
-    {
-      "artistId": "4",
-      "userId": "no user",
-      "date": "Wed Jun 08 2022",
-      "venue": "Royal Albert Hall",
-      "id": "DMcBAs7"
     }
   ]
 }

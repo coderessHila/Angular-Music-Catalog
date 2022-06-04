@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Params} from "@angular/router";
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 import {Artist} from "../../models/artist.interface";
 import {ArtistsQuery} from "../../artists-state/artists.query";
-import {map, Observable, switchMap} from "rxjs";
+import {map, Observable} from "rxjs";
 import {ArtistsStoreService} from "../../services/artists-store.service";
 import {FavoritesApiService} from "../../services/favorites-api.service";
 
 @Component({
   selector: 'app-artist-page',
   templateUrl: './artist-page.component.html',
-  styleUrls: ['./artist-page.component.scss']
+  styleUrls: ['./artist-page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class ArtistPageComponent implements OnInit {
