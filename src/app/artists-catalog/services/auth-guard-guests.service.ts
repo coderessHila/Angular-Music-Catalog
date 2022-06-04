@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {CanActivate, CanLoad, Route, Router} from "@angular/router";
 import {UsersQuery} from "../../users/user-state/user.query";
 import {map, Observable, tap} from "rxjs";
+import {UserType} from "../../users/models/userType.enum";
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class AuthGuardGuestsService implements CanLoad, CanActivate{
     this.isUserRegistered$ = this.usersQuery.selectUserType$.pipe(map(
       (userType: string): boolean => {
         // if user is a guest return false
-        return !(userType === 'guest')
+        return !(userType === UserType.guest)
       }
     ));
   }

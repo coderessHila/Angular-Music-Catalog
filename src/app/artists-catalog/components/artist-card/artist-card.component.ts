@@ -13,6 +13,7 @@ import {
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {AuthGuardGuestsService} from "../../services/auth-guard-guests.service";
 import {ArtistsApiService} from "../../services/artists-api.service";
+import {UserType} from "../../../users/models/userType.enum";
 
 
 @Component({
@@ -97,7 +98,7 @@ export class ArtistCardComponent implements OnInit {
 
   openSnackBar(isFav: boolean): void {
     this.usersQuery.selectUserType$.subscribe(value => {
-      if (value === 'guest') {
+      if (value === UserType.guest) {
         this._snackBar.openFromComponent(NoFavsPermissionSnackBarComponent, {
           duration: 2000,
         });

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UserStoreService} from "../../users/services/user-store.service";
 import {UsersQuery} from "../../users/user-state/user.query";
 import {map, Observable} from "rxjs";
+import {UserType} from "../../users/models/userType.enum";
 
 @Component({
   selector: 'app-header-bar-login',
@@ -16,7 +17,7 @@ export class HeaderBarLoginComponent implements OnInit {
     this.greeting$ = this.usersQuery.selectUserType$.pipe(map(
     //  getting "guest" | "registered" | "admin"
       (type: string) => {
-        return type === "guest" ? "Hello guest" : 'Welcome back ' + 'name';
+        return type === UserType.guest ? "Hello guest" : 'Welcome back ' + 'name';
       }
     ))
     this.greeting$.subscribe(value => console.log(value))

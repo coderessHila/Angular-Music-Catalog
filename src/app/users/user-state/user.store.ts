@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
 import {EntityState, EntityStore, StoreConfig} from "@datorama/akita";
 import {User} from "../models/user.interface";
+import {UserType} from "../models/userType.enum";
 
 export interface UsersState extends EntityState<User, string> {
   user: User | {user_type: string},
@@ -9,9 +10,8 @@ export interface UsersState extends EntityState<User, string> {
 
 export function createInitialState(): UsersState {
   return {
-    //for development purposes
-    // user: {user_type: "guest"},
-    user: {user_type: "admin"},
+    user: {user_type: "guest"},
+    // user: {user_type: UserType.guest},
     userFavorites: []
   };
 }
@@ -34,7 +34,7 @@ export class UsersStore extends EntityStore<UsersState> {
         user: loggedUser
       }) : ({
         ...state,
-        user: {user_type: "guest"}
+        user: {user_type: UserType.guest}
       })
     })
     // to delete, just for debugging
