@@ -1,7 +1,6 @@
-import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnChanges, OnInit} from '@angular/core';
 // import {GetArtistsDataService} from "../../get-artists-data.service";
 import {Artist} from "../../models/artist.interface";
-import {ArtistsApiService} from "../../services/artists-api.service";
 import {Observable} from "rxjs";
 import {ArtistsQuery} from "../../artists-state/artists.query";
 import {ArtistsStoreService} from "../../services/artists-store.service";
@@ -10,7 +9,8 @@ import {UsersQuery} from "../../../users/user-state/user.query";
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
-  styleUrls: ['./feed.component.scss']
+  styleUrls: ['./feed.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FeedComponent implements OnInit, OnChanges{
   showEditPopUp: boolean = false;

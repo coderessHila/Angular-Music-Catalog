@@ -1,9 +1,10 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-favorites-heart',
   templateUrl: './favorites-heart.component.html',
-  styleUrls: ['./favorites-heart.component.scss']
+  styleUrls: ['./favorites-heart.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FavoritesHeartComponent implements OnInit {
   @Input() checked?: boolean;

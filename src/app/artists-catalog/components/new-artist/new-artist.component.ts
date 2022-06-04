@@ -1,15 +1,14 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Artist} from "../../models/artist.interface";
-import {FormBuilder, FormGroup, Validators, FormArray} from "@angular/forms";
-import {setValue} from "@datorama/akita";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ArtistsApiService} from "../../services/artists-api.service";
 import {ArtistsStoreService} from "../../services/artists-store.service";
-import {take} from "rxjs";
 
 @Component({
   selector: 'app-new-artist',
   templateUrl: './new-artist.component.html',
-  styleUrls: ['./new-artist.component.scss']
+  styleUrls: ['./new-artist.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 // this component is both for adding a new artist and for editing an existing one.
 // the initial values are for adding a new artist mode.
