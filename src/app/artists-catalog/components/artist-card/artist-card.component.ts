@@ -24,6 +24,7 @@ import {UserType} from "../../../users/models/userType.enum";
 export class ArtistCardComponent implements OnInit {
 
   @Input() artist!: Artist;
+  @Input() isFeed = false;
   @Output() onEditArtistClick = new EventEmitter<boolean>()
 
   constructor(
@@ -65,15 +66,15 @@ export class ArtistCardComponent implements OnInit {
   }
 
   navigateToArtistPage() {
-    this.router.navigate(['artist'], {
-      relativeTo: this.route.parent,
+    this.router.navigate(['catalog/artist'], {
+      relativeTo: this.route.root,
       queryParams: {artistName: this.artist?.name, id: this.artist?.id}
     })
   }
 
   navigateToBookingPage() {
-    this.router.navigate(['booking'], {
-      relativeTo: this.route.parent,
+    this.router.navigate(['catalog/booking'], {
+      relativeTo: this.route.root,
       queryParams: {artistName: this.artist?.name, id: this.artist?.id}
     })
   }

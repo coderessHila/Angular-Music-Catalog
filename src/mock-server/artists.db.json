@@ -21,7 +21,7 @@
       "genres": [
         "rock",
         "pop",
-        "punk-pop"
+        "punk pop"
       ],
       "origin": {
         "country": "USA",
@@ -305,7 +305,8 @@
         "9xbfRBr",
         "3",
         "y0Hm1Gg",
-        "9"
+        "9",
+        "MJOAhPR"
       ],
       "id": "3"
     }
@@ -408,6 +409,20 @@
       "date": "Sat Jun 11 2022",
       "venue": "Royal Albert Hall",
       "id": "7Z769Os"
+    },
+    {
+      "artistId": "klO-D9R",
+      "userId": "1",
+      "date": "Sat Jun 18 2022",
+      "venue": "Reading 9 TLV",
+      "id": "QjcVzsE"
+    },
+    {
+      "artistId": "4",
+      "userId": "3",
+      "date": "Wed Jun 22 2022",
+      "venue": "The Fancy Pancy",
+      "id": "R_FaxxQ"
     }
   ]
 }

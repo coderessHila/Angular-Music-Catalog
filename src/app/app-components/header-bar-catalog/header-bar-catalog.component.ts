@@ -17,10 +17,23 @@ export class HeaderBarCatalogComponent implements OnInit {
   constructor(private userStoreService:UserStoreService, private usersQuery:UsersQuery) { }
 
   ngOnInit(): void {
-    this.greeting$ = this.usersQuery.selectUserType$.pipe(map(
+    // this.greeting$ = this.usersQuery.selectUserType$.pipe(map(
+    //   //  getting "guest" | "registered" | "admin"
+    //   (type: string) => {
+    //     return type === UserType.guest ? "Hello guest" : 'Welcome back ' + 'name';
+    //   }
+    // ))
+    // this.greeting$.subscribe(value => console.log(value))
+
+    this.greeting$ = this.usersQuery.selectUser$.pipe(map(
       //  getting "guest" | "registered" | "admin"
-      (type: string) => {
-        return type === UserType.guest ? "Hello guest" : 'Welcome back ' + 'name';
+      (user: Object) => {
+        if ("user_type" in user) {
+          //  @ts-ignore
+          return user.user_type === UserType.guest ? "Hello guest" : 'Welcome back ' + user.name;
+        } else {
+          return ' ';
+        }
       }
     ))
     this.greeting$.subscribe(value => console.log(value))

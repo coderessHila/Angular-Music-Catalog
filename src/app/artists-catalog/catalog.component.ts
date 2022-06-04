@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UsersQuery} from "../users/user-state/user.query";
 import {Observable, reduce, Subscription, switchMap, tap} from "rxjs";
 import {FavoritesApiService} from "./services/favorites-api.service";
+import {UserType} from "../users/models/userType.enum";
 
 @Component({
   selector: 'app-artists-catalog',
@@ -19,7 +20,11 @@ export class CatalogComponent implements OnInit {
 
   ngOnInit(): void {
     console.log("catalog on init")
+    this.usersQuery.selectUserType$.subscribe((type:string) => {
+      if (type !== UserType.guest) {
 this.userFavs$.subscribe(res=>console.log( "res", res))
+      }
+    })
   }
 
 }

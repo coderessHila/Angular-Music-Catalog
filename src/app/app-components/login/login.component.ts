@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
   userValidators = [Validators.required];
   passwordValidators = [Validators.required];
   hsLoginForm: FormGroup = this.formBuilder.group({
-    username: [undefined],
+    username: [undefined, this.userValidators],
     password: [undefined, this.passwordValidators]
   })
 
@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
     console.log(form.value)
     console.log(form.valid)
     if (form.valid) {
+      console.log("form valid")
     this.userApiService.validateUser(form.value).pipe(tap(
       users => {
         if (users.length) {

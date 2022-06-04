@@ -13,6 +13,7 @@ import {ArtistsQuery} from "../../artists-state/artists.query";
 export class FavoritesComponent implements OnInit {
 
   favoriteArtists$!: Observable<Artist[]>;
+  isFeed = true;
 
   constructor(private usersQuery: UsersQuery,
               private artistsQuery: ArtistsQuery) {
