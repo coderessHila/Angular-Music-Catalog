@@ -1,14 +1,15 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit, ViewChild} from '@angular/core';
 import {Artist} from "../../models/artist.interface";
 import {ArtistsQuery} from "../../artists-state/artists.query";
-import {MatSort, Sort} from "@angular/material/sort";
+import {MatSort} from "@angular/material/sort";
 import {LiveAnnouncer} from "@angular/cdk/a11y";
 import {MatTableDataSource} from "@angular/material/table";
 
 @Component({
   selector: 'app-compare',
   templateUrl: './compare.component.html',
-  styleUrls: ['./compare.component.scss']
+  styleUrls: ['./compare.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CompareComponent implements OnInit {
   artists: Artist[] = [];

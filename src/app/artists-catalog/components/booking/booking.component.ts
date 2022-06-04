@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {Artist} from "../../models/artist.interface";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute} from "@angular/router";
@@ -13,7 +13,8 @@ import {BookedGigsApiService} from "../../services/booked-gigs-api.service";
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.component.html',
-  styleUrls: ['./booking.component.scss']
+  styleUrls: ['./booking.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BookingComponent implements OnInit {
   label = "Booking";

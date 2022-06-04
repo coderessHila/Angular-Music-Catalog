@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ArtistsApiService} from "../../services/artists-api.service";
 import {ArtistsQuery} from "../../artists-state/artists.query";
 import {FormControl} from "@angular/forms";
@@ -8,7 +8,8 @@ import {Artist} from "../../models/artist.interface";
 @Component({
   selector: 'app-artists-filter',
   templateUrl: './artists-filter.component.html',
-  styleUrls: ['./artists-filter.component.scss']
+  styleUrls: ['./artists-filter.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ArtistsFilterComponent implements OnInit{
   // this component lets you select artists and outputs an Observable Artist[] of the selected artists

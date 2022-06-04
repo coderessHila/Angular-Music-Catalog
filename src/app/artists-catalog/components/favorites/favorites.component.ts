@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {filter, map, Observable, switchMap} from "rxjs";
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {map, Observable, switchMap} from "rxjs";
 import {Artist} from "../../models/artist.interface";
 import {UsersQuery} from "../../../users/user-state/user.query";
 import {ArtistsQuery} from "../../artists-state/artists.query";
@@ -7,7 +7,8 @@ import {ArtistsQuery} from "../../artists-state/artists.query";
 @Component({
   selector: 'app-favorites',
   templateUrl: './favorites.component.html',
-  styleUrls: ['./favorites.component.scss']
+  styleUrls: ['./favorites.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FavoritesComponent implements OnInit {
 
