@@ -1,5 +1,5 @@
-import {Component, OnInit, Input, ViewEncapsulation} from '@angular/core';
-import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms";
+import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {UserApiService} from "../../users/services/user-api.service";
 import {tap} from "rxjs";
@@ -8,7 +8,8 @@ import {UserStoreService} from "../../users/services/user-store.service";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent implements OnInit {
   title = "Welcome!";

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {UserStoreService} from "../../users/services/user-store.service";
 import {UsersQuery} from "../../users/user-state/user.query";
 import {map, Observable} from "rxjs";
@@ -7,7 +7,8 @@ import {UserType} from "../../users/models/userType.enum";
 @Component({
   selector: 'app-header-bar-login',
   templateUrl: './header-bar-login.component.html',
-  styleUrls: ['./header-bar-login.component.scss']
+  styleUrls: ['./header-bar-login.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderBarLoginComponent implements OnInit {
 
