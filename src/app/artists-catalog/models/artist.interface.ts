@@ -9,5 +9,6 @@ export interface Artist {
   imgUrl: string;
   genres: Array<string>,
   origin: Origin,
-  active_since: number
+  active_since: number,
+  about: string
 }

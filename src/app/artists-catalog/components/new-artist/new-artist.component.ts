@@ -37,14 +37,18 @@ export class NewArtistComponent implements OnInit {
     }
   }
 
+  requiredValidator = [Validators.required]
+  aboutValidators = [Validators.required, Validators.maxLength(1200)]
   newArtistForm: FormGroup = this.formBuilder.group({
-    name: ['', Validators.required],
-    imgUrl: ['', Validators.required],
-    genres: ['', Validators.required],
+    name: ['', this.requiredValidator],
+    imgUrl: ['', this.requiredValidator],
+    genres: ['', this.requiredValidator],
     origin: this.formBuilder.group({
-      country: ['', Validators.required],
-      city: ['', Validators.required]
-    })
+      country: ['', this.requiredValidator],
+      city: ['', this.requiredValidator]
+    }),
+    active_since: [' ', this.requiredValidator],
+    about: [' ', this.aboutValidators]
   })
 
   onCancel(): void {
@@ -63,6 +67,7 @@ export class NewArtistComponent implements OnInit {
   }
 
   onSubmit(): void {
+    if (this.newArtistForm.valid) {
     //  temporary code to convert genres from string to array
     this.newArtistForm.patchValue({
       genres: this.getGenresAsArray()
@@ -74,30 +79,16 @@ export class NewArtistComponent implements OnInit {
     //  server add artist
       console.log("add artist")
 
-      // this.artistsApiService.addArtist(this.newArtistForm.value).pipe(take(1)).subscribe((artist:Artist)=> {
-      //   console.log(artist)
-
-              // real stupid, i don't need this reference
-              // every update you want to get all artists from server? it doesn't sound like a good idea
-              // this.artistsStoreService.setAllArtists()
-
-        // this.artistsStoreService.addArtist(artist)
-        // }
-    // )
-
       // this service is already updating the server, too
       this.artistsStoreService.addArtist(this.newArtistForm.value)
 
     } else {
     //  servet update artist
       console.log("update artist")
-      // this.artistsApiService.updateArtist(this.newArtistForm.value, this.artist?.id).subscribe(artist=> {
-      //   console.log(artist)
-      //   this.artistsStoreService.updateArtist(artist)
-      // })
       this.artistsStoreService.updateArtist(this.newArtistForm.value, this.artist?.id)
     }
     this.onCancel()
+    }
   }
 
   setEditMode(): void {
@@ -111,7 +102,9 @@ export class NewArtistComponent implements OnInit {
         origin: {
           country: this.artist.origin.country,
           city: this.artist.origin.city
-        }
+        },
+        active_since: this.artist.active_since,
+        about: this.artist.about
       })
       //  set title
       this.title = `Edit ${this.artist.name} details`

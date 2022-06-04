@@ -1,15 +1,17 @@
   <div class="form-pop-up-container">
 <h1>{{title}}</h1>
 <form [formGroup]="newArtistForm" (ngSubmit)="onSubmit()">
-<hs-input [label]="'Artist Name'" [hint]="' '" [name]="'Artist name'" formControlName="name"></hs-input><br>
-<hs-input [label]="'ImgUrl'" [hint]="'a link to img url'" [name]="'Img url'" formControlName="imgUrl"></hs-input><br>
-<hs-input [label]="'Genre, Genre..'" [hint]="' '" [name]="'Genres'" formControlName="genres"></hs-input><br>
+<hs-input [label]="'Artist Name'" [hint]="' '" [name]="'Artist name'" formControlName="name" [validators]="requiredValidator"></hs-input><br>
+<hs-input [label]="'ImgUrl'" [hint]="'a link to img url'" [name]="'Img url'" formControlName="imgUrl" [validators]="requiredValidator"></hs-input><br>
+<hs-input [label]="'Genre, Genre..'" [hint]="' '" [name]="'Genres'" formControlName="genres" [validators]="requiredValidator"></hs-input><br>
 
   <!--origin-->
 <div formGroupName="origin">
-<hs-input [label]="'Country'" [hint]="' '" [name]="'Country'" formControlName="country"></hs-input><br>
-<hs-input [label]="'City'" [hint]="' '" [name]="'City'" formControlName="city"></hs-input><br>
+<hs-input [label]="'Country'" [hint]="' '" [name]="'Country'" formControlName="country" [validators]="requiredValidator"></hs-input><br>
+<hs-input [label]="'City'" [hint]="' '" [name]="'City'" formControlName="city" [validators]="requiredValidator"></hs-input><br>
 </div>
+<hs-input [label]="'Active Since'" [hint]="' '" [name]="'Active Since'" formControlName="active_since" type="number" [validators]="requiredValidator"></hs-input><br>
+<hs-input [label]="'About'" [hint]="' '" [name]="'About'" formControlName="about" [validators]="aboutValidators" class="about-input"></hs-input><br>
   <button mat-stroked-button color="primary" type="submit">{{confirmBtnText}}</button>
   <button mat-stroked-button color="warn" (click)="onCancel()">Cancel</button>
 </form>

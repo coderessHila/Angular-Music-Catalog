@@ -13,6 +13,6 @@
 export interface BookedGig {
   artistId: string,
   userId: string,
-  date: Date,
+  date: string,
   venue: string
 }

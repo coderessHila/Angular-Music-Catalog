@@ -9,7 +9,9 @@ export interface UsersState extends EntityState<User, string> {
 
 export function createInitialState(): UsersState {
   return {
-    user: {user_type: "guest"},
+    //for development purposes
+    // user: {user_type: "guest"},
+    user: {user_type: "admin"},
     userFavorites: []
   };
 }

@@ -23,7 +23,7 @@ export class BookingComponent implements OnInit {
   artistSub?: Subscription;
   allArtists$: Observable<Artist[]>;
   userId!: string;
-  artistGigsDates: Date[] = [];
+  artistGigsDates: string[] = [];
 
   isAfterSubmit: boolean = false;
 
@@ -70,7 +70,7 @@ export class BookingComponent implements OnInit {
 
   getArtistBookedDates(artistId: string): void {
     this.bookedGigsApiService.getArtistGigs(artistId).pipe(map(
-      (gigs: BookedGig[]): Date[] => gigs.map((gig: BookedGig) => gig.date)
+      (gigs: BookedGig[]): string[] => gigs.map((gig: BookedGig) => gig.date)
     )).pipe(take(1)).subscribe(
       artistGigsDates => {
         console.log("artistGigsDates", artistGigsDates)
@@ -84,7 +84,6 @@ export class BookingComponent implements OnInit {
     console.log("filter")
     const day = (d?.toDateString() || new Date().toDateString())
     console.log(day)
-     // @ts-ignore
     if (this.artistGigsDates.indexOf(day) !== -1) {
        console.log("date booked")
        return false
