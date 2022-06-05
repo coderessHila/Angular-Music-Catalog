@@ -10,8 +10,9 @@
       <img src="{{artist.imgUrl}}" alt="{{artist.name}}" class="card__image">
       <figcaption class="card__caption">
         <h2 class="card__title">{{artist.name}}</h2><br>
-        <p class="card__snippet">about {{artist.name}} about {{artist.name}} about {{artist.name}} about {{artist.name}}
-          about {{artist.name}}</p>
+        <p class="card__snippet">
+          {{artist.about}}
+        </p>
         <a (click)="navigateToArtistPage()" class="card__button">Read more</a>
       </figcaption>
     </figure>

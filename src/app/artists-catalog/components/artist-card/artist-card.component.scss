@@ -72,8 +72,8 @@ figure{
 
 .card {
   //width: 300px;
-  //width: 260px;
-  //height: 290px;
+  width: 280px;
+  height: 323px;
   margin: 10px;
   background-color: white;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
@@ -86,7 +86,7 @@ figure{
 
     .card__image {
       transform: translateY(-10px);
-      width: 260px;
+      width: 280px;
       height: 290px;
     }
 
@@ -129,7 +129,7 @@ figure{
 
   &__image {
     transition: .5s ease-in-out;
-    width: 260px;
+    width: 280px;
     height: 290px;
   }
 
