@@ -557,7 +557,6 @@
     },
     {
       "userFavorites": [
-        "4",
         "7",
         "10",
         "xBmeuWo",
@@ -565,7 +564,8 @@
         "3",
         "y0Hm1Gg",
         "9",
-        "MJOAhPR"
+        "MJOAhPR",
+        "1"
       ],
       "id": "3"
     }
@@ -682,6 +682,27 @@
       "date": "Wed Jun 22 2022",
       "venue": "The Fancy Pancy",
       "id": "R_FaxxQ"
+    },
+    {
+      "artistId": "3",
+      "userId": "no user",
+      "date": "Fri Jul 01 2022",
+      "venue": "Garden Of Eden",
+      "id": "iBXA5tj"
+    },
+    {
+      "artistId": "6",
+      "userId": "no user",
+      "date": "Wed Jun 15 2022",
+      "venue": "Garden Of Eden",
+      "id": "rhdj_Xh"
+    },
+    {
+      "artistId": "1",
+      "userId": "no user",
+      "date": "Sat Jun 18 2022",
+      "venue": "Royal Albert Hall",
+      "id": "H136blz"
     }
   ]
 }

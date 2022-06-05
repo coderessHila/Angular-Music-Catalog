@@ -1,4 +1,4 @@
-
+<div class="artists-filter">
 <mat-form-field appearance="fill">
   <mat-label>Artists</mat-label>
   <mat-select [formControl]="artistsToCompare" multiple (selectionChange)="selectChange($event)">
@@ -6,3 +6,4 @@
   </mat-select>
 </mat-form-field>
 <button mat-raised-button color="accent" (click)="onCompareClick()">Compare</button>
+</div>

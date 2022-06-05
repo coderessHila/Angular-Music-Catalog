@@ -1,4 +1,4 @@
-<h1>
+<h1 class="title-playfair">
   Compare Different Artists
 </h1><br>
 <div class="btns-flex-container">
@@ -6,11 +6,11 @@
 <button mat-stroked-button (click)="onShowArtistsFilter()">Choose Artists To Compare</button>
 </div><br>
 
-<ng-container *ngIf="showArtistsFilter">
-<app-artists-filter (onCompare)="onCompareClick($event)" class="artist-filter"></app-artists-filter>
+<ng-container *ngIf="showArtistsFilter" class="artist-filter">
+<app-artists-filter (onCompare)="onCompareClick($event)" ></app-artists-filter>
 </ng-container><br>
 
-<mat-form-field appearance="standard">
+<mat-form-field appearance="standard" class="filter">
   <mat-label>Filter Artists</mat-label>
   <input matInput (keyup)="applyFilter($event)" placeholder="Filter artists" #input>
 </mat-form-field><br><br>

@@ -99,11 +99,12 @@ export class ArtistCardComponent implements OnInit {
 
   openSnackBar(isFav: boolean): void {
     this.usersQuery.selectUserType$.subscribe(value => {
-      if (value === UserType.guest) {
-        this._snackBar.openFromComponent(NoFavsPermissionSnackBarComponent, {
-          duration: 2000,
-        });
-      } else if (value === 'registered') {
+      // if (value === UserType.guest) {
+      //   this._snackBar.openFromComponent(NoFavsPermissionSnackBarComponent, {
+      //     duration: 2000,
+      //   });
+      // } else
+        if (value !== UserType.guest) {
         isFav ? this._snackBar.openFromComponent(AddedToFavsSnackBarComponent, {
           duration: 2000,
         }) : this._snackBar.openFromComponent(RemovedFromFavsSnackBarComponent, {

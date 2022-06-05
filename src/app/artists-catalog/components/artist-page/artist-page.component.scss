@@ -1,16 +1,42 @@
 :host {
-  h1{
-    margin-bottom: 2vw;
-  }
+  //h1 {
+  //  margin-bottom: 2vw;
+  //}
+
   img {
     width: 40vw;
     height: 30vw;
     margin-bottom: 8px;
   }
 
+  .title-playfair {
+    //margin-left: 42%;
+    margin-top: 32px;
+    margin-bottom: 48px;
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+  }
+
   .artist-page-container {
     text-align: center;
-    margin-top: 5vw;
+    //margin-top: 5vw;
     margin-bottom: 5vw;
+
+    .artist-about {
+      margin-top: 12px;
+      margin-left: 14%;
+      margin-bottom: 24px;
+      width: 75%;
+      font-size: 16px;
+      // font-weight: 400;
+      line-height: 26px;
+      text-align: left;
+      font-family: 'Roboto', sans-serif;
+    }
+  }
+
+
+  .artist-video {
+
   }
 }

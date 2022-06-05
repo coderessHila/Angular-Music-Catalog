@@ -10,7 +10,7 @@ export class FavoritesHeartComponent implements OnInit {
   @Input() checked?: boolean;
   @Input() isDisabled?: boolean;
   @Output() onFavChange = new EventEmitter<boolean>()
-  heartColor: "primary" | "warn" = "primary";
+  heartColor: "default" | "warn" = "default";
 
   constructor() { }
 
@@ -22,7 +22,7 @@ export class FavoritesHeartComponent implements OnInit {
 
   onClick() {
     this.checked = !this.checked
-    this.heartColor = this.checked ? "warn" : "primary"
+    this.heartColor = this.checked ? "warn" : "default"
     this.onFavChange.emit(this.checked)
   }
 }
