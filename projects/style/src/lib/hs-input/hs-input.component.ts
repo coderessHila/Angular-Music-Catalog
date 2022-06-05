@@ -40,6 +40,7 @@ export class HsInputComponent implements OnInit, ControlValueAccessor, OnDestroy
   @Input() customErrorCondition?: boolean;
   // for example - this.formControl.hasError('email') && !this.formControl.hasError('required')
   @Input() customErrorMessage: string = this.error.required;
+  @Input() textColor = "inherit";
 
   constructor() { }
   // public valueChanges$:Observable<string> = this.formControl.valueChanges.pipe(tap(value => this.onChange(value)));

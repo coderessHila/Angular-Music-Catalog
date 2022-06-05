@@ -9,7 +9,7 @@ import { CatalogModule } from './artists-catalog/catalog.module';
 import {NavBarModule} from "./app-components/nav-bar/nav-bar.module";
 import { LoginModule } from './app-components/login/login.module';
 import {MatButtonModule} from "@angular/material/button";
-import {HeaderBarLoginModule} from "./app-components/header-bar-login/header-bar-login.module";
+import {HeaderBarGuestModule} from "./app-components/header-bar-guest/header-bar-guest.module";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
@@ -35,7 +35,7 @@ import {HeaderBarCatalogModule} from "./app-components/header-bar-catalog/header
     CatalogModule,
     LoginModule,
     MatButtonModule,
-    HeaderBarLoginModule,
+    HeaderBarGuestModule,
     ArtistPageModule,
     NgbModule,
     BookingModule,

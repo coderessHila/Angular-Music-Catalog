@@ -6,12 +6,12 @@ import {UserType} from "../../users/models/userType.enum";
 import {User} from "../../users/models/user.interface";
 
 @Component({
-  selector: 'app-header-bar-login',
-  templateUrl: './header-bar-login.component.html',
-  styleUrls: ['./header-bar-login.component.scss'],
+  selector: 'app-header-bar-guest',
+  templateUrl: './header-bar-guest.component.html',
+  styleUrls: ['./header-bar-guest.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HeaderBarLoginComponent implements OnInit {
+export class HeaderBarGuestComponent implements OnInit {
 
   constructor(private userStoreService:UserStoreService, private usersQuery:UsersQuery) { }
 

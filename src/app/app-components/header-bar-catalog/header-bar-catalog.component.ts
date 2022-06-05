@@ -30,7 +30,8 @@ export class HeaderBarCatalogComponent implements OnInit {
       (user: Object) => {
         if ("user_type" in user) {
           //  @ts-ignore
-          return user.user_type === UserType.guest ? "Hello guest" : 'Welcome back ' + user.name;
+          // return user.user_type === UserType.guest ? "Hello guest" : 'Welcome back ' + user.name;
+          return user.user_type === UserType.guest ? "Hello guest" : user.name + '  ';
         } else {
           return ' ';
         }

@@ -1,13 +1,19 @@
-<!--<p>header-bar-login works!</p>-->
+<!--<p>header-bar-guest works!</p>-->
 <div class="header-flx">
-  <div>
-  Hello guest!<br>
-    already registered? <a routerLink="/login">log in</a>
+  <div class="guest-greeting">
+<!--  Hello guest!<br>-->
+    Already registered?
+      <a routerLink="/login" class="link">
+    <button mat-button class="login-btn">
+        log in
+    </button>
+      </a>
   </div>
 
-<h1>Artist Catalog</h1>
+<!--<h1>Artist Catalog</h1>-->
 <!--  profile menu -->
   <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="profile-btn">
+    Guest
     <mat-icon>account_circle</mat-icon>
   </button>
   <mat-menu #menu="matMenu">

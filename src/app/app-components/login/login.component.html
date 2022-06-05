@@ -32,10 +32,10 @@
     <h2 class="login-text">{{title}}</h2>
     <form [formGroup]="hsLoginForm" (ngSubmit)="onSubmit(hsLoginForm)">
       <hs-input [label]="'User Name'" [placeholder]="'Username'" [hint]="'Your awesome user name'"
-                   [name]="'username'" formControlName="username" [validators]="userValidators"></hs-input>
+                   [name]="'username'" formControlName="username" [validators]="userValidators" [textColor]="'#cccccc'"></hs-input>
       <br>
       <hs-input [type]="'password'" [label]="'Password'" [placeholder]="'Password'" [hint]="'Your secret password'"
-                   [name]="'password'" formControlName="password" [validators]="passwordValidators"></hs-input>
+                   [name]="'password'" formControlName="password" [validators]="passwordValidators" [textColor]="'#cccccc'"></hs-input>
       <br><br>
       <button mat-raised-button color="accent" [type]="'submit'">Login</button>
     <button mat-raised-button color="primary" (click)="redirectToCatalog()">Continue as guest</button>
