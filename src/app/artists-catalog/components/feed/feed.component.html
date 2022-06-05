@@ -3,6 +3,8 @@
   <!--  <app-slide-show></app-slide-show>-->
 </div>
 
+<h1 style="margin-left: 45%; margin-top: 16px">Artist Catalog</h1>
+
 <div class="feed-grid-container" style="">
   <ng-container *ngIf="(userType$ | async) === 'admin'">
     <button (click)="onAddNewArtist()" mat-raised-button>Add new artist</button>

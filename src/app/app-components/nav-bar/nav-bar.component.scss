@@ -1,13 +1,26 @@
 .nav-container{
   //background-color: darksalmon;
-  background-color: rgba(60,60,60,0.2);
-  color: #E9B5D2;
-  height: 56px;
+  //background-color: rgba(60,60,60,0.2);
+  background-color: rgba(117,93,135,0.8);
+  //color: #E9B5D2;
+  color: #e6e6e6;
+  //color: black;
+  width: 5vw;
+  //height: 56px;
+  height: 360px;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
+  margin-left: 4vw;
+  margin-top: 12vw;
+  border-bottom-left-radius: 12px;
+  border-top-left-radius: 12px;
 }
 
 a{
   align-self: center;
-  color: #E9B5D2;
+  text-decoration: none;
+  //color: #E9B5D2;
+  //color: black;
+  color: #e6e6e6;
 }
